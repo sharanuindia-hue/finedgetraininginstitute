@@ -282,7 +282,7 @@
                  '%0D%0AEmail: ' + enc(d.get('email')) +
                  '%0D%0AInterest: ' + enc(d.get('interest')) +
                  '%0D%0A%0D%0ANotes:%0D%0A' + enc(d.get('notes'));
-    window.location.href = 'mailto:finedgetraininginstitute@gmail.com?subject=' + subject + '&body=' + body;
+window.location.href = 'mailto:info@finedgetraininginstitute.com?subject=' + subject + '&body=' + body;
     alert('Opening your email app to send the application. If it does not open, email us at finedgetraininginstitute@gmail.com.');
     e.target.reset();
   });

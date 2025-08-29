@@ -66,7 +66,21 @@
       .navlinks{display:none}
       .grid3{grid-template-columns:1fr}
       .footergrid{grid-template-columns:1fr}
-    }
+    }/* Map embed (responsive) */
+.map-responsive {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+}
+.map-responsive iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
   </style>
 </head>
 <body>
@@ -271,6 +285,17 @@
 </div>
 <div class="muted">
   WhatsApp: <a href="https://wa.me/918431305295?text=Hello%20I%20am%20interested%20in%20joining%20the%20BFSI%20Career%20Readiness%20Program.%20Please%20share%20more%20details." target="_blank" rel="noopener">Chat now</a>
+</div>
+  <div class="map-responsive">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.4153!2d77.493!3d12.993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d... (your Google map link here) ..." 
+    width="600" 
+    height="450" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
 </div>
     </div>
   

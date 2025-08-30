@@ -122,28 +122,56 @@
       padding: 8px;
     }
   }
+  .offer-banner {
+  display: block;
+  padding: 8px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+}
+
+<div id="offers">
+  <div class="offer-banner offer-early">
+    🔥 Early Bird Offer: Get ₹1000 OFF on September Enrollments!
+  </div>
+  <div class="offer-banner offer-referral">
+    🆕 Refer a Friend & Earn ₹1000 Referral Bonus This September!
+  </div>
+</div>
+  background-color: #004aad; /* Blue banner */
+  color: white;
+}
+
+.offer-referral {
+  background-color: #28a745; /* Green banner */
+  color: white;
+}
 </style>
 <header>
+ <header>
   <div class="wrap nav">
     <a class="brand" href="#top">
-      <img class="logo" src="assets/logo.png" alt="FINEDGE logo">
+      <img class="logo" src="assets/logo.png">
       <div>
         <div class="title">FINEDGE TRAINING INSTITUTE</div>
         <div class="subtitle">BFSI Career Readiness & Placement Support</div>
       </div>
-      <div id="offers">
-  <marquee behavior="scroll" direction="left" scrollamount="6" class="offer-banner offer-early">
-    <a href="/contact.html" style="color:#fff; text-decoration:none;">
-      🔥 Early Bird Offer: Get ₹1000 OFF on September Enrollments! 🔥
-    </a>
-  </marquee>
+    </a> <!-- ✅ Close the brand section properly -->
 
-  <marquee behavior="scroll" direction="left" scrollamount="6" class="offer-banner offer-referral">
-    <a href="/contact.html" style="color:#fff; text-decoration:none;">
-      🆕 Refer a Friend & Earn ₹1000 Referral Bonus This September! 🆕
-    </a>
-  </marquee>
-</div>
+    <!-- ✅ Offers block BELOW tagline -->
+    <div id="offers">
+      <marquee behavior="scroll" direction="left" scrollamount="6" class="offer-banner offer-early">
+        <a href="/contact.html" style="color:#fff; text-decoration:none;">
+          🔥 Early Bird Offer: Get ₹1000 OFF on September Enrollments! 🔥
+        </a>
+      </marquee>
+
+      <marquee behavior="scroll" direction="left" scrollamount="6" class="offer-banner offer-referral">
+        <a href="/contact.html" style="color:#fff; text-decoration:none;">
+          🆕 Refer a Friend & Earn ₹1000 Referral Bonus This September! 🆕
+        </a>
+      </marquee>
+    </div>
     </a>
     <nav class="navlinks">
       <a href="#about">About</a>
@@ -377,6 +405,18 @@ window.location.href = 'mailto:info@finedgetraininginstitute.com?subject=' + sub
     alert('Opening your email app to send the application. If it does not open, email us at info@finedgetraininginstitute.com.');
     e.target.reset();
   });
+</script>
+    <script>
+  // Hide offers after 30th September 2025
+  const today = new Date();
+  const lastDay = new Date("2025-09-30T23:59:59");
+
+  if (today > lastDay) {
+    const offers = document.getElementById("offers");
+    if (offers) {
+      offers.style.display = "none";
+    }
+  }
 </script>
 </body>
 </html>

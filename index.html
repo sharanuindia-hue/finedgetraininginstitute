@@ -6,7 +6,7 @@
   <title>FINEDGE Training Institute — BFSI Career Readiness & Placement Support</title>
   <meta name="description" content="100% Online BFSI Job-Readiness Program. Job-ready in 30 days with placement assistance, mock interviews, and certification.">
   <style>
-    :root{
+    :root {
       --blue-900:#0e2a5f;
       --blue-800:#123471;
       --blue-700:#164089;
@@ -66,128 +66,91 @@
       .navlinks{display:none}
       .grid3{grid-template-columns:1fr}
       .footergrid{grid-template-columns:1fr}
-    }/* Map embed (responsive) */
-.map-responsive {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
-}
-.map-responsive iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 12px;
-}
+    }
+
+    /* Map embed (responsive) */
+    .map-responsive {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+    }
+    .map-responsive iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    /* ✅ Offer banners */
+    .offer-banner {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+    }
+    .offer-early { background-color: #004aad; }
+    .offer-referral { background-color: #28a745; }
+
+    .offer-banner a { color: #fff; text-decoration: none; }
+    .offer-banner a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .offer-banner {
+        font-size: 12px;
+        padding: 8px;
+      }
+    }
   </style>
 </head>
 <body>
-  
 
 <script>
   // Hide offers after 30th September 2025
   const today = new Date();
   const lastDay = new Date("2025-09-30T23:59:59");
   if (today > lastDay) {
-    document.getElementById("offers").style.display = "none";
+    const offers = document.getElementById("offers");
+    if (offers) offers.style.display = "none";
   }
 </script>
 
-<style>
-  .offer-banner {
-    color: #fff;
-    padding: 10px;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-  .offer-early {
-    background: #004080; /* blue */
-  }
-  .offer-referral {
-    background: #008000; /* green */
-  }
-  .offer-banner a {
-    color: #fff; 
-    text-decoration: none;
-  }
-  .offer-banner a:hover {
-    text-decoration: underline;
-  }
-  /* Mobile optimization */
-  @media (max-width: 480px) {
-  .offer-banner {
-  display: block;
-  width: 100%;          /* full width */
-  padding: 10px;        /* inner spacing */
-  font-weight: bold;
-  text-align: center;   /* center text */
-  font-size: 14px;
-}
-
-.offer-early {
-  background-color: #004aad; /* Blue banner */
-  color: white;
-}
-
-.offer-referral {
-  background-color: #28a745; /* Green banner */
-  color: white;
-}
-}
-</style>
 <header>
   <div class="wrap nav">
+    <!-- Logo + Company Name + Tagline -->
     <a class="brand" href="#top">
-      <img class="logo" src="assets/logo.png" alt="Logo">
+      <img class="logo" src="assets/logo.png" alt="Finedge Logo">
       <div>
         <div class="title">FINEDGE TRAINING INSTITUTE</div>
         <div class="subtitle">BFSI Career Readiness & Placement Support</div>
       </div>
-    </a> <!-- ✅ Offers block BELOW tagline -->
-<div id="offers">
-  <div class="offer-banner offer-early">
-    🔥 Early Bird Offer: Get ₹1000 OFF on September Enrollments!
-  </div>
-  <div class="offer-banner offer-referral">
-    🆕 Refer a Friend & Earn ₹1000 Referral Bonus This September!
-  </div>
-</div>
+    </a>
 
-   
-    
-  
+    <!-- ✅ Navigation Menu -->
+    <nav class="navlinks">
+      <a href="#about">About</a>
       <a href="#programs">Programs</a>
       <a href="#roles">Target Roles</a>
       <a href="#syllabus">Syllabus</a>
       <a class="btn small" href="#apply">Apply</a>
     </nav>
   </div>
-</header>
 
-<main id="top" class="wrap">
-  <section class="hero">
-    <div class="left card" style="padding:24px 24px 30px">
-      <div class="pill">100% Online • Job‑Ready in 30 Days • Placement Assistance</div>
-      <h1>Get Trained. Get Placed. Start Your BFSI Career.</h1>
-      <p class="lead">Evening live classes (Mon–Fri, 1 hour/day). Real-time mock interviews. Job-oriented curriculum. Certification on completion. Language: English + Basic Kannada.</p>
-      <div class="checklist">
-        <div class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 100% Online, Flexible Training</div>
-        <div class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Real-Time Mock Interviews</div>
-        <div class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Job-Oriented Curriculum</div>
-        <div class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Certification on Completion</div>
-      </div>
-      <div class="statbar">
-        <div class="stat"><b>30</b><div class="muted">Days</div></div>
-        <div class="stat"><b>1 hr/day</b><div class="muted">Live Online</div></div>
-        <div class="stat"><b>Placement</b><div class="muted">Assistance</div></div>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
-     
-      </div>
+  <!-- ✅ Offers block BELOW tagline -->
+  <div id="offers">
+    <div class="offer-banner offer-early">
+      🔥 Early Bird Offer: Get ₹1000 OFF on September Enrollments!
     </div>
-
+    <div class="offer-banner offer-referral">
+      🆕 Refer a Friend & Earn ₹1000 Referral Bonus This September!
+    </div>
+  </div>
+</header>
     <div class="right card" style="padding:18px" id="apply">
       <h3 style="margin:6px 0 6px">Apply for the Next Batch</h3>
       <p class="muted" style="margin-top:-6px">Fill this quick form. We’ll get back within 24 hours.</p>

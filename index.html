@@ -117,21 +117,16 @@
   }
   /* Mobile optimization */
   @media (max-width: 480px) {
-    .offer-banner {
-      font-size: 0.85rem;   /* smaller on mobile */
-      padding: 8px;
-    }
-  }
   .offer-banner {
   display: block;
-  padding: 8px;
+  width: 100%;          /* full width */
+  padding: 10px;        /* inner spacing */
   font-weight: bold;
-  text-align: center;
+  text-align: center;   /* center text */
   font-size: 14px;
 }
 
-
-  
+.offer-early {
   background-color: #004aad; /* Blue banner */
   color: white;
 }
@@ -139,6 +134,7 @@
 .offer-referral {
   background-color: #28a745; /* Green banner */
   color: white;
+}
 }
 </style>
 <header>
@@ -149,9 +145,7 @@
         <div class="title">FINEDGE TRAINING INSTITUTE</div>
         <div class="subtitle">BFSI Career Readiness & Placement Support</div>
       </div>
-    </a>
-
-    <!-- ✅ Offers block BELOW tagline -->
+    </a> <!-- ✅ Offers block BELOW tagline -->
 <div id="offers">
   <div class="offer-banner offer-early">
     🔥 Early Bird Offer: Get ₹1000 OFF on September Enrollments!
@@ -160,15 +154,10 @@
     🆕 Refer a Friend & Earn ₹1000 Referral Bonus This September!
   </div>
 </div>
-      <marquee behavior="scroll" direction="left" scrollamount="6" class="offer-banner offer-referral">
-        <a href="/contact.html" style="color:#fff; text-decoration:none;">
-          🆕 Refer a Friend & Earn ₹1000 Referral Bonus This September! 🆕
-        </a>
-      </marquee>
-    </div>
-    </a>
-    <nav class="navlinks">
-      <a href="#about">About</a>
+
+   
+    
+  
       <a href="#programs">Programs</a>
       <a href="#roles">Target Roles</a>
       <a href="#syllabus">Syllabus</a>

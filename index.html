@@ -181,6 +181,210 @@
   font-weight: bold;
   display: block;
 }
+    /* ✅ Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 30px 20px;
+  flex-wrap: wrap;
+  border-radius: 16px;
+
+  /* Gradient background */
+  background: linear-gradient(135deg, #0f2b55 0%, #1e3a8a 100%);
+  color: #fff;
+}
+
+.hero-left, .hero-right {
+  flex: 1;
+  min-width: 320px;
+}
+
+/* Training Box */
+.training-box {
+  background: transparent; /* blend into gradient */
+  color: #fff;
+}
+
+.training-content .tagline {
+  background: rgba(255,255,255,0.1);
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.training-content h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.training-content .details {
+  font-size: 15px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.features li {
+  margin-bottom: 6px;
+}
+
+.highlights {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  background: rgba(255,255,255,0.1);
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.highlight span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Buttons */
+.cta-buttons {
+  margin: 15px 0;
+}
+
+.apply-btn {
+  background: #28a745;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.apply-btn:hover { background: #218838; }
+
+.whatsapp-btn {
+  background: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.whatsapp-btn:hover { background: #0056b3; }
+
+.call-text {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Form Box */
+.form-box {
+  background: #fff;
+  color: #000;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.form-box h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.form-box p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.form-box input, 
+.form-box select, 
+.form-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 12px;
+  background: #0f2b55;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-box button:hover {
+  background: #092040;
+}
+
+.form-box small {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+  }
+}
+    /* ✅ Pulse Animation for Apply Now button */
+.apply-btn {
+  background: #28a745;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-right: 10px;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1);   box-shadow: 0 0 0 0 rgba(40,167,69,0.7); }
+  70%  { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(40,167,69,0); }
+  100% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(40,167,69,0); }
+}
+    /* ✅ WhatsApp Button Styling */
+.whatsapp-btn {
+  background: #25D366;  /* Official WhatsApp Green */
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebe5d;
+}
   </style>
 </head>
 <body>
@@ -226,32 +430,71 @@
     </div>
   </div>
 </header>
-  <!-- BFSI Career Training Box -->
-<section class="training-box">
-  <div class="training-content">
-    <p class="tagline">100% Online • Job-Ready in 30 Days • Placement Assistance</p>
-    <h2>Get Trained. Get Placed.<br>Start Your BFSI Career.</h2>
-    <p class="details">
-      Evening live classes (Mon–Fri, 1 hour/day). Real-time mock interviews. 
-      Job-oriented curriculum. Certification on completion. <br>
-      Language: English + Basic Kannada.
-    </p>
+ <!-- ✅ Hero Section -->
+<section class="hero-section">
+  <div class="hero-left">
+    <div class="training-box">
+      <div class="training-content">
+        <p class="tagline">100% Online • Job-Ready in 30 Days • Placement Assistance</p>
+        <h2>Get Trained. Get Placed.<br>Start Your BFSI Career.</h2>
+        <p class="details">
+          Evening live classes (Mon–Fri, 1 hour/day). Real-time mock interviews. 
+          Job-oriented curriculum. Certification on completion. <br>
+          Language: English + Basic Kannada.
+        </p>
 
-    <ul class="features">
-      <li>✔ 100% Online, Flexible Training</li>
-      <li>✔ Real-Time Mock Interviews</li>
-      <li>✔ Job-Oriented Curriculum</li>
-      <li>✔ Certification on Completion</li>
-    </ul>
+        <ul class="features">
+          <li>✔ 100% Online, Flexible Training</li>
+          <li>✔ Real-Time Mock Interviews</li>
+          <li>✔ Job-Oriented Curriculum</li>
+          <li>✔ Certification on Completion</li>
+        </ul>
 
-    <div class="highlights">
-      <div class="highlight"><span>30</span><br>Days</div>
-      <div class="highlight"><span>1 hr/day</span><br>Live Online</div>
-      <div class="highlight"><span>Placement</span><br>Assistance</div>
+        <div class="highlights">
+          <div class="highlight"><span>30</span><br>Days</div>
+          <div class="highlight"><span>1 hr/day</span><br>Live Online</div>
+          <div class="highlight"><span>Placement</span><br>Assistance</div>
+        </div>
+
+    <!-- Buttons -->
+<div class="cta-buttons">
+  <a href="#apply" class="apply-btn">Apply Now</a>
+  <a href="https://wa.me/918431305295" class="whatsapp-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" width="18" height="18">
+    WhatsApp: +91 84313 05295
+  </a>
+</div>
+
+        <p class="call-text">📞 Call: 080-23335777</p>
+      </div>
     </div>
   </div>
-</section>
-    <div class="right card" style="padding:18px" id="apply">
+
+  <!-- Right side form -->
+  <div class="hero-right">
+    <div class="form-box">
+      <h3>Apply for the Next Batch</h3>
+      <p>Fill this quick form. We’ll get back within 24 hours.</p>
+      <form id="applyForm">
+        <input type="text" name="name" placeholder="Full Name*" required>
+        <input type="tel" name="phone" placeholder="Phone (WhatsApp preferred)*" required>
+        <input type="email" name="email" placeholder="Email*" required>
+        <select name="interest" required>
+          <option value="">Role Interest*</option>
+          <option>Personal Banker / Relationship Manager</option>
+          <option>Loan Sales</option>
+          <option>Credit / Collections</option>
+          <option>Customer Support</option>
+          <option>Insurance / Mutual Funds</option>
+        </select>
+        <textarea name="notes" placeholder="Any questions? (optional)"></textarea>
+        <button type="submit">Submit Application</button>
+      </form>
+      <small>By submitting, you agree to be contacted via phone/WhatsApp/email.</small>
+    </div>
+  </div>
+</section>   <div class="right card" style="padding:18px" id="apply">
       <h3 style="margin:6px 0 6px">Apply for the Next Batch</h3>
       <p class="muted" style="margin-top:-6px">Fill this quick form. We’ll get back within 24 hours.</p>
       <form id="applyForm" style="display:grid;gap:10px">

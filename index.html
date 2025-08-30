@@ -84,6 +84,57 @@
   </style>
 </head>
 <body>
+  <div id="offers">
+  <marquee behavior="scroll" direction="left" scrollamount="6" class="offer-banner offer-early">
+    <a href="/contact.html" style="color:#fff; text-decoration:none;">
+      🔥 Early Bird Offer: Get ₹1000 OFF on September Enrollments! 🔥
+    </a>
+  </marquee>
+
+  <marquee behavior="scroll" direction="left" scrollamount="6" class="offer-banner offer-referral">
+    <a href="/contact.html" style="color:#fff; text-decoration:none;">
+      🆕 Refer a Friend & Earn ₹1000 Referral Bonus This September! 🆕
+    </a>
+  </marquee>
+</div>
+
+<script>
+  // Hide offers after 30th September 2025
+  const today = new Date();
+  const lastDay = new Date("2025-09-30T23:59:59");
+  if (today > lastDay) {
+    document.getElementById("offers").style.display = "none";
+  }
+</script>
+
+<style>
+  .offer-banner {
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .offer-early {
+    background: #004080; /* blue */
+  }
+  .offer-referral {
+    background: #008000; /* green */
+  }
+  .offer-banner a {
+    color: #fff; 
+    text-decoration: none;
+  }
+  .offer-banner a:hover {
+    text-decoration: underline;
+  }
+  /* Mobile optimization */
+  @media (max-width: 480px) {
+    .offer-banner {
+      font-size: 0.85rem;   /* smaller on mobile */
+      padding: 8px;
+    }
+  }
+</style>
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top">

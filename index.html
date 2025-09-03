@@ -206,6 +206,7 @@
   display: block;
 }
     /* ✅ Hero Section */
+
 .hero-section {
   display: flex;
   justify-content: space-between;
@@ -214,8 +215,14 @@
   margin: 30px auto;
   max-width: 1200px;
   padding: 30px 20px;
-  flex-wrap: wrap;
   border-radius: 16px;
+  flex-wrap: wrap;
+
+  /* Background image with gradient overlay */
+  background: linear-gradient(rgba(15,43,85,0.85), rgba(15,43,85,0.85)),
+              url("assets/students.jpg") center/cover no-repeat;
+  color: #fff;
+}
 
   /* Gradient background */
   background: linear-gradient(135deg, #0f2b55 0%, #1e3a8a 100%);

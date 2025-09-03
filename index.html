@@ -418,6 +418,21 @@
 .whatsapp-btn:hover {
   background: #1ebe5d;
 }
+    /* ✅ Mobile button alignment fix */
+@media (max-width: 768px) {
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cta-buttons a,
+  .cta-buttons .call-text {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+}
+
   </style>
 </head>
 <body>

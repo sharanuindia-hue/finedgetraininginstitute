@@ -85,25 +85,49 @@
     }
 
     /* ✅ Offer banners */
-    .offer-banner {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      font-weight: bold;
-      text-align: center;
-      font-size: 14px;
-      color: #fff;
-    }
-    .offer-early { background-color: #004aad; }
-    .offer-referral { background-color: #28a745; }
+.offer-banner {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  overflow: hidden; /* ensure scroll works clean */
+  white-space: nowrap;
+}
 
-    .offer-banner a { color: #fff; text-decoration: none; }
-    .offer-banner a:hover { text-decoration: underline; }
+.offer-early { background-color: #004aad; }
+.offer-referral { background-color: #28a745; }
 
-    @media (max-width: 480px) {
-      .offer-banner {
-        font-size: 12px;
-        padding: 8px;
+.offer-banner a { color: #fff; text-decoration: none; }
+.offer-banner a:hover { text-decoration: underline; }
+
+/* ✅ Scroll animation */
+.offer-banner span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 15s linear infinite;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Pause when hovered */
+.offer-banner span:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 480px) {
+  .offer-banner {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+
+        
       }
     }
     /* ✅ BFSI Training Box */
@@ -394,7 +418,8 @@
   const today = new Date();
   const lastDay = new Date("2025-09-30T23:59:59");
   if (today > lastDay) {
-    const offers = document.getElementById("offers");
+   const offers = document.getElementById("offers-banner");
+
     if (offers) offers.style.display = "none";
   }
 </script>
@@ -421,13 +446,15 @@
   </div>
 
   <!-- ✅ Offers block BELOW tagline -->
-  <div id="offers">
-    <div class="offer-banner offer-early">
-      🔥 Early Bird Offer: Get ₹1000 OFF on September Enrollments!
-    </div>
-    <div class="offer-banner offer-referral">
-      🆕 Refer a Friend & Earn ₹1000 Referral Bonus This September!
-    </div>
+ <div id="offers-banner">
+  <div class="offer-banner offer-early">
+    <span>🔥 Early Bird Offer: Get ₹1000 OFF on September Enrollments!</span>
+  </div>
+  <div class="offer-banner offer-referral">
+    <span>🆕 Refer a Friend & Earn ₹1000 Referral Bonus This September!</span>
+  </div>
+</div>
+
   </div>
 </header>
  <!-- ✅ Hero Section -->

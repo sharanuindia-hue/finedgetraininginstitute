@@ -347,27 +347,36 @@
   border-radius: 8px;
   font-size: 14px;
 }
+.form-box {
+  background: #0f2b55; /* Blue background */
+  color: #fff;         /* White text */
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.form-box h3,
+.form-box p,
+.form-box small {
+  color: #fff; /* Ensure headings and small text are white */
+}
+
+.form-box input, 
+.form-box select, 
+.form-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;  /* White background for readability */
+  color: #000;       /* Black text inside inputs */
+}
 
 .form-box button {
   width: 100%;
-  padding: 12px;
-  background: #0f2b55;
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.form-box button:hover {
-  background: #092040;
-}
-
-.form-box small {
-  display: block;
-  margin-top: 8px;
-  font-size: 12px;
-  color: #666;
+  padding:
 }
 
 /* Mobile Responsive */
@@ -502,22 +511,24 @@
   <div class="hero-right">
     <div class="form-box">
       <h3>Apply for the Next Batch</h3>
-      <p>Fill this quick form. We’ll get back within 24 hours.</p>
-      <form id="applyForm">
-        <input type="text" name="name" placeholder="Full Name*" required>
-        <input type="tel" name="phone" placeholder="Phone (WhatsApp preferred)*" required>
-        <input type="email" name="email" placeholder="Email*" required>
-        <select name="interest" required>
-          <option value="">Role Interest*</option>
-          <option>Personal Banker / Relationship Manager</option>
-          <option>Loan Sales</option>
-          <option>Credit / Collections</option>
-          <option>Customer Support</option>
-          <option>Insurance / Mutual Funds</option>
-        </select>
-        <textarea name="notes" placeholder="Any questions? (optional)"></textarea>
-        <button type="submit">Submit Application</button>
-      </form>
+    <form id="applyForm">
+  <input type="text" name="name" placeholder="Full Name*" required>
+  <input type="tel" name="phone" placeholder="Phone (WhatsApp preferred)*" required>
+  <input type="email" name="email" placeholder="Email*" required>
+
+  <select name="interest" required>
+    <option value="" disabled selected>Select Role Interest*</option>
+    <option>Personal Banker / Relationship Manager</option>
+    <option>Loan Sales (Home/Auto/Personal)</option>
+    <option>Credit / Collections / Operations</option>
+    <option>Customer Support / Telecaller</option>
+    <option>Insurance / Mutual Funds Sales</option>
+  </select>
+
+  <textarea name="notes" placeholder="Any questions? (optional)"></textarea>
+  <button type="submit">Submit Application</button>
+</form>
+
       <small>By submitting, you agree to be contacted via phone/WhatsApp/email.</small>
     </div>
   </div>

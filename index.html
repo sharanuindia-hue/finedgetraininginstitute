@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FINEDGE Training Institute — BFSI Career Readiness & Placement Support</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <meta name="description" content="100% Online BFSI Job-Readiness Program. Job-ready in 30 days with placement assistance, mock interviews, and certification.">
   <style>
     :root {
@@ -459,6 +460,8 @@
       <a href="#syllabus">Syllabus</a>
       <a class="btn small" href="#apply">Apply</a>
     </nav>
+    <!-- ✅ Payment button -->
+<button id="payButton" class="pay-btn">Pay Now</button>
   </div>
 
   <!-- ✅ Offers block BELOW tagline -->
@@ -732,6 +735,24 @@ window.location.href = 'mailto:info@finedgetraininginstitute.com?subject=' + sub
       offers.style.display = "none";
     }
   }
+</script>
+    <script>
+document.getElementById('payButton').onclick = function(e){
+    var options = {
+        "key": "rzp_test_RGmoU12xhgr...", // Replace with your Razorpay Key ID
+        "amount": 100000, // Amount in paise (₹1000 = 100000)
+        "currency": "INR",
+        "name": "FINEDGE Training Institute",
+        "description": "30-Day BFSI Job Readiness Program",
+        "handler": function (response){
+            alert("✅ Payment Successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "theme": { "color": "#3399cc" }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+    e.preventDefault();
+}
 </script>
 </body>
 </html>

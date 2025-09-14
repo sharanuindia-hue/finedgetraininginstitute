@@ -736,23 +736,52 @@ window.location.href = 'mailto:info@finedgetraininginstitute.com?subject=' + sub
     }
   }
 </script>
-    <script>
-document.getElementById('payButton').onclick = function(e){
-    var options = {
-        "key": "rzp_test_RGmoU12xhgr...", // Replace with your Razorpay Key ID
-        "amount": 100000, // Amount in paise (₹1000 = 100000)
-        "currency": "INR",
-        "name": "FINEDGE Training Institute",
-        "description": "30-Day BFSI Job Readiness Program",
-        "handler": function (response){
-            alert("✅ Payment Successful! Payment ID: " + response.razorpay_payment_id);
-        },
-        "theme": { "color": "#3399cc" }
-    };
-    var rzp1 = new Razorpay(options);
-    rzp1.open();
-    e.preventDefault();
-}
+   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+document.getElementById('payButton').onclick = async function(e){
+  e.preventDefault();
+
+  // 1) Create order on backend (Vercel serverless)
+  const createResp = await fetch("/api/create-order", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ amount: 1000 }) // amount in rupees
+  });
+
+  const order = await createResp.json();
+  if (!order || !order.id) {
+    console.error('Order creation failed', order);
+    return alert('Order creation failed. Check console.');
+  }
+
+  // 2) Open Razorpay checkout using PUBLIC key only
+  const options = {
+    key: "rzp_test_xxxxxxxxxxxxxx", // ← REPLACE with your PUBLIC test key (rzp_test_...)
+    amount: order.amount,
+    currency: order.currency,
+    name: "FINEDGE Training Institute",
+    description: "30-Day BFSI Job Readiness Program",
+    order_id: order.id,
+    handler: async function (response) {
+      // 3) Verify signature on backend
+      const verifyResp = await fetch("/api/verify-payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(response)
+      });
+      const verifyJson = await verifyResp.json();
+      if (verifyJson.verified) {
+        alert("✅ Payment successful and verified! Payment ID: " + verifyJson.paymentId);
+      } else {
+        alert("❌ Payment verification failed — check server logs.");
+      }
+    },
+    theme: { color: "#3399cc" }
+  };
+
+  const rzp = new Razorpay(options);
+  rzp.open();
+};
 </script>
 </body>
 </html>

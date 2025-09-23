@@ -6,7 +6,48 @@
   <title>FINEDGE Training Institute — BFSI Career Readiness & Placement Support</title>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <meta name="description" content="100% Online BFSI Job-Readiness Program. Job-ready in 30 days with placement assistance, mock interviews, and certification.">
-  <style>
+  <style>.partner-section {
+  margin: 40px auto;
+  max-width: 1100px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.partner-text {
+  flex:1 1 500px;
+  min-width:280px;
+}
+.partner-logos {
+  flex:0 1 320px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+}
+.partner-logos img {
+  height:60px;
+  object-fit:contain;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+}
+
+/* ✅ Mobile view */
+@media (max-width: 768px) {
+  .partner-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .partner-logos img {
+    height: 50px;
+  }
+}
+
     :root {
       --blue-900:#0e2a5f;
       --blue-800:#123471;
@@ -544,6 +585,23 @@
  
     </div>
   </section>
+<!-- Partner Logos Section -->
+<section id="bfsi-partners" class="partner-section">
+  <div class="partner-text">
+    <h3>We are now officially affiliated with BFSI SSC</h3>
+    <p>
+      Finedge Training Institute is proud to be an <strong>Associate Training Partner</strong> 
+      with the <strong>BFSI Sector Skill Council of India</strong>, under 
+      <strong>NSDC / Skill India / NCVET</strong>.
+    </p>
+  </div>
+  <div class="partner-logos">
+    <img src="assets/bfsi-logo.png" alt="BFSI SSC logo">
+    <img src="assets/skillindia-logo.png" alt="Skill India logo">
+    <img src="assets/nsdc-logo.png" alt="NSDC logo">
+    <img src="assets/ncvet-logo.png" alt="NCVET logo">
+  </div>
+</section>
 
   <section id="about" class="section">
     <div class="grid3">

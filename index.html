@@ -886,47 +886,19 @@ window.location.href = 'mailto:info@finedgetraininginstitute.com?subject=' + sub
     if (offers) {
       offers.style.display = "none";
     }
-  }
-</script>
-
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-  document.getElementById("payButton").onclick = async function (e) {
+  document.getElementById("payButton").onclick = function (e) {
     e.preventDefault();
 
-    // 1) Create order on backend (your Vercel function)
-    const createResp = await fetch("/api/create-order", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: 1000 }) // 1000 paise = ₹10
-    });
-
-    const order = await createResp.json();
-    if (!order || !order.id) {
-      return alert("❌ Order creation failed. Check backend.");
-    }
-
-    // 2) Open Razorpay checkout with public key
     const options = {
-      key: "rzp_test_RHbBgF8WNVIjMp", // use your Test Key ID
-      amount: order.amount,
-      currency: order.currency,
+      key: "rzp_test_RHbBgF8WNVIjMp", // your Razorpay Test Key
+      amount: 100000,                 // 100000 paise = ₹1000
+      currency: "INR",
       name: "FINEDGE Training Institute",
       description: "30-Day BFSI Job Readiness Program",
-      order_id: order.id,
-      handler: async function (response) {
-        // 3) Verify payment signature on backend
-        const verifyResp = await fetch("/api/verify-payment", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(response)
-        });
-        const verifyJson = await verifyResp.json();
-        if (verifyJson.verified) {
-          alert("✅ Payment successful and verified!");
-        } else {
-          alert("❌ Payment verification failed!");
-        }
+      handler: function (response) {
+        alert("✅ Test payment successful!\nPayment ID: " + response.razorpay_payment_id);
       },
       theme: { color: "#3399cc" }
     };

@@ -596,27 +596,33 @@
 <img src="assets/nsdc-logo.png" alt="NSDC Logo">
 <img src="assets/ncvet-logo.jpg" alt="NCVET Logo">
 
-  </div>
-  <!-- ✅ Skill Summit 2025 Full-Width Section -->
-<section id="skill-summit" style="background:linear-gradient(135deg,#f8fbff,#eef5ff);border-top:4px solid #0b57a6;padding:40px 0;margin:0;text-align:center;">
+<!-- Skill Summit 2025 Full-Width Section -->
+<section id="skill-summit" style="position:relative; background:linear-gradient(135deg,#f8fbff,#eef5ff);border-top:4px solid #0b57a6;padding:40px 0;margin:0;text-align:center;">
+  <!-- ✖ Dismiss Button -->
+  <button id="dismissSkillSummit"
+          aria-label="Dismiss announcement"
+          style="position:absolute;right:18px;top:18px;background:transparent;border:0;color:#0b57a6;font-weight:700;font-size:16px;cursor:pointer;padding:6px 8px;border-radius:6px;z-index:1001;">
+    ✕ Dismiss
+  </button>
+
   <div style="max-width:1100px;margin:auto;padding:0 20px;">
     <h2 style="color:#0b2b4a;font-size:1.6rem;font-weight:700;margin-bottom:10px;">
       Finedge at Bengaluru Skill Summit 2025
     </h2>
     <p style="color:#233e5a;font-size:1rem;max-width:900px;margin:0 auto 20px;line-height:1.6;">
-      Honoured to be an invitee at the <strong>Bengaluru Skill Summit 2025</strong>.  
-      Our Founder <strong>Mr. Sharan Mashyal</strong> had a meaningful discussion with Hon’ble  
-      <strong>Dr. Sharan Prakash Patil</strong>, Minister for Skill Development & Medical Education,  
-      Government of Karnataka, on collaboration opportunities with  
+      Honoured to be an invitee at the <strong>Bengaluru Skill Summit 2025</strong>.
+      Our Founder <strong>Mr. Sharan Mashyal</strong> had a meaningful discussion with
+      Hon’ble <strong>Dr. Sharan Prakash Patil</strong>, Minister for Skill Development & Medical Education,
+      Government of Karnataka, on collaboration opportunities with
       <strong>Finedge Training Institute</strong> to enhance youth employability in the BFSI sector.
     </p>
 
     <div style="display:flex;flex-direction:column;gap:20px;align-items:center;margin-top:20px;">
       <img src="assets/skill-summit-1.jpg" 
-           alt="Finedge Founder Mr. Sharan Manager with Minister Dr. Sharan Prakash Patil at Bengaluru Skill Summit 2025"
+           alt="Finedge Founder Mr. Sharan Mashyal with Minister Dr. Sharan Prakash Patil at Bengaluru Skill Summit 2025"
            style="width:100%;max-width:1000px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.1);">
       <img src="assets/skill-summit-2.jpg" 
-           alt="Finedge Founder Mr. Sharan Manager with Minister Dr. Sharan Prakash Patil (photo 2)"
+           alt="Finedge Founder Mr. Sharan Mashyal with Minister Dr. Sharan Prakash Patil (photo 2)"
            style="width:100%;max-width:1000px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.1);">
     </div>
 
@@ -633,6 +639,73 @@
   </div>
 </header>
  <!-- ✅ Hero Section -->
+  <script>
+(function(){
+  const KEY = 'finedge_skill_summit_session_dismiss_v1'; // session-only key
+
+  function isDismissed() {
+    try { return !!sessionStorage.getItem(KEY); }
+    catch(e) { return false; }
+  }
+
+  function setDismissed() {
+    try { sessionStorage.setItem(KEY, '1'); }
+    catch(e) { console.warn('sessionStorage unavailable', e); }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    const panel = document.getElementById('skill-summit');
+    if (!panel) return;
+
+    // If already dismissed in this tab, hide both Skill Summit and offers
+    if (isDismissed()) {
+      panel.style.display = 'none';
+      const offers = document.getElementById('offers-banner') || document.getElementById('offers');
+      if (offers) offers.style.display = 'none';
+      return;
+    }
+
+    const btn = document.getElementById('dismissSkillSummit');
+
+    // Function to smoothly hide an element
+    function animateHide(el, delay = 220) {
+      try {
+        el.style.transition = 'opacity 220ms ease, max-height 300ms ease';
+        el.style.opacity = 0;
+        el.style.overflow = 'hidden';
+        el.style.maxHeight = '0';
+        setTimeout(() => { el.style.display = 'none'; }, delay);
+      } catch(e) {
+        el.style.display = 'none';
+      }
+    }
+
+    // Function to hide both popup and offers
+    function hideAll() {
+      animateHide(panel, 320);
+      const offers = document.getElementById('offers-banner') || document.getElementById('offers');
+      if (offers) animateHide(offers, 260);
+      setDismissed();
+    }
+
+    // Click on the ✕ button to close
+    if (btn) {
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        hideAll();
+      });
+    }
+
+    // Press Escape key to close
+    document.addEventListener('keydown', function(e){
+      if ((e.key === 'Escape' || e.key === 'Esc') && panel && panel.offsetParent !== null) {
+        hideAll();
+      }
+    });
+  });
+})();
+</script>
+
 <section class="hero-section">
   <div class="hero-left">
     <div class="training-box">

@@ -1,1022 +1,1196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FINEDGE Training Institute — BFSI Career Readiness & Placement Support</title>
+  <title>FINEDGE TRAINING INSTITUTE</title>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <meta name="description" content="100% Online BFSI Job-Readiness Program. Job-ready in 30 days with placement assistance, mock interviews, and certification.">
-  <style>.partner-section {
-  margin: 40px auto;
-  max-width: 1100px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 20px;
-  border-radius: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
-  justify-content: space-between;
-}
-.partner-text {
-  flex:1 1 500px;
-  min-width:280px;
-}
-.partner-logos {
-  flex:0 1 320px;
-  display:flex;
-  gap:16px;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:center;
-}
-.partner-logos img {
-  height:60px;
-  object-fit:contain;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
-}
-
-/* ✅ Mobile view */
-@media (max-width: 768px) {
-  .partner-section {
-    flex-direction: column;
-    text-align: center;
-  }
-  .partner-logos img {
-    height: 50px;
-  }
-}
-.hero-section {
-  text-align: center;
-  margin: 20px auto;
-  max-width: 900px;
-  line-height: 1.6;
-  font-size: 1.1rem;
-}
-.announcement {
-  background: #f0f6ff;
-  border: 2px solid #2a4d9c;
-  border-radius: 12px;
-  padding: 15px 20px;
-  margin: 20px auto;
-  max-width: 1100px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.announcement h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #123471;
-  margin-bottom: 10px;
-}
-
-.announcement p {
-  font-size: 1rem;
-  color: #222;
-  margin-bottom: 15px;
-}
-
-.announcement-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.announcement-logos img {
-  height: 50px;
-  object-fit: contain;
-}
-
-.hero-section h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.hero-section p {
-  margin-bottom: 12px;
-  color: #dfe6f1;
-}
-
-.hero-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.hero-section li {
-  margin: 6px 0;
-  font-size: 1rem;
-  color: #eaf0fb;
-}
-
-    :root {
-      --blue-900:#0e2a5f;
-      --blue-800:#123471;
-      --blue-700:#164089;
-      --card:#0f2352;
-      --panel:#133169;
-      --text:#f7fbff;
-      --muted:#cfe1ff;
-      --accent:#5fa8ff;
-      --accent2:#23d5ab;
-      --radius:18px;
-      --shadow:0 10px 28px rgba(0,0,0,.28);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:linear-gradient(160deg,var(--blue-900),var(--blue-800) 50%, var(--blue-700));color:var(--text);font-family:Inter, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1120px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;z-index:50;background:linear-gradient(to bottom, rgba(13,30,74,.96), rgba(13,30,74,.65) 60%, transparent);backdrop-filter:saturate(130%) blur(8px)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{height:46px;width:auto;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(0,0,0,.22))}
-    .title{font-weight:800;letter-spacing:.3px}
-    .subtitle{font-size:12px;color:var(--muted)}
-    .navlinks{display:flex;gap:18px;align-items:center}
-    .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--accent),#7ab8ff);padding:12px 18px;border-radius:12px;font-weight:700;box-shadow:var(--shadow)}
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,.22)}
-    .btn.small{padding:10px 14px;border-radius:10px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:52px 0 18px}
-    h1{font-size:clamp(28px,4.6vw,46px);line-height:1.15;margin:12px 0 6px}
-    .lead{font-size:clamp(16px,2.1vw,18px);opacity:.98}
-    .pill{display:inline-flex;gap:10px;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);color:#e8f1ff;padding:8px 12px;border-radius:999px;font-weight:600}
-    .checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
-    .check{display:flex;gap:10px;align-items:flex-start}
-    .check svg{flex:0 0 auto;margin-top:3px}
-    .statbar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
-    .stat{padding:12px;border-radius:12px;background:rgba(255,255,255,.08);text-align:center}
-    .stat b{font-size:22px}
-    .section{padding:30px 0}
-    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .feature{padding:18px}
-    .feature h4{margin:8px 0 6px}
-    .muted{color:var(--muted)}
-    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);font-size:12px}
-    input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:var(--text)}
-    textarea{min-height:92px}
-    .gallery img{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.18)}
-    .footergrid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
-    .footline{margin-top:12px;border-top:1px solid rgba(255,255,255,.18);padding-top:12px;font-size:13px;color:var(--muted)}
-    @media (max-width: 920px){
-      .hero{grid-template-columns:1fr;gap:14px}
-      .grid3{grid-template-columns:1fr 1fr}
-      .grid2{grid-template-columns:1fr}
-      .checklist{grid-template-columns:1fr}
-    }
-    @media (max-width: 620px){
-      .navlinks{display:none}
-      .grid3{grid-template-columns:1fr}
-      .footergrid{grid-template-columns:1fr}
-    }
-
-    /* Map embed (responsive) */
-    .map-responsive {
-      position: relative;
-      overflow: hidden;
-      padding-bottom: 56.25%; /* 16:9 ratio */
-      height: 0;
-    }
-    .map-responsive iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      border-radius: 12px;
-    }
-
-    /* ✅ Offer banners */
-.offer-banner {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  font-weight: bold;
-  text-align: center;
-  font-size: 14px;
-  color: #fff;
-  overflow: hidden; /* ensure scroll works clean */
-  white-space: nowrap;
-}
-
-.offer-early { background-color: #004aad; }
-.offer-referral { background-color: #28a745; }
-
-.offer-banner a { color: #fff; text-decoration: none; }
-.offer-banner a:hover { text-decoration: underline; }
-
-/* ✅ Scroll animation */
-.offer-banner span {
-  display: inline-block;
-  padding-left: 100%;
-  animation: scroll-left 15s linear infinite;
-}
-
-@keyframes scroll-left {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-/* Pause when hovered */
-.offer-banner span:hover {
-  animation-play-state: paused;
-}
-
-@media (max-width: 480px) {
-  .offer-banner {
-    font-size: 12px;
-    padding: 8px;
-  }
-
-
-        
-      }
-    }
-    /* ✅ BFSI Training Box */
-.training-box {
-  background: #0f2b55;
-  color: #fff;
-  padding: 40px 20px;
-  border-radius: 16px;
-  margin: 40px auto;
-  max-width: 900px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-.training-content {
-  text-align: center;
-  font-family: "Segoe UI", Arial, sans-serif;
-}
-
-.training-content .tagline {
-  background: rgba(255,255,255,0.1);
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.training-content h2 {
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  line-height: 1.4;
-}
-
-.training-content .details {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-.training-content .features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 25px;
-  font-size: 16px;
-  text-align: left;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.training-content .features li {
-  margin-bottom: 8px;
-}
-
-.highlights {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.highlight {
-  background: rgba(255,255,255,0.1);
-  padding: 15px 25px;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 500;
-  min-width: 120px;
-  text-align: center;
-}
-
-.highlight span {
-  font-size: 20px;
-  font-weight: bold;
-  display: block;
-}
-    /* ✅ Hero Section */
-
-.hero-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  margin: 30px auto;
-  max-width: 1200px;
-  padding: 30px 20px;
-  border-radius: 16px;
-  flex-wrap: wrap;
-
-  /* Background image with gradient overlay */
-  background: linear-gradient(rgba(15,43,85,0.85), rgba(15,43,85,0.85)),
-              url("assets/students.jpg") center/cover no-repeat;
-  color: #fff;
-}
-
-  /* Gradient background */
-  background: linear-gradient(135deg, #0f2b55 0%, #1e3a8a 100%);
-  color: #fff;
-}
-
-.hero-left, .hero-right {
-  flex: 1;
-  min-width: 320px;
-}
-
-/* Training Box */
-.training-box {
-  background: transparent; /* blend into gradient */
-  color: #fff;
-}
-
-.training-content .tagline {
-  background: rgba(255,255,255,0.1);
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.training-content h2 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.training-content .details {
-  font-size: 15px;
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-.features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px;
-}
-
-.features li {
-  margin-bottom: 6px;
-}
-
-.highlights {
-  display: flex;
-  justify-content: flex-start;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.highlight {
-  background: rgba(255,255,255,0.1);
-  padding: 12px 20px;
-  border-radius: 12px;
-  text-align: center;
-  min-width: 100px;
-}
-
-.highlight span {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-/* Buttons */
-.cta-buttons {
-  margin: 15px 0;
-}
-
-.apply-btn {
-  background: #28a745;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  margin-right: 10px;
-  font-weight: bold;
-  animation: pulse 1.5s infinite; /* Pulse animation */
-}
-
-.apply-btn:hover { background: #218838; }
-
-.whatsapp-btn {
-  background: #25D366;  /* WhatsApp green */
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: bold;
-}
-
-.whatsapp-btn:hover { background: #1ebe5d; }
-
-.call-text {
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-/* Form Box */
-.form-box {
-  background: #0f2b55; /* Blue background */
-  color: #fff;         /* White text */
-  padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-.form-box h3,
-.form-box p,
-.form-box small {
-  color: #fff; /* White headings and text */
-}
-
-.form-box input, 
-.form-box select, 
-.form-box textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
-  background: #fff;  /* White background for readability */
-  color: #000;       /* Black text inside inputs */
-}
-
-.form-box button {
-  width: 100%;
-  padding: 12px;
-  background: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.form-box button:hover {
-  background: #218838;
-}
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .hero-section {
-    flex-direction: column;
-  }
-}
-    /* ✅ Pulse Animation for Apply Now button */
-.apply-btn {
-  background: #28a745;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  margin-right: 10px;
-  font-weight: bold;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0%   { transform: scale(1);   box-shadow: 0 0 0 0 rgba(40,167,69,0.7); }
-  70%  { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(40,167,69,0); }
-  100% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(40,167,69,0); }
-}
-    /* ✅ WhatsApp Button Styling */
-.whatsapp-btn {
-  background: #25D366;  /* Official WhatsApp Green */
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: bold;
-}
-
-.whatsapp-btn:hover {
-  background: #1ebe5d;
-}
-    /* ✅ Mobile button alignment fix */
-@media (max-width: 768px) {
-  .cta-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .cta-buttons a,
-  .cta-buttons .call-text {
-    width: 100%;
-    text-align: center;
-    display: block;
-  }
-}
-
-  </style>
-</head>
-<body>
-
-<script>
-  // Hide offers after 30th September 2025
-  const today = new Date();
-  const lastDay = new Date("2025-09-30T23:59:59");
-  if (today > lastDay) {
-   const offers = document.getElementById("offers-banner");
-
-    if (offers) offers.style.display = "none";
-  }
-</script>
-
-<header>
-  <div class="wrap nav">
-    <!-- Logo + Company Name + Tagline -->
-    <a class="brand" href="#top">
-      <img class="logo" src="assets/logo.png" alt="Finedge Logo">
-      <div>
-        <div class="title">FINEDGE TRAINING INSTITUTE</div>
-        <div class="subtitle">BFSI Career Readiness & Placement Support</div>
-      </div>
-    </a>
-
-    <!-- ✅ Navigation Menu -->
-    <nav class="navlinks">
-      <a href="#about">About</a>
-      <a href="#programs">Programs</a>
-      <a href="#roles">Target Roles</a>
-      <a href="#syllabus">Syllabus</a>
-     <a class="btn small" href="#applyForm">Apply</a>
-
-    </nav>
-    <!-- ✅ Payment button -->
-<button id="payButton" class="pay-btn">Pay Now</button>
-  </div>
-
-  <!-- ✅ Offers block BELOW tagline -->
- <div id="offers-banner">
-  <div class="offer-banner offer-early">
-    <span>🔥 Early Bird Offer: Get ₹1000 OFF on  Enrollments!</span>
-  </div>
-  <div class="offer-banner offer-referral">
-    <span>🆕 Refer a Friend & Earn ₹1000 Referral Bonus!</span>
-  </div>
-</div>
-<!-- ✅ Announcement Block for BFSI SSC Affiliation -->
-<div class="announcement">
-  <h3>📢 We are now officially affiliated with BFSI SSC!</h3>
-  <p>
-    Finedge Training Institute is proud to be an 
-    <strong>Associate Training Partner</strong> with the 
-    <strong>BFSI Sector Skill Council of India</strong>, 
-    under <strong>NSDC / Skill India / NCVET</strong>.
-  </p>
-  <div class="announcement-logos">
-    <img src="assets/BFSI-Logo.png" alt="BFSI SSC Logo">
-<img src="assets/Skill-India_logo.png" alt="Skill India Logo">
-<img src="assets/nsdc-logo.png" alt="NSDC Logo">
-<img src="assets/ncvet-logo.jpg" alt="NCVET Logo">
-
-<!-- Skill Summit 2025 Full-Width Section -->
-<section id="skill-summit" style="position:relative; background:linear-gradient(135deg,#f8fbff,#eef5ff);border-top:4px solid #0b57a6;padding:40px 0;margin:0;text-align:center;">
-  <!-- ✖ Dismiss Button -->
-  <button id="dismissSkillSummit"
-          aria-label="Dismiss announcement"
-          style="position:absolute;right:18px;top:18px;background:transparent;border:0;color:#0b57a6;font-weight:700;font-size:16px;cursor:pointer;padding:6px 8px;border-radius:6px;z-index:1001;">
-    ✕ Dismiss
-  </button>
-
-  <div style="max-width:1100px;margin:auto;padding:0 20px;">
-    <h2 style="color:#0b2b4a;font-size:1.6rem;font-weight:700;margin-bottom:10px;">
-      Finedge at Bengaluru Skill Summit 2025
-    </h2>
-    <p style="color:#233e5a;font-size:1rem;max-width:900px;margin:0 auto 20px;line-height:1.6;">
-      Honoured to be an invitee at the <strong>Bengaluru Skill Summit 2025</strong>.
-      Our Founder <strong>Mr. Sharan Mashyal</strong> had a meaningful discussion with
-      Hon’ble <strong>Dr. Sharan Prakash Patil</strong>, Minister for Skill Development & Medical Education,
-      Government of Karnataka, on collaboration opportunities with
-      <strong>Finedge Training Institute</strong> to enhance youth employability in the BFSI sector.
-    </p>
-
-    <div style="display:flex;flex-direction:column;gap:20px;align-items:center;margin-top:20px;">
-      <img src="assets/skill-summit-1.jpg" 
-           alt="Finedge Founder Mr. Sharan Mashyal with Minister Dr. Sharan Prakash Patil at Bengaluru Skill Summit 2025"
-           style="width:100%;max-width:1000px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.1);">
-      <img src="assets/skill-summit-2.jpg" 
-           alt="Finedge Founder Mr. Sharan Mashyal with Minister Dr. Sharan Prakash Patil (photo 2)"
-           style="width:100%;max-width:1000px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.1);">
-    </div>
-
-    <p style="margin-top:24px;">
-      <a href="bengaluru-skill-summit-2025.html" style="color:#0b57a6;text-decoration:underline;font-weight:500;">
-        Read more about our participation →
-      </a>
-    </p>
-  </div>
-</section>
-
-</div>
-
-  </div>
-</header>
- <!-- ✅ Hero Section -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
-(function(){
-  const KEY = 'finedge_skill_summit_session_dismiss_v1'; // session-only key
+    (function () {
+      emailjs.init("5TP3xMNs4APsdgAgx");
+    })();
+  </script>
 
-  function isDismissed() {
-    try { return !!sessionStorage.getItem(KEY); }
-    catch(e) { return false; }
-  }
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="">
+  <meta content="" name="">
 
-  function setDismissed() {
-    try { sessionStorage.setItem(KEY, '1'); }
-    catch(e) { console.warn('sessionStorage unavailable', e); }
-  }
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
 
-  document.addEventListener('DOMContentLoaded', function(){
-    const panel = document.getElementById('skill-summit');
-    if (!panel) return;
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
 
-    // If already dismissed in this tab, hide both Skill Summit and offers
-    if (isDismissed()) {
-      panel.style.display = 'none';
-      const offers = document.getElementById('offers-banner') || document.getElementById('offers');
-      if (offers) offers.style.display = 'none';
-      return;
-    }
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-    const btn = document.getElementById('dismissSkillSummit');
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    // Function to smoothly hide an element
-    function animateHide(el, delay = 220) {
-      try {
-        el.style.transition = 'opacity 220ms ease, max-height 300ms ease';
-        el.style.opacity = 0;
-        el.style.overflow = 'hidden';
-        el.style.maxHeight = '0';
-        setTimeout(() => { el.style.display = 'none'; }, delay);
-      } catch(e) {
-        el.style.display = 'none';
-      }
-    }
 
-    // Function to hide both popup and offers
-    function hideAll() {
-      animateHide(panel, 320);
-      const offers = document.getElementById('offers-banner') || document.getElementById('offers');
-      if (offers) animateHide(offers, 260);
-      setDismissed();
-    }
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
 
-    // Click on the ✕ button to close
-    if (btn) {
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        hideAll();
-      });
-    }
+<body>
+  <!-- Topbar Start -->
+  <div class="container-fluid bg-dark">
+    <div class="row py-2 px-lg-5">
+      <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+        <div class="d-inline-flex align-items-center text-white">
+          <small><i class="fa fa-phone-alt mr-2"></i>84313 05295</small>
+          <small class="px-3">|</small>
+          <small><i class="fa fa-envelope mr-2"></i><a>info@finedgetraininginstitue.com</a></small>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center text-lg-right">
+        <div class="d-inline-flex align-items-center">
+          <a class="text-white px-2" href="https://www.facebook.com/share/1MMdVjofkq/?mibextid=wwXIfr">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a class="text-white px-2" href="">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="text-white px-2"
+            href="https://www.linkedin.com/in/sharan-m-0a51bb70?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a class="text-white px-2"
+            href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr">
+            <i class="fab fa-instagram"></i>
+          </a>
 
-    // Press Escape key to close
-    document.addEventListener('keydown', function(e){
-      if ((e.key === 'Escape' || e.key === 'Esc') && panel && panel.offsetParent !== null) {
-        hideAll();
-      }
-    });
-  });
-})();
-</script>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Topbar End -->
 
-<section class="hero-section">
-  <div class="hero-left">
-    <div class="training-box">
-      <div class="training-content">
-        <p class="tagline">100% Online • Job-Ready in 30 Days • Placement Assistance</p>
-        <h2>Get Trained. Get Placed.<br>Start Your BFSI Career.</h2>
-        <p class="details">
-          Evening live classes (Mon–Fri, 1 hour/day). Real-time mock interviews. 
-          Job-oriented curriculum. Certification on completion. <br>
-          Language: English + Basic Kannada.
-        </p>
 
-        <ul class="features">
-          <li>✔ 100% Online, Flexible Training</li>
-          <li>✔ Real-Time Mock Interviews</li>
-          <li>✔ Job-Oriented Curriculum</li>
-          <li>✔ Certification on Completion</li>
-        </ul>
+  <!-- Navbar Start -->
+  <div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+      <a href="index.html" class="navbar-brand ml-lg-3">
+        <h4 class="m-0 text-uppercase text-primary">
+          <img src="img/logo-2-removebg.png" class="logo-img" alt="Logo">
+          <!-- FINEDGE TRAINING INSTITUTE -->
+        </h4>
+      </a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+        <div class="navbar-nav mx-auto py-0">
+          <a href="index.html" class="nav-item nav-link active">Home</a>
+          <a href="about.html" class="nav-item nav-link">About</a>
+          <a href="course.html" class="nav-item nav-link">Courses</a>
+          <a href="contact.html" class="nav-item nav-link">Contact</a>
+        </div>
+        <a href="#" id="payButton" class="btn btn-primary py-2 px-4 d-none d-lg-block">
+          Pay Now
+        </a>
 
-        <div class="highlights">
-          <div class="highlight"><span>30</span><br>Days</div>
-          <div class="highlight"><span>1 hr/day</span><br>Live Online</div>
-          <div class="highlight"><span>Placement</span><br>Assistance</div>
+      </div>
+    </nav>
+  </div>
+  <!-- Navbar End -->
+
+  <!-- Header Start -->
+  <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
+    <div class="container text-center">
+      <h6 class="text-white text-uppercase mb-3 heading-1">BFSI Career Readiness & Placement Support</h6>
+      <h1 class="text-white mt-2 mb-3 heading-2">Get Trained. Get Placed.</h1>
+      <h1 class="text-white display-4 mb-4 heading-3">Start Your BFSI Career</h1>
+
+      <p class="text-white-50 mx-auto mb-4" style="max-width: 650px;">
+        100% online, job-oriented certificate programs in Banking, Financial Services & Insurance (BFSI) with
+        live classes, practical case studies and placement assistance.
+      </p>
+
+      <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+        <a href="#apply" class="btn btn-primary py-3 px-5 mr-sm-3 mb-3 mb-sm-0">
+          Apply for Next Batch
+        </a>
+        <a href="#programs" class="btn btn-outline-light py-3 px-5">
+          View Programs
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Header End -->
+
+
+
+  <!-- About Start -->
+  <div class="container-fluid py-5">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+          <div class="position-relative h-100">
+            <img class="position-absolute w-100 h-100" src="img/img-1.jpeg" style="object-fit: cover;"
+              alt="Finedge BFSI Training">
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="section-title position-relative mb-4">
+            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">About Us</h6>
+            <h1 class="display-4">Finedge Training Institute</h1>
+          </div>
+          <p>
+            Finedge Training Institute is an NSDC–affiliated training partner of the
+            <strong>BFSI Sector Skill Council of India (BFSI SSC)</strong>, focused on making graduates job-ready
+            for careers in <strong>Banking, Financial Services and Insurance</strong>.
+            We bridge the gap between academic learning and real-world employability through structured online training,
+            live sessions and dedicated placement support.
+          </p>
+          <p>
+            Our programs are designed around actual BFSI job roles – combining product knowledge, operations,
+            sales & service skills, compliance awareness and professional communication.
+          </p>
+
+          <div class="row pt-3 mx-0">
+            <div class="col-6 col-md-3 px-0">
+              <div class="bg-success text-center p-4 h-100">
+                <h1 class="text-white" data-toggle="counter-up">4</h1>
+                <h6 class="text-uppercase text-white">
+                  Online<span class="d-block">BFSI Programs</span>
+                </h6>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 px-0">
+              <div class="bg-primary text-center p-4 h-100">
+                <h1 class="text-white" data-toggle="counter-up">100</h1>
+                <h6 class="text-uppercase text-white">
+                  %<span class="d-block">Online Training</span>
+                </h6>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 px-0">
+              <div class="bg-secondary text-center p-4 h-100">
+                <h1 class="text-white" data-toggle="counter-up">20</h1>
+                <h6 class="text-uppercase text-white">
+                  +<span class="d-block">Years BFSI Exp.</span>
+                </h6>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 px-0">
+              <div class="bg-warning text-center p-4 h-100">
+                <h1 class="text-white" data-toggle="counter-up">150</h1>
+                <h6 class="text-uppercase text-white">
+                  +<span class="d-block">Hiring Partners*</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+
+          <small class="d-block mt-2 text-muted">
+            *Placement assistance is provided to eligible learners as per institute guidelines.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- About End -->
+  <!-- Partners Carousel Start -->
+  <div class="container-fluid py-5" id="partners" style="margin: 0px 0;">
+    <div class="container">
+
+      <div class=" text-center position-relative mb-4">
+
+        <h1 class="display-4">GET ACCESS TO 150+
+          HIRING COMPANIES</h1>
+
+      </div>
+
+      <div class="owl-carousel partner-carousel text-center py-3 ">
+
+        <!-- BFSI SSC -->
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Axis_Bank_logo.svg/2560px-Axis_Bank_logo.svg.png"
+            alt="BFSI Sector Skill Council of India" class="img-fluid">
         </div>
 
-    <!-- Buttons -->
-<div class="cta-buttons">
-  <a href="#apply" class="apply-btn">Apply Now</a>
-  <a href="https://wa.me/918431305295" class="whatsapp-btn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-         alt="WhatsApp" width="18" height="18">
-    WhatsApp: +91 84313 05295
-  </a>
-</div>
+        <!-- Skill India -->
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img
+            src="https://img-cdn.publive.online/fit-in/640x480/filters:format(webp)/jobs-sentinalassam/media/media_files/2025/08/02/bank-of-baroda-logo-2025-08-02-16-51-13.png"
+            alt="bank-of-baroda" class="img-fluid">
+        </div>
 
-        <p class="call-text">📞 Call: 080-23335777</p>
-      </div>
-    </div>
-  </div>
+        <!-- NSDC -->
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img src="https://1000logos.net/wp-content/uploads/2021/06/Bank-of-India-logo.png"
+            alt="India of bank" class="img-fluid">
+        </div>
 
-  <!-- Right side form -->
-  <div class="hero-right">
-    <div class="form-box">
-      <h3>Apply for the Next Batch</h3>
-    <form id="applyForm">
-  <input type="text" name="name" placeholder="Full Name*" required>
-  <input type="tel" name="phone" placeholder="Phone (WhatsApp preferred)*" required>
-  <input type="email" name="email" placeholder="Email*" required>
-
-  <select name="interest" required>
-    <option value="" disabled selected>Select Role Interest*</option>
-    <option>Personal Banker / Relationship Manager</option>
-    <option>Loan Sales (Home/Auto/Personal)</option>
-    <option>Credit / Collections / Operations</option>
-    <option>Customer Support / Telecaller</option>
-    <option>Insurance / Mutual Funds Sales</option>
-  </select>
-
-  <textarea name="notes" placeholder="Any questions? (optional)"></textarea>
-  <button type="submit">Submit Application</button>
-</form>
-
-      <small>By submitting, you agree to be contacted via phone/WhatsApp/email.</small>
-    </div>
- 
-    </div>
-  </section>
-<!-- Partner Logos Section -->
-<section id="bfsi-partners" class="partner-section">
-  <div class="partner-text">
-    <h3>We are now officially affiliated with BFSI SSC</h3>
-    <p>
-      Finedge Training Institute is proud to be an <strong>Associate Training Partner</strong>
-      with the <strong>BFSI Sector Skill Council of India</strong>, under
-      <strong>NSDC / Skill India / NCVET</strong>.
-    </p>
-  </div>
-  <div class="partner-logos">
-    <img src="assets/BFSI-Logo.png" alt="BFSI SSC logo">
-    <img src="assets/Skill-India_logo.png" alt="Skill India logo">
-    <img src="assets/nsdc-logo.png" alt="NSDC logo">
-    <img src="assets/ncvet-logo.jpg" alt="NCVET logo">
-  </div>
-</section>
-</section>
-
-  <section id="about" class="section">
-    <div class="grid3">
-      <div class="feature card">
-        <span class="badge">Training Mode</span>
-        <h4>Online Only</h4>
-        <p class="muted">Live interactive evening sessions so learners can join from anywhere.</p>
-      </div>
-      <div class="feature card">
-        <span class="badge">Languages</span>
-        <h4>English + Basic Kannada</h4>
-        <p class="muted">Support in Basic Kannada to ensure clarity and confidence.</p>
-      </div>
-      <div class="feature card">
-        <span class="badge">Why FINEDGE?</span>
-        <h4>Outcome-Focused</h4>
-        <p class="muted">Real-time mock interviews, job-oriented curriculum, and certification on completion.</p>
-      </div>
-    </div>
-  </section>
-<section id="details" class="section">
-  <h2>Why Choose FINEDGE Training Institute?</h2>
-  <div class="grid3">
-    <div class="feature card"><h4>Industry Expert Trainers</h4><p class="muted">10+ years of BFSI experience with practical case studies & role plays.</p></div>
-    <div class="feature card"><h4>Placement Assistance</h4><p class="muted">Direct recruiter connects with banks, NBFCs, insurance & fintech firms.</p></div>
-    <div class="feature card"><h4>Certification</h4><p class="muted">Recognized completion certificate for career credibility.</p></div>
-  </div>
-</section>
-
-<section id="modules" class="section">
-  <h2>BFSI Job Accelerator Program – 30 Days</h2>
-  <div class="grid3">
-    <div class="feature card"><h4>Banking Fundamentals</h4><p class="muted">Retail, corporate & digital banking overview.</p></div>
-    <div class="feature card"><h4>NBFC & Insurance Basics</h4><p class="muted">Products, sales processes & industry practices.</p></div>
-    <div class="feature card"><h4>Mutual Funds & Wealth Mgmt</h4><p class="muted">Investor advisory skills, SIPs, and product training.</p></div>
-    <div class="feature card"><h4>Credit & Collections</h4><p class="muted">Loan lifecycle, processing, recovery skills.</p></div>
-    <div class="feature card"><h4>Operations & Compliance</h4><p class="muted">Back-office, KYC/AML, regulatory awareness.</p></div>
-    <div class="feature card"><h4>Soft Skills & Interview Prep</h4><p class="muted">Communication, resume building & mock interviews.</p></div>
-  </div>
-</section>
-
-<section id="offers" class="section">
-  <h2>Special Offers</h2>
-  <div class="grid2">
-    <div class="feature card"><h4>Launch Discount</h4><p class="muted">₹1000 discount for the first 10 enrolments only.</p></div>
-    <div class="feature card"><h4>Referral Scheme</h4><p class="muted">Earn ₹1000 for every successful admission you refer.</p></div>
-  </div>
-</section>
-
-<section id="careers" class="section">
-  <h2>Career Opportunities After Training</h2>
-  <div class="grid3">
-    <div class="feature card"><h4>Relationship Manager</h4><p class="muted">Client portfolio handling & cross-sell.</p></div>
-    <div class="feature card"><h4>Wealth Manager</h4><p class="muted">Advisory, mutual funds, insurance.</p></div>
-    <div class="feature card"><h4>Personal Banker</h4><p class="muted">Branch operations & customer service.</p></div>
-    <div class="feature card"><h4>Internal Auditor</h4><p class="muted">Compliance, processes & audit checks.</p></div>
-    <div class="feature card"><h4>Credit Manager</h4><p class="muted">Loan verification & credit evaluation.</p></div>
-    <div class="feature card"><h4>Bank Teller</h4><p class="muted">Cash handling, front-office customer support.</p></div>
-  </div>
-</section>
-
-
-  <section id="programs" class="section">
-    <h2>Train for Top Jobs In</h2>
-    <div class="grid3">
-      <div class="feature card"><h4>Banking</h4><p class="muted">Retail banking, customer onboarding, branch assistance.</p></div>
-      <div class="feature card"><h4>NBFCs</h4><p class="muted">Assets & liabilities, sales processes, field coordination.</p></div>
-      <div class="feature card"><h4>Insurance</h4><p class="muted">Life & general insurance basics, advisory & cross‑sell.</p></div>
-      <div class="feature card"><h4>Mutual Funds</h4><p class="muted">Investment basics, SIPs, investor communication.</p></div>
-      <div class="feature card"><h4>Housing Finance</h4><p class="muted">Loan lifecycle, documentation & verification.</p></div>
-      <div class="feature card"><h4>Fintech / CMS / ATM Ops</h4><p class="muted">Industry overview and support roles.</p></div>
-    </div>
-  </section>
-
-  <section id="roles" class="section">
-    <h2>Get Placed in Roles Like</h2>
-    <div class="grid3">
-      <div class="feature card"><h4>Personal Banker</h4><p class="muted">Customer service & cross‑sell at branches.</p></div>
-      <div class="feature card"><h4>Relationship Officer</h4><p class="muted">Portfolio handling, onboarding & retention.</p></div>
-      <div class="feature card"><h4>Credit Officer</h4><p class="muted">Document checks, underwriting support.</p></div>
-      <div class="feature card"><h4>Operations Executive</h4><p class="muted">Back‑office coordination, KYC/AML, compliance.</p></div>
-      <div class="feature card"><h4>Collections & Recovery</h4><p class="muted">Soft skills & compliance-driven collections.</p></div>
-      <div class="feature card"><h4>Customer Support / Telecaller</h4><p class="muted">Communication, objection handling, CRM usage.</p></div>
-    </div>
-  </section>
-
-  <section id="syllabus" class="section">
-    <h2>30‑Day Outline (Mon–Fri, 1 hr/day)</h2>
-    <div class="grid2">
-      <div class="card feature"><div class="badge">Week 1</div><h4>Foundations</h4><p class="muted">Indian banking overview, KYC/AML, compliance, communication basics.</p></div>
-      <div class="card feature"><div class="badge">Week 2</div><h4>Products & Sales</h4><p class="muted">Deposits & lending, insurance & MF basics, sales funnels, call scripts.</p></div>
-      <div class="card feature"><div class="badge">Week 3</div><h4>Ops & Service</h4><p class="muted">Branch/back‑office ops, document checks, collections etiquette, CRM.</p></div>
-      <div class="card feature"><div class="badge">Week 4</div><h4>Job Readiness</h4><p class="muted">Resume & interview prep, mock interviews, capstone, placement process.</p></div>
-    </div>
-  </section>
-
-<section class="section">
-  <h2>Intro Video</h2>
-  <p class="muted">Watch our official institute intro video below:</p>
-  <div class="card" style="padding:12px;">
-    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-      <iframe 
-        src="https://www.youtube.com/embed/v8iZp6-5PT0?autoplay=1&mute=1"
-        title="FINEDGE Training Institute Intro Video"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</section>
-
-  
-    
-    
+        <!-- NCVET -->
       
-    </div>
-  </section>
-</main>
 
-<footer class="wrap">
-  <div class="footergrid">
-    <div>
-      <div class="brand" style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
-        <img class="logo" src="assets/logo.png" alt="logo" style="height:36px">
-        <div>
-          <div style="font-weight:700">FINEDGE TRAINING INSTITUTE</div>
-          <div class="muted" style="font-size:12px">BFSI Career Readiness & Placement Support</div>
+        <!-- NSDC -->
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img
+            src="https://wp.logos-download.com/wp-content/uploads/2016/06/Kotak_Mahindra_Bank_logo.png?dl"
+            alt="Kotak" class="img-fluid">
+        </div>
+
+        <!-- NCVET -->
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE1jf3XAr-9mO4gwKY86iGx9FgheynHPvd-g&s"
+            alt="LIC" class="img-fluid">
+        </div>
+
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/SBI_new_logo.svg/2560px-SBI_new_logo.svg.png"
+            alt="SBI" class="img-fluid">
+        </div>
+
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img src="https://logoeps.com/wp-content/uploads/2014/01/l-t-infotech-vector-logo.png"
+            alt="L&T" class="img-fluid">
+        </div>
+
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img src="https://static.vecteezy.com/system/resources/previews/020/190/428/non_2x/hdfc-logo-hdfc-icon-free-free-vector.jpg"
+            alt="HFC" class="img-fluid">
+        </div>
+
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img src="https://logowik.com/content/uploads/images/idfc-first-bank8846.jpg"
+            alt="IDFC" class="img-fluid">
+        </div>
+
+        <!-- You can add more logos like banks / NBFCs / insurers -->
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img src="https://www.artypendesigns.com/wp-content/uploads/2019/03/ugro-logo.png" alt="Bank / NBFC Partner 1"
+            class="img-fluid">
+        </div>
+
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sumitomo_Mitsui_Financial_Group_logo.svg/1280px-Sumitomo_Mitsui_Financial_Group_logo.svg.png"
+            alt="Bank / NBFC Partner 2" class="img-fluid">
+        </div>
+
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Tata_Capital_Logo-01.jpg"
+            alt="Bank / NBFC Partner 2" class="img-fluid">
+        </div>
+        <div class="partner-item d-flex align-items-center justify-content-center">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/7/75/Aditya_Birla_Group_Logo.svg/1200px-Aditya_Birla_Group_Logo.svg.png"
+            alt="Bank / NBFC Partner 2" class="img-fluid">
         </div>
       </div>
- <div class="muted">
-  © 2025 FinEdge Training Institute | 
-  <a href="/terms-and-conditions.html">Terms & Conditions</a> | 
-  <a href="/privacy-policy.html">Privacy Policy</a> | 
-  <a href="/refund-policy.html">Refund Policy</a>
-</div>
-<div class="muted">
-  Landline: <a href="tel:+918023335777">080-23335777</a>
-</div>
-<div class="muted">
-  Email: <a href="mailto:info@finedgetraininginstitute.com">info@finedgetraininginstitute.com</a>
-</div>
-<div class="muted">
-  WhatsApp: <a href="https://wa.me/918431305295?text=Hello%20I%20am%20interested%20in%20joining%20the%20BFSI%20Career%20Readiness%20Program.%20Please%20share%20more%20details." target="_blank" rel="noopener">Chat now</a>
-<div class="muted" style="margin-top:10px; line-height:1.6;">
-  <p><strong>Registered Office:</strong><br>
-  S5, Nirmal Residency, Kadathanamale, Doddaballapura Main Road,<br>
-  Opp. MES Pharmacy College, Bangalore – 561203.</p>
-
-  <p><strong>Training Centre:</strong><br>
-  No. 35, 2nd Floor, 4th Main, 4th Cross, Chandan Layout,<br>
-  Srigandhada Kavalu, Sunkadakatte, Bangalore – 560091.</p>
-</div>
- 
-    
-  
-
-<div class="map-responsive" style="margin-top:12px">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.77367175889!2d77.50420697403307!3d12.986322814557425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d44cc4e470b%3A0xd47908cad515e320!2sFinedge%20Training%20Institute!5e0!3m2!1sen!2sin!4v1758662441005!5m2!1sen!2sin" 
-    width="600" 
-    height="450" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
-
-<div class="muted">
-  <a href="https://maps.app.goo.gl/GwSgtJRBf1C936as8" target="_blank" rel="noopener">
-    View on Google Maps
-  </a>
-</div>
     </div>
-  
-  
+  </div>
+  <!-- Partners Carousel End -->
 
 
-<script>
-  document.getElementById('applyForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const d = new FormData(e.target);
-    const enc = s => encodeURIComponent(s||'');
-    const subject = 'Application — FINEDGE Training Institute (' + enc(d.get('name')) + ')';
-    const body = 'Name: ' + enc(d.get('name')) +
-                 '%0D%0APhone: ' + enc(d.get('phone')) +
-                 '%0D%0AEmail: ' + enc(d.get('email')) +
-                 '%0D%0AInterest: ' + enc(d.get('interest')) +
-                 '%0D%0A%0D%0ANotes:%0D%0A' + enc(d.get('notes'));
-window.location.href = 'mailto:info@finedgetraininginstitute.com?subject=' + subject + '&body=' + body;
-    alert('Opening your email app to send the application. If it does not open, email us at info@finedgetraininginstitute.com.');
-    e.target.reset();
-  });
-</script>
-    <script>
-  // Hide offers after 30th September 2025
-  const today = new Date();
-  const lastDay = new Date("2025-09-30T23:59:59");
+  <!-- Feature Start -->
+  <!-- Why Choose Us (Centered Version) -->
+  <!-- Why Choose Us - Perfect 5x2 Grid -->
+  <div class="container-fluid bg-image py-5" style="margin: 0px 0;">
+    <div class="container py-5">
 
-  if (today > lastDay) {
-    const offers = document.getElementById("offers");
-    if (offers) {
-      offers.style.display = "none";
-    }
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-  document.getElementById("payButton").onclick = function (e) {
-    e.preventDefault();
+      <!-- Heading -->
+      <div class="text-center mb-5">
+        <h6 class="text-secondary text-uppercase pb-2">Why Choose Us?</h6>
+        <h1 class="display-4">Build Your BFSI Career with Finedge</h1>
+        <p class="mt-3 mx-auto" style="max-width: 750px;">
+          Gain industry-ready skills, real-world exposure and strong placement support.
+        </p>
+      </div>
 
-    const options = {
-      key: "rzp_test_RHbBgF8WNVIjMp", // your Razorpay Test Key
-      amount: 100000,                 // 100000 paise = ₹1000
-      currency: "INR",
-      name: "FINEDGE Training Institute",
-      description: "30-Day BFSI Job Readiness Program",
-      handler: function (response) {
-        alert("✅ Test payment successful!\nPayment ID: " + response.razorpay_payment_id);
-      },
-      theme: { color: "#3399cc" }
-    };
+      <!-- Icon Grid -->
+      <div class="why-grid">
 
-    const rzp = new Razorpay(options);
-    rzp.open();
-  };
-</script>
+        <!-- Repeat these 10 feature items -->
+        <div class="feature-item">
+          <div class="btn-icon bg-primary"><i class="fa fa-chalkboard-teacher text-white fa-2x"></i></div>
+          <h5>Expert Trainers</h5>
+          <p class="small text-muted">10+ years BFSI experience.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="btn-icon bg-secondary"><i class="fa fa-briefcase text-white fa-2x"></i></div>
+          <h5>Placement Support</h5>
+          <p class="small text-muted">Mock interviews & hiring connects.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="btn-icon bg-warning"><i class="fa fa-laptop text-white fa-2x"></i></div>
+          <h5>100% Online</h5>
+          <p class="small text-muted">Learn from anywhere.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="btn-icon bg-danger"><i class="fa fa-certificate text-white fa-2x"></i></div>
+          <h5>BFSI SSC Certificate</h5>
+          <p class="small text-muted">NSDC / Skill India aligned.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="btn-icon bg-success"><i class="fa fa-user-check text-white fa-2x"></i></div>
+          <h5>Beginner Friendly</h5>
+          <p class="small text-muted">Any degree background welcome.</p>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="feature-item">
+          <div class="btn-icon bg-info"><i class="fa fa-university text-white fa-2x"></i></div>
+          <h5>Industry Curriculum</h5>
+          <p class="small text-muted">Designed for BFSI jobs.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="btn-icon bg-dark"><i class="fa fa-headset text-white fa-2x"></i></div>
+          <h5>Doubt Support</h5>
+          <p class="small text-muted">Live Q&A + groups.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="btn-icon bg-primary"><i class="fa fa-book-open text-white fa-2x"></i></div>
+          <h5>Study Material</h5>
+          <p class="small text-muted">Notes & assignments.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="btn-icon bg-secondary"><i class="fa fa-chart-line text-white fa-2x"></i></div>
+          <h5>Career Growth</h5>
+          <p class="small text-muted">Upskill for BFSI roles.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="btn-icon bg-warning"><i class="fa fa-users text-white fa-2x"></i></div>
+          <h5>Community</h5>
+          <p class="small text-muted">Network with learners.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Feature End -->
+
+
+
+  <!-- Courses Start -->
+  <!-- Programs Section Start -->
+  <div class="container-fluid py-5 bg-light" id="programs" style="margin: 0px 0;">
+    <div class="container py-5">
+
+      <!-- Top Row: Image + Intro -->
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-5 mb-4 mb-lg-0">
+          <div class="position-relative h-100">
+            <img src="img/bfsi-1.jpeg" alt="Finedge BFSI Online Training" class="img-fluid rounded shadow"
+              style="object-fit: cover; width: 100%; min-height: 260px;">
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="section-title position-relative mb-3">
+            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">
+              Our Programs
+            </h6>
+            <h1 class="display-4">Online BFSI Certificate Programs</h1>
+          </div>
+          <p class="mb-3">
+            Choose from industry-aligned programs designed to make you job-ready for roles in
+            <strong>Banking, Financial Services and Insurance (BFSI)</strong>.
+            All programs are delivered through live online classes by experienced trainers.
+          </p>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2">
+              <i class="fa fa-check text-primary mr-2"></i>
+              100% online, live instructor-led sessions
+            </li>
+            <li class="mb-2">
+              <i class="fa fa-check text-primary mr-2"></i>
+              Co-branded certificates from Finedge & BFSI SSC*
+            </li>
+            <li class="mb-2">
+              <i class="fa fa-check text-primary mr-2"></i>
+              Placement support with interview preparation
+            </li>
+          </ul>
+          <small class="d-block text-muted mt-2">
+            *As per applicable program eligibility and guidelines.
+          </small>
+        </div>
+      </div>
+
+      <!-- Program Cards Grid -->
+      <!-- Program Grid with Background Image Cards -->
+      <div class="row">
+
+        <!-- Program 1 -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="program-card" style="background-image: url('img/courses-1.jpg');">
+            <div class="program-overlay">
+              <h4 class="text-white">BFSI Career Accelerator Program</h4>
+              <p>4 Weeks • Live Online</p>
+
+              <div class="program-hover-content">
+                <p class="small">
+                  30-day, job-oriented program covering banking basics, products, operations,
+                  credit, soft skills and interview preparation.
+                </p>
+                <a href="#apply" class="btn btn-primary btn-sm mt-2">Apply Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program 2 -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="program-card" style="background-image: url('img/courses-2.jpg');">
+            <div class="program-overlay">
+              <h4 class="text-white">Certificate in Investment Banking (Intro)</h4>
+              <p>1 Month • Online</p>
+
+              <div class="program-hover-content">
+                <p class="small">
+                  Beginner-friendly introduction to investment banking, markets & financial analysis.
+                </p>
+                <a href="#contact" class="btn btn-primary btn-sm mt-2">Enquire Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program 3 -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="program-card" style="background-image: url('img/courses-3.jpg');">
+            <div class="program-overlay">
+              <h4 class="text-white">Corporate Governance in BFSI</h4>
+              <p>Governance & Compliance</p>
+
+              <div class="program-hover-content">
+                <p class="small">
+                  Learn governance, regulatory and compliance concepts for banks, NBFCs and FIs.
+                </p>
+                <a href="#contact" class="btn btn-primary btn-sm mt-2">Enquire Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program 4 -->
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="program-card" style="background-image: url('img/courses-4.jpg');">
+            <div class="program-overlay">
+              <h4 class="text-white">Treasury, Forex & Trade Finance</h4>
+              <p>Treasury • FX • Trade</p>
+
+              <div class="program-hover-content">
+                <p class="small">
+                  Practical introduction to treasury operations, forex markets and trade finance.
+                </p>
+                <a href="#contact" class="btn btn-primary btn-sm mt-2">Enquire Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+  <!-- Programs Section End -->
+
+  <!-- Courses End -->
+  <!-- Apply Section Start -->
+  <div class="container-fluid py-5 " id="apply" style="margin: 0px 0;">
+    <div class="row mx-0 justify-content-center">
+      <div class="col-lg-6">
+        <div class="bg-white p-5 my-5 shadow" style="border-radius: 10px;">
+
+          <h1 class="text-center mb-4">Apply for the Next Batch</h1>
+          <p class="text-center text-muted mb-4">
+            Fill in your details below. Our program advisor will contact you shortly.
+          </p>
+
+          <!-- APPLY FORM -->
+          <form id="applyForm">
+            <!-- Name -->
+            <div class="form-group">
+              <input type="text" name="name" class="form-control bg-light border-0" placeholder="Full Name*" required
+                style="padding: 20px;">
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <input type="tel" name="phone" class="form-control bg-light border-0"
+                placeholder="Phone (WhatsApp preferred)*" required style="padding: 20px;">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <input type="email" name="email" class="form-control bg-light border-0" placeholder="Email*" required
+                style="padding: 20px;">
+            </div>
+
+            <!-- Interest -->
+            <div class="form-group">
+              <select name="interest" class="custom-select bg-light border-0 px-3" required style="height: 60px;">
+                <option value="" disabled selected>Select Role Interest*</option>
+                <option>Personal Banker / Relationship Manager</option>
+                <option>Loan Sales (Home/Auto/Personal)</option>
+                <option>Credit / Collections / Operations</option>
+                <option>Customer Support / Telecaller</option>
+                <option>Insurance / Mutual Funds Sales</option>
+              </select>
+            </div>
+
+            <!-- Notes -->
+            <div class="form-group">
+              <textarea name="notes" class="form-control bg-light border-0" rows="4"
+                placeholder="Any questions? (optional)" style="padding: 15px;"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block mb-3" style="height: 60px;">
+              Submit Application
+            </button>
+          </form>
+
+          <!-- Razorpay Payment Button -->
+          <button id="payButtonApply" class="btn btn-outline-primary btn-block" type="button" style="height: 50px;">
+            Pay & Enrol Now (Test ₹1000)
+          </button>
+
+          <!-- Disclaimer -->
+          <small class="d-block text-center mt-3 text-muted">
+            By submitting, you agree to be contacted via phone / WhatsApp / email.
+          </small>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Apply Section End -->
+
+
+
+  <!-- Team Start -->
+  <!-- <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="section-title text-center position-relative mb-5">
+                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Instructors</h6>
+                    <h1 class="display-4">Meet Our BFSI Trainers</h1>
+                </div>
+                <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
+                    <div class="team-item">
+                        <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mb-3">Instructor Name</h5>
+                            <p class="mb-2">Web Design & Development</p>
+                            <div class="d-flex justify-content-center">
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-item">
+                        <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mb-3">Instructor Name</h5>
+                            <p class="mb-2">Web Design & Development</p>
+                            <div class="d-flex justify-content-center">
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-item">
+                        <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mb-3">Instructor Name</h5>
+                            <p class="mb-2">Web Design & Development</p>
+                            <div class="d-flex justify-content-center">
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-item">
+                        <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mb-3">Instructor Name</h5>
+                            <p class="mb-2">Web Design & Development</p>
+                            <div class="d-flex justify-content-center">
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+  <!-- Team End -->
+
+
+  <!-- Testimonial Start -->
+  <div class="container-fluid bg-image py-5" style="margin: 0px 0;">
+    <div class="container py-5">
+      <div class="row align-items-center">
+
+        <!-- Left Text Column -->
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <div class="section-title position-relative mb-4">
+            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonials</h6>
+            <h1 class="display-4">What Our Students Say</h1>
+          </div>
+          <p class="m-0">
+            Hear from learners who completed our BFSI career programs and successfully
+            started their journey in banking, financial services and insurance.
+          </p>
+        </div>
+
+        <!-- Carousel Column -->
+        <div class="col-lg-7">
+          <div class="owl-carousel testimonial-carousel">
+
+            <!-- Testimonial 1 -->
+            <div class="bg-white p-5">
+              <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+              <p>
+                "The online BFSI program from Finedge gave me flexibility to learn while working.
+                The classes were practical and focused on real banking scenarios.
+                I feel much more confident now."
+              </p>
+              <div class="d-flex flex-shrink-0 align-items-center mt-4">
+                <img class="img-fluid mr-4" src="img/testimonial-1.jpeg" alt="Student 1">
+                <div>
+                  <h5>Mallamma</h5>
+                  <span>BFSI Career Accelerator</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-white p-5">
+              <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+              <p>
+                "Finedge Training Institute helped me gain the right skills for the BFSI sector.
+                The mock interviews and placement support helped me secure my first job in banking."
+              </p>
+              <div class="d-flex flex-shrink-0 align-items-center mt-4">
+                <img class="img-fluid mr-4" src="img/Asset 20.png" alt="Student 2">
+                <div>
+                  <h5>Vibha</h5>
+                  <span>Placed in a Financial Institution</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="bg-white p-5">
+              <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+              <p>
+                "Learning with Finedge feels personalised. The real-world examples, case studies
+                and mentor guidance made the concepts very easy to understand."
+              </p>
+              <div class="d-flex flex-shrink-0 align-items-center mt-4">
+                <img class="img-fluid mr-4" src="img/testimonial-3.jpeg" alt="Student 3">
+                <div>
+                  <h5>Veeresh</h5>
+                  <span>BFSI Certification Program</span>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- End Carousel -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Testimonial End -->
+
+
+
+  <!-- Contact Start -->
+  <div class="container-fluid py-5">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <div class="bg-light d-flex flex-column justify-content-center px-5" style="height: 600px;">
+            <div class="d-flex align-items-start mb-4">
+              <div class="btn-icon bg-primary mr-4">
+                <i class="fa fa-2x fa-map-marker-alt text-white"></i>
+              </div>
+              <div class="mt-n1">
+                <h4>Registered Office</h4>
+                <p class="m-0">
+                  S5, Nirmal Residency, Kadathanamale, Doddaballapura Main Road,<br>
+                  Opp. MES Pharmacy College, Bangalore – 561203.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start mb-4">
+              <div class="btn-icon bg-secondary mr-4">
+                <i class="fa fa-2x fa-map-marker-alt text-white"></i>
+              </div>
+              <div class="mt-n1">
+                <h4>Training Centre</h4>
+                <p class="m-0">
+                  No. 35, 2nd Floor, 4th Main, 4th Cross, Chandan Layout,<br>
+                  Srigandhada Kavalu, Sunkadakatte, Bangalore – 560091.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center mb-3">
+              <div class="btn-icon bg-secondary mr-4">
+                <i class="fa fa-2x fa-phone-alt text-white"></i>
+              </div>
+              <div class="mt-n1">
+                <h4>Call Us</h4>
+                <p class="m-0"><a href="tel:+918023335777">080-23335777</a> / <a href="tel:+918431305295">+91 84313
+                    05295</a></p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center">
+              <div class="btn-icon bg-warning mr-4">
+                <i class="fa fa-2x fa-envelope text-white"></i>
+              </div>
+              <div class="mt-n1">
+                <h4>Email Us</h4>
+                <p class="m-0">
+                  <a href="mailto:info@finedgetraininginstitute.com">info@finedgetraininginstitute.com</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="section-title position-relative mb-4">
+            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Need Help?
+            </h6>
+            <h1 class="display-4">Send Us A Message</h1>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="row">
+                <div class="col-6 form-group">
+                  <input type="text" name="name" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                    placeholder="Your Name" required>
+                </div>
+                <div class="col-6 form-group">
+                  <input type="email" name="email" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                    placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" name="subject" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                  placeholder="Subject" required>
+              </div>
+              <div class="form-group">
+                <textarea name="message" class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5"
+                  placeholder="Message" required></textarea>
+              </div>
+              <div>
+                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Contact End -->
+
+
+  <!-- Footer Start -->
+  <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">
+    <div class="container mt-5 pt-5">
+      <div class="row">
+        <!-- About / tagline -->
+        <div class="col-md-6 mb-5">
+          <a href="index.html" class="navbar-brand">
+
+            <h2 class="mt-n2 text-uppercase text-white footer-logo">
+              <img class="" src="img/Asset 15.svg" alt="logo" width="40" height="40">FINEDGE
+            </h2>
+          </a>
+          <p class="m-0">
+            FINEDGE Training Institute specialises in <strong>BFSI career readiness</strong> – training
+            learners for roles in Banking, Financial Services and Insurance with job-oriented
+            curriculum,
+            mock interviews and placement assistance.
+          </p>
+        </div>
+
+        <!-- Newsletter or simple CTA -->
+        <div class="col-md-6 mb-5">
+          <h3 class="text-white mb-4">Stay Updated</h3>
+          <p>Share your email to receive updates about upcoming batches and BFSI career tips.</p>
+          <div class="w-100">
+            <form id="newsletterForm">
+              <div class="input-group">
+                <input type="email" name="email" class="form-control border-light" style="padding: 30px;"
+                  placeholder="Your Email Address" required>
+                <div class="input-group-append">
+                  <button class="btn btn-primary px-4" type="submit">
+                    Notify Me
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Contact -->
+        <div class="col-md-4 mb-5">
+          <h3 class="text-white mb-4">Get In Touch</h3>
+          <p><i class="fa fa-map-marker-alt mr-2"></i>
+            S5, Nirmal Residency, Kadathanamale, Doddaballapura Main Road,<br>
+            Opp. MES Pharmacy College, Bangalore – 561203.
+          </p>
+          <p><i class="fa fa-phone-alt mr-2"></i>
+            <a class="text-white-50" href="tel:+918023335777">080-23335777</a> /
+            <a class="text-white-50" href="tel:+918431305295">+91 84313 05295</a>
+          </p>
+          <p><i class="fa fa-envelope mr-2"></i>
+            <a class="text-white-50" href="mailto:info@finedgetraininginstitute.com">
+              info@finedgetraininginstitute.com
+            </a>
+          </p>
+          <div class="d-flex justify-content-start mt-4">
+            <a class="text-white mr-4" href="https://www.facebook.com/share/1MMdVjofkq/?mibextid=wwXIfr"><i
+                class="fab fa-2x fa-facebook-f"></i></a>
+            <a class="text-white mr-4"
+              href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr"><i
+                class="fab fa-2x fa-instagram"></i></a>
+            <a class="text-white mr-4"
+              href="https://www.linkedin.com/in/sharan-m-0a51bb70?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i
+                class="fab fa-2x fa-linkedin-in"></i></a>
+
+          </div>
+        </div>
+
+        <!-- Courses area repurposed for BFSI -->
+        <div class="col-md-4 mb-5">
+          <h3 class="text-white mb-4">BFSI Career Paths</h3>
+          <div class="d-flex flex-column justify-content-start">
+            <span class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Personal Banker /
+              Relationship Manager</span>
+            <span class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Loan Sales (Home /
+              Auto / Personal)</span>
+            <span class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Credit &
+              Collections</span>
+            <span class="text-white-50 mb-2"><i class="fa fa-angle-right mr-2"></i>Customer Support /
+              Telecaller</span>
+            <span class="text-white-50"><i class="fa fa-angle-right mr-2"></i>Insurance & Mutual Funds
+              Sales</span>
+          </div>
+        </div>
+
+        <!-- Policies -->
+        <div class="col-md-4 mb-5">
+          <h3 class="text-white mb-4">Quick Links</h3>
+          <div class="d-flex flex-column justify-content-start">
+            <a class="text-white-50 mb-2" href="privacy-policy.html">
+              <i class="fa fa-angle-right mr-2"></i>Privacy Policy
+            </a>
+            <a class="text-white-50 mb-2" href="terms-and-conditions.html">
+              <i class="fa fa-angle-right mr-2"></i>Terms & Conditions
+            </a>
+            <a class="text-white-50 mb-2" href="refund-policy.html">
+              <i class="fa fa-angle-right mr-2"></i>Refund Policy
+            </a>
+            <a class="text-white-50 mb-2" href="contact.html">
+              <i class="fa fa-angle-right mr-2"></i>Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-dark text-white-50 border-top py-4"
+    style="border-color: rgba(256, 256, 256, .1) !important;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+          <p class="m-0">
+            Copyright &copy; <a class="text-white" href="#">FINEDGE Training Institute</a>.
+            All Rights Reserved.
+          </p>
+        </div>
+        <div class="col-md-6 text-center text-md-right">
+          <p class="m-0">
+            Designed & Developed by <a class="text-white" href="#">Abdul Muthalif</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer End -->
+
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i
+      class="fa fa-angle-double-up"></i></a>
+
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+  <!-- Razorpay Payment Handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      async function attachRazorpayHandler(buttonId) {
+        const btn = document.getElementById(buttonId);
+        if (!btn) return;
+
+        btn.addEventListener('click', async function (e) {
+          e.preventDefault();
+
+          try {
+            // 1️⃣ CREATE ORDER (BACKEND)
+            const amountInRupees = 1000; // ₹1000
+            const orderRes = await fetch("/api/create-order", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ amount: amountInRupees })
+            });
+
+            const order = await orderRes.json();
+
+            if (!order || !order.id) {
+              alert("Order creation failed. Try again.");
+              console.error(order);
+              return;
+            }
+
+            // 2️⃣ RAZORPAY CHECKOUT OPTIONS
+            const options = {
+              key: "rzp_test_RHbBgF8WNVIjMp", // 🔁 change to LIVE key only
+              amount: order.amount,
+              currency: order.currency,
+              name: "FINEDGE Training Institute",
+              description: "30-Day BFSI Job Readiness Program",
+              order_id: order.id, // ✅ REQUIRED
+
+              handler: async function (response) {
+                // 3️⃣ VERIFY PAYMENT (BACKEND)
+                const verifyRes = await fetch("/api/verify-payment", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    razorpay_order_id: response.razorpay_order_id,
+                    razorpay_payment_id: response.razorpay_payment_id,
+                    razorpay_signature: response.razorpay_signature,
+                  })
+                });
+
+                const verifyData = await verifyRes.json();
+
+                if (verifyData.verified) {
+                  alert("🎉 Payment Successful & Verified!\nPayment ID: " + verifyData.paymentId);
+                } else {
+                  alert("❌ Payment verification failed!");
+                }
+              },
+
+              theme: { color: "#007bff" }
+            };
+
+            const rzp = new Razorpay(options);
+            rzp.open();
+          } catch (err) {
+            console.error(err);
+            alert("Something went wrong starting the payment.");
+          }
+        });
+      }
+
+      attachRazorpayHandler('payButton');       // Navbar button
+      attachRazorpayHandler('payButtonApply');  // Form button
+    });
+  </script>
+
+  <!-- Apply Form Mailto Handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.getElementById('applyForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var d = new FormData(form);
+        var enc = function (s) { return encodeURIComponent(s || ''); };
+
+        var subject = 'Application — FINEDGE Training Institute (' + enc(d.get('name')) + ')';
+        var body =
+          'Name: ' + enc(d.get('name')) + '%0D%0A' +
+          'Phone: ' + enc(d.get('phone')) + '%0D%0A' +
+          'Email: ' + enc(d.get('email')) + '%0D%0A' +
+          'Interest: ' + enc(d.get('interest')) + '%0D%0A%0D%0A' +
+          'Notes:%0D%0A' + enc(d.get('notes'));
+
+        window.location.href =
+          'mailto:info@finedgetraininginstitute.com?subject=' + subject + '&body=' + body;
+
+        alert(
+          'Opening your email app to send the application. ' +
+          'If it does not open, please email us at info@finedgetraininginstitute.com.'
+        );
+
+        form.reset();
+      });
+    });
+  </script>
+  <!-- Contact Form Mailto Handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var cform = document.getElementById('contactForm');
+      if (!cform) return;
+
+      cform.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var d = new FormData(cform);
+        var enc = function (s) { return encodeURIComponent(s || ''); };
+
+        var subject =
+          'Contact Enquiry — ' + enc(d.get('subject')) +
+          ' (' + enc(d.get('name')) + ')';
+
+        var body =
+          'Name: ' + enc(d.get('name')) + '%0D%0A' +
+          'Email: ' + enc(d.get('email')) + '%0D%0A' +
+          'Subject: ' + enc(d.get('subject')) + '%0D%0A%0D%0A' +
+          'Message:%0D%0A' + enc(d.get('message'));
+
+        window.location.href =
+          'mailto:info@finedgetraininginstitute.com?subject=' + subject + '&body=' + body;
+
+        alert(
+          'Opening your email app to send the message. ' +
+          'If it does not open, please email us at info@finedgetraininginstitute.com.'
+        );
+
+        cform.reset();
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var newsletterForm = document.getElementById('newsletterForm');
+      if (!newsletterForm) return;
+
+      newsletterForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var email = this.email.value.trim();
+        if (!email) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+
+        // 🔹 Data to send to EmailJS (match these keys with your EmailJS template variables)
+        var templateParams = {
+          subscriber_email: email
+          // you can add more fields if you want, e.g.
+          // source_page: "Homepage footer"
+        };
+
+        // 🔹 Send via EmailJS
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_NEWSLETTER_TEMPLATE_ID", templateParams)
+          .then(function (response) {
+            alert("Thank you! We’ll keep you updated on upcoming BFSI batches.");
+            newsletterForm.reset();
+          }, function (error) {
+            alert("Unable to subscribe right now. Please try again or email us directly.");
+            console.error("EmailJS newsletter error:", error);
+          });
+      });
+    });
+  </script>
+
+
+  <script>
+    document.getElementById("applyForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const data = {
+        name: this.name.value,
+        phone: this.phone.value,
+        email: this.email.value,
+        interest: this.interest.value,
+        notes: this.notes.value
+      };
+
+      emailjs.send("service_724c1ef", "YOUR_TEMPLATE_ID", data)
+        .then(function (response) {
+          alert("Application submitted! Brochure has been emailed to you.");
+          document.getElementById("applyForm").reset();
+        }, function (error) {
+          alert("Failed to send email. Please WhatsApp us directly.");
+          console.log(error);
+        });
+    });
+  </script>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/918431305295?text=Hi%20I%20want%20to%20know%20more%20about%20BFSI%20Job%20Readiness%20Program"
+    class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
 </body>
+
+</html>
+
+</body>
+
+</html>
+
+
+</body>
+
+</html>
+
+</body>
+
 </html>

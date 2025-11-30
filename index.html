@@ -4,15 +4,36 @@
 <head>
   <meta charset="utf-8">
   <title>FINEDGE TRAINING INSTITUTE</title>
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    (function () {
-      emailjs.init("5TP3xMNs4APsdgAgx");
-    })();
-  </script>
+ <!-- Standard Favicon -->
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- PNG Icons -->
+<link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="img/icons/favicon-48.png">
+
+<!-- Apple Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+
+<!-- Android Icons -->
+<link rel="icon" type="image/png" sizes="192x192" href="img/icons/android-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="img/icons/android-512.png">
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <!-- EmailJS SDK (new recommended script) -->
+<!-- EmailJS SDK (v4) -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    emailjs.init({
+      publicKey: "5TP3xMNs4APsdgAgx",  // ✅ your public key
+    });
+  })();
+</script>
+
+
+
+  <!-- <meta content="width=device-width, initial-scale=1.0" name="viewport"> -->
   <meta content="" name="">
   <meta content="" name="">
 
@@ -1003,7 +1024,7 @@
 
             // 2️⃣ RAZORPAY CHECKOUT OPTIONS
             const options = {
-              key: "rzp_test_RHbBgF8WNVIjMp", // 🔁 change to LIVE key only
+              key: "rzp_live_RjGNUSpVFIuRog", // 🔁 change to LIVE key only
               amount: order.amount,
               currency: order.currency,
               name: "FINEDGE Training Institute",
@@ -1048,72 +1069,101 @@
     });
   </script>
 
-  <!-- Apply Form Mailto Handler -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var form = document.getElementById('applyForm');
-      if (!form) return;
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const applyForm = document.getElementById("applyForm");
+    if (!applyForm) return;
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
+    applyForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-        var d = new FormData(form);
-        var enc = function (s) { return encodeURIComponent(s || ''); };
+      const formData = new FormData(applyForm);
 
-        var subject = 'Application — FINEDGE Training Institute (' + enc(d.get('name')) + ')';
-        var body =
-          'Name: ' + enc(d.get('name')) + '%0D%0A' +
-          'Phone: ' + enc(d.get('phone')) + '%0D%0A' +
-          'Email: ' + enc(d.get('email')) + '%0D%0A' +
-          'Interest: ' + enc(d.get('interest')) + '%0D%0A%0D%0A' +
-          'Notes:%0D%0A' + enc(d.get('notes'));
+      const templateParams = {
+        // to INSTITUTE (template_n5mq7jd)
+        name: formData.get("name"),
+        phone: formData.get("phone"),
+        email: formData.get("email"),
+        interest: formData.get("interest"),
+        notes: formData.get("notes") || "",
+        brochure_link: "https://finedgetraininginstitute.vercel.app/brochure/Finedge-Brochure-v5.pdf"
+        // 👆 change this to your actual brochure URL
+      };
 
-        window.location.href =
-          'mailto:info@finedgetraininginstitute.com?subject=' + subject + '&body=' + body;
+      // Show a simple loading state
+      const submitBtn = applyForm.querySelector("button[type='submit']");
+      const originalText = submitBtn.innerText;
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Submitting...";
 
-        alert(
-          'Opening your email app to send the application. ' +
-          'If it does not open, please email us at info@finedgetraininginstitute.com.'
-        );
+      emailjs
+        .send("service_724c1ef", "template_n5mq7jd", templateParams)
+        .then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
 
-        form.reset();
-      });
+            // Auto-send mail to student with brochure (template_rohr2r4)
+            emailjs.send("service_724c1ef", "template_rohr2r4", templateParams);
+
+            alert("Application submitted! Please check your email for the brochure.");
+            applyForm.reset();
+          },
+          function (error) {
+            console.error("FAILED...", error);
+            alert("Failed to submit application. Please try again or WhatsApp us directly.");
+          }
+        )
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.innerText = originalText;
+        });
     });
-  </script>
-  <!-- Contact Form Mailto Handler -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var cform = document.getElementById('contactForm');
-      if (!cform) return;
+  });
+</script>
 
-      cform.addEventListener('submit', function (e) {
-        e.preventDefault();
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById("contactForm");
+    if (!contactForm) return;
 
-        var d = new FormData(cform);
-        var enc = function (s) { return encodeURIComponent(s || ''); };
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-        var subject =
-          'Contact Enquiry — ' + enc(d.get('subject')) +
-          ' (' + enc(d.get('name')) + ')';
+      const formData = new FormData(contactForm);
 
-        var body =
-          'Name: ' + enc(d.get('name')) + '%0D%0A' +
-          'Email: ' + enc(d.get('email')) + '%0D%0A' +
-          'Subject: ' + enc(d.get('subject')) + '%0D%0A%0D%0A' +
-          'Message:%0D%0A' + enc(d.get('message'));
+      const templateParams = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        subject: formData.get("subject"),
+        message: formData.get("message")
+      };
 
-        window.location.href =
-          'mailto:info@finedgetraininginstitute.com?subject=' + subject + '&body=' + body;
+      const submitBtn = contactForm.querySelector("button[type='submit']");
+      const originalText = submitBtn.innerText;
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Sending...";
 
-        alert(
-          'Opening your email app to send the message. ' +
-          'If it does not open, please email us at info@finedgetraininginstitute.com.'
-        );
-
-        cform.reset();
-      });
+      emailjs
+        .send("service_724c1ef", "template_rohr2r4", templateParams) // or your contact template ID
+        .then(
+          function (response) {
+            console.log("CONTACT SUCCESS!", response.status, response.text);
+            alert("Thank you! Your message has been sent.");
+            contactForm.reset();
+          },
+          function (error) {
+            console.error("CONTACT FAILED...", error);
+            alert("Failed to send message. Please email us directly.");
+          }
+        )
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.innerText = originalText;
+        });
     });
-  </script>
+  });
+</script>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var newsletterForm = document.getElementById('newsletterForm');
@@ -1136,7 +1186,7 @@
         };
 
         // 🔹 Send via EmailJS
-        emailjs.send("YOUR_SERVICE_ID", "YOUR_NEWSLETTER_TEMPLATE_ID", templateParams)
+        emailjs.send("service_724c1ef", "template_rohr2r4", templateParams)
           .then(function (response) {
             alert("Thank you! We’ll keep you updated on upcoming BFSI batches.");
             newsletterForm.reset();
@@ -1148,48 +1198,11 @@
     });
   </script>
 
-
-  <script>
-    document.getElementById("applyForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const data = {
-        name: this.name.value,
-        phone: this.phone.value,
-        email: this.email.value,
-        interest: this.interest.value,
-        notes: this.notes.value
-      };
-
-      emailjs.send("service_724c1ef", "YOUR_TEMPLATE_ID", data)
-        .then(function (response) {
-          alert("Application submitted! Brochure has been emailed to you.");
-          document.getElementById("applyForm").reset();
-        }, function (error) {
-          alert("Failed to send email. Please WhatsApp us directly.");
-          console.log(error);
-        });
-    });
-  </script>
-
   <!-- Floating WhatsApp Button -->
   <a href="https://wa.me/918431305295?text=Hi%20I%20want%20to%20know%20more%20about%20BFSI%20Job%20Readiness%20Program"
     class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
-
-</body>
-
-</html>
-
-</body>
-
-</html>
-
-
-</body>
-
-</html>
 
 </body>
 

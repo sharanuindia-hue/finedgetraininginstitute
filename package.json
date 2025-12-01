@@ -1,0 +1,27 @@
+{
+  "name": "finedgetraininginstitute",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharanuindia-hue/finedgetraininginstitute.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sharanuindia-hue/finedgetraininginstitute/issues"
+  },
+  "homepage": "https://github.com/sharanuindia-hue/finedgetraininginstitute#readme",
+  "dependencies": {
+    "razorpay": "^2.9.6"
+  }
+}

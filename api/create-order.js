@@ -1,3 +1,4 @@
+// api/create-order.js
 import Razorpay from "razorpay";
 
 export default async function handler(req, res) {
@@ -7,7 +8,9 @@ export default async function handler(req, res) {
 
   try {
     const { amount } = req.body;
-    if (!amount) return res.status(400).json({ error: "Amount required" });
+    if (!amount) {
+      return res.status(400).json({ error: "Amount required" });
+    }
 
     const razorpay = new Razorpay({
       key_id: process.env.RAZORPAY_KEY_ID,

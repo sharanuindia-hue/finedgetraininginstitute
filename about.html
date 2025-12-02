@@ -192,7 +192,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 pb-4">
                     <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                        <img class="img-fluid h-100" src="img/Sharan.webp" alt="">
+                        <img class="img-fluid h-100" src="img/sharan3.jpg" alt="">
                         <div class="courses-text">
                             <h4 class="text-center text-white px-3">Founder</h4>
                             <div class="border-top w-100 mt-3">
@@ -391,80 +391,79 @@
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
         <!-- Razorpay Payment Handler -->
-       <script>
-document.addEventListener('DOMContentLoaded', function () {
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
 
-  async function attachRazorpayHandler(buttonId) {
-    const btn = document.getElementById(buttonId);
-    if (!btn) return;
+      async function attachRazorpayHandler(buttonId) {
+        const btn = document.getElementById(buttonId);
+        if (!btn) return;
 
-    btn.addEventListener('click', async function (e) {
-      e.preventDefault();
+        btn.addEventListener('click', async function (e) {
+          e.preventDefault();
 
-      try {
-        // 1️⃣ CREATE ORDER (BACKEND)
-        const amountInRupees = 1000; // ₹1000
-        const orderRes = await fetch("/api/create-order", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: amountInRupees })
-        });
-
-        const order = await orderRes.json();
-
-        if (!order || !order.id) {
-          alert("Order creation failed. Try again.");
-          console.error(order);
-          return;
-        }
-
-        // 2️⃣ RAZORPAY CHECKOUT OPTIONS
-        const options = {
-          key: "rzp_test_RHbBgF8WNVIjMp", // 🔁 change to LIVE key only
-          amount: order.amount,
-          currency: order.currency,
-          name: "FINEDGE Training Institute",
-          description: "30-Day BFSI Job Readiness Program",
-          order_id: order.id, // ✅ REQUIRED
-          
-          handler: async function (response) {
-            // 3️⃣ VERIFY PAYMENT (BACKEND)
-            const verifyRes = await fetch("/api/verify-payment", {
+          try {
+            // 1️⃣ CREATE ORDER (BACKEND)
+            const amountInRupees = 1000; // ₹1000
+            const orderRes = await fetch("/api/create-order", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature,
-              })
+              body: JSON.stringify({ amount: amountInRupees })
             });
 
-            const verifyData = await verifyRes.json();
+            const order = await orderRes.json();
 
-            if (verifyData.verified) {
-              alert("🎉 Payment Successful & Verified!\nPayment ID: " + verifyData.paymentId);
-            } else {
-              alert("❌ Payment verification failed!");
+            if (!order || !order.id) {
+              alert("Order creation failed. Try again.");
+              console.error(order);
+              return;
             }
-          },
 
-          theme: { color: "#007bff" }
-        };
+            // 2️⃣ RAZORPAY CHECKOUT OPTIONS
+            const options = {
+              key: "rzp_live_RjGNUSpVFIuRog", // 🔁 change to LIVE key only
+              amount: order.amount,
+              currency: order.currency,
+              name: "FINEDGE Training Institute",
+              description: "30-Day BFSI Job Readiness Program",
+              order_id: order.id, // ✅ REQUIRED
 
-        const rzp = new Razorpay(options);
-        rzp.open();
-      } catch (err) {
-        console.error(err);
-        alert("Something went wrong starting the payment.");
+              handler: async function (response) {
+                // 3️⃣ VERIFY PAYMENT (BACKEND)
+                const verifyRes = await fetch("/api/verify-payment", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    razorpay_order_id: response.razorpay_order_id,
+                    razorpay_payment_id: response.razorpay_payment_id,
+                    razorpay_signature: response.razorpay_signature,
+                  })
+                });
+
+                const verifyData = await verifyRes.json();
+
+                if (verifyData.verified) {
+                  alert("🎉 Payment Successful & Verified!\nPayment ID: " + verifyData.paymentId);
+                } else {
+                  alert("❌ Payment verification failed!");
+                }
+              },
+
+              theme: { color: "#007bff" }
+            };
+
+            const rzp = new Razorpay(options);
+            rzp.open();
+          } catch (err) {
+            console.error(err);
+            alert("Something went wrong starting the payment.");
+          }
+        });
       }
+
+      attachRazorpayHandler('payButton');       // Navbar button
+      attachRazorpayHandler('payButtonApply');  // Form button
     });
-  }
-
-  attachRazorpayHandler('payButton');       // Navbar button
-  attachRazorpayHandler('payButtonApply');  // Form button
-});
-</script>
-
+  </script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

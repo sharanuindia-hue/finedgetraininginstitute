@@ -5353,6 +5353,85 @@ input[type="button"].btn-block {
   justify-content: space-between;
 }
 
+/* Prevent scrolling when menu open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Dark background overlay behind menu */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 9998;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+/* HAMBURGER TOGGLE ICON */
+.navbar-toggler {
+  border: none;
+  padding: 4px;
+  background: transparent !important;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.hamburger {
+  width: 26px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #000; /* change to #fff if navbar is dark */
+  border-radius: 3px;
+  transition: all 0.35s ease;
+}
+
+/* When button has .active = make X icon */
+.navbar-toggler.active .hamburger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggler.active .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler.active .hamburger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Hamburger icon color fix */
+.navbar-light .navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .navbar-brand {
   display: inline-block;
   padding-top: 0.3125rem;
@@ -5391,11 +5470,34 @@ input[type="button"].btn-block {
   padding-bottom: 0.5rem;
 }
 
+/* DEFAULT (desktop) – keep Bootstrap flex behaviour */
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
   align-items: center;
 }
+
+/* MOBILE OVERLAY STYLE */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    position: fixed !important;
+    top: -100%;
+    right: 0;
+    width: 75%;
+    max-width: 320px;
+    height: auto;
+    background: #ffffff;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    padding: 70px 25px 25px;
+    transition: top 0.35s ease-in-out;
+    z-index: 9999;
+  }
+
+  .navbar-collapse.show {
+    top: 11% !important; /* height of navbar */
+  }
+}
+
 
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
@@ -11496,4 +11598,302 @@ h6,
   .program-hero .display-3 {
     font-size: 2.1rem;
   }
+}
+/* Courses section filters */
+.course-filter-chip {
+  border: 1px solid rgba(0, 123, 255, 0.25);
+  background: #ffffff;
+  color: #0d2b5b;
+  border-radius: 999px;
+  padding: 8px 16px;
+  margin: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.course-filter-chip:hover,
+.course-filter-chip.active {
+  background: linear-gradient(135deg, #0d6efd, #2f89ff);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* Modern course cards */
+.course-card-modern {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 18px 18px;
+  box-shadow: 0 14px 30px rgba(15, 45, 80, 0.08);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card-modern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.course-card-modern:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(15, 45, 80, 0.16);
+}
+
+.course-card-modern:hover::before {
+  opacity: 1;
+}
+
+/* pill at top-left */
+.course-tag-badge {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.badge-primary-soft {
+  background: rgba(13, 110, 253, 0.1);
+  color: #0d6efd;
+}
+
+.badge-info-soft {
+  background: rgba(23, 162, 184, 0.12);
+  color: #17a2b8;
+}
+
+.badge-warning-soft {
+  background: rgba(255, 193, 7, 0.13);
+  color: #d39e00;
+}
+
+.badge-success-soft {
+  background: rgba(40, 167, 69, 0.12);
+  color: #28a745;
+}
+
+/* icon circle */
+.course-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #0d6efd, #2f89ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: #fff;
+  font-size: 1.4rem;
+  box-shadow: 0 10px 18px rgba(13, 110, 253, 0.35);
+}
+
+.course-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f2341;
+  margin-bottom: 8px;
+}
+
+.course-text {
+  font-size: 0.86rem;
+  color: #6c757d;
+  margin-bottom: 14px;
+  min-height: 72px; /* keeps cards even */
+}
+
+/* meta row */
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #4c5a72;
+  margin-bottom: 14px;
+}
+
+.course-meta span {
+  background: #f3f6fb;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+/* footer */
+.course-footer {
+  margin-top: auto;
+}
+ .thankyou-hero {
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, #2878EB 0%, #061429 55%, #020712 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 15px;
+    }
+
+    .thankyou-card {
+      background: rgba(255,255,255,0.02);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 32px 28px;
+      max-width: 720px;
+      width: 100%;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .thankyou-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #35d07f, #00b894);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .thankyou-icon i {
+      font-size: 34px;
+      color: #fff;
+    }
+
+    .thankyou-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(40,120,235,0.12);
+      color: #cfe1ff;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .thankyou-badge i {
+      margin-right: 6px;
+      font-size: 12px;
+    }
+
+    .thankyou-title {
+      font-family: "Jost", sans-serif;
+      font-weight: 600;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .thankyou-subtitle {
+      color: #c3c9f5;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .thankyou-details {
+      background: rgba(0,0,0,0.35);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    }
+
+    .thankyou-details p {
+      margin-bottom: 4px;
+      font-size: 13px;
+      color: #d7e2ff;
+    }
+
+    .thankyou-details strong {
+      color: #fff;
+    }
+
+    .thankyou-actions .btn {
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .thankyou-actions .btn-outline-light {
+      border-width: 1px;
+    }
+
+    .thankyou-meta {
+      font-size: 11px;
+      color: #9aa3d2;
+      margin-top: 16px;
+    }
+
+    .thankyou-meta a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media (min-width: 768px) {
+      .thankyou-title {
+        font-size: 32px;
+      }
+    }
+    /* ===== Custom Status Popup ===== */
+.status-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.status-popup.show {
+  display: flex;
+}
+
+.status-popup-inner {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px 24px 18px;
+  width: 90%;
+  max-width: 360px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
+  text-align: center;
+}
+
+/* Icon circle */
+.status-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* Success */
+.status-icon.success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+/* Error */
+.status-icon.error {
+  background: rgba(248, 113, 113, 0.12);
+  color: #dc2626;
+}
+
+/* Info */
+.status-icon.info {
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563eb;
 }

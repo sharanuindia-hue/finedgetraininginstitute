@@ -1,74 +1,107 @@
 /* ---------------------------------------------------------
    1. RAZORPAY PAYMENT HANDLER
 --------------------------------------------------------- */
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-  async function attachRazorpayHandler(buttonId) {
-    const btn = document.getElementById(buttonId);
-    if (!btn) return;
+  const form = document.getElementById("applyForm");
+  const payButton = document.getElementById("payButtonApply");
 
-    btn.addEventListener("click", async function (e) {
-      e.preventDefault();
+  const GST_RATE = 0.18;
 
-      try {
-        const amountInRupees = 1000;
-        const orderRes = await fetch("/api/create-order", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: amountInRupees })
-        });
+  const baseInput = document.getElementById("baseAmount");
+  const gstInput = document.getElementById("gstAmount");
+  const totalInput = document.getElementById("totalAmount");
 
-        const order = await orderRes.json();
-        if (!order || !order.id) {
-          alert("Order creation failed. Try again.");
-          console.error(order);
-          return;
-        }
+  function calculate() {
+    const base = Number(baseInput.value || 0);
+    const gst = Math.round(base * GST_RATE);
+    const total = base + gst;
 
-        const options = {
-          key: "rzp_live_RjGNUSpVFIuRog",
-          amount: order.amount,
-          currency: order.currency,
-          name: "FINEDGE Training Institute",
-          description: "30-Day BFSI Job Readiness Program",
-          order_id: order.id,
-
-          handler: async function (response) {
-            const verifyRes = await fetch("/api/verify-payment", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature
-              })
-            });
-
-            const verifyData = await verifyRes.json();
-
-            if (verifyData.verified) {
-              alert("🎉 Payment Successful!\nPayment ID: " + verifyData.paymentId);
-            } else {
-              alert("❌ Payment verification failed!");
-            }
-          },
-
-          theme: { color: "#007bff" }
-        };
-
-        const rzp = new Razorpay(options);
-        rzp.open();
-
-      } catch (err) {
-        console.error(err);
-        alert("Something went wrong starting the payment.");
-      }
-    });
+    gstInput.value = gst.toLocaleString("en-IN");
+    totalInput.value = total.toLocaleString("en-IN");
+    return total;
   }
 
-  attachRazorpayHandler("payButton");
-  attachRazorpayHandler("payButtonApply");
+  // initial GST calculation
+  calculate();
+
+  baseInput.addEventListener("input", calculate);
+
+  // 🔹 Enable button only when form is valid
+  function togglePayButton() {
+    payButton.disabled = !form.checkValidity();
+  }
+
+  // listen to all inputs
+  form.addEventListener("input", togglePayButton);
+  form.addEventListener("change", togglePayButton);
+
+  // initial check
+  togglePayButton();
+
+  // Razorpay flow
+  payButton.addEventListener("click", async () => {
+
+    // Final safety check
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const totalAmount = calculate();
+
+    if (totalAmount < 500) {
+      alert("Invalid payment amount");
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: totalAmount })
+      });
+
+      const order = await res.json();
+      if (!order.id) {
+        alert("Order creation failed");
+        return;
+      }
+
+      const options = {
+        key: "rzp_live_RjGNUSpVFIuRog",
+        amount: order.amount,
+        currency: "INR",
+        name: "FINEDGE Training Institute",
+        description: "Program Fee + 18% GST",
+        order_id: order.id,
+
+        handler: async function (response) {
+          const verifyRes = await fetch("/api/verify-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(response)
+          });
+
+          const verifyData = await verifyRes.json();
+
+          if (verifyData.verified) {
+            alert("✅ Payment successful!");
+          } else {
+            alert("❌ Payment verification failed");
+          }
+        }
+      };
+
+      new Razorpay(options).open();
+
+    } catch (err) {
+      console.error(err);
+      alert("Payment initiation failed");
+    }
+  });
 });
+
 
 
 /* ---------------------------------------------------------

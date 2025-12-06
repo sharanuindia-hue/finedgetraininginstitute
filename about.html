@@ -18,7 +18,9 @@
   <!-- Android Icons -->
   <link rel="icon" type="image/png" sizes="192x192" href="img/icons/android-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="img/icons/android-512.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- <meta content="width=device-width, initial-scale=1.0" name="viewport"> -->
   <meta content="" name="">
   <meta content="" name="">
@@ -52,7 +54,7 @@
 
 <body>
 
-<!-- Navbar Start -->
+  <!-- Navbar Start -->
   <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
       <a href="index.html" class="navbar-brand ml-lg-3">
@@ -61,17 +63,13 @@
           <!-- FINEDGE TRAINING INSTITUTE -->
         </h4>
       </a>
-      <button
-  type="button"
-  class="navbar-toggler"
-  aria-label="Toggle navigation"
->
-  <div class="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</button>
+      <button type="button" class="navbar-toggler" aria-label="Toggle navigation">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
 
 
       <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
@@ -81,7 +79,8 @@
           <a href="course.html" class="nav-item nav-link">Courses</a>
           <a href="contact.html" class="nav-item nav-link">Contact</a>
         </div>
-        <a href="#" id="payButton" class="btn btn-primary py-2 px-4 d-none d-lg-block">
+        <a href="index.html#apply" id="payButton" class="btn btn-primary py-2 px-4 d-none d-lg-block"  data-toggle="modal"
+          data-target="#applyModal">
           Pay Now
         </a>
 
@@ -108,10 +107,11 @@
       </p>
 
       <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
-        <a href="#apply" class="btn btn-primary py-3 px-5 mr-sm-3 mb-3 mb-sm-0">
+        <a href="#apply" class="btn btn-primary py-3 px-5 mr-sm-3 mb-3 mb-sm-0"  data-toggle="modal"
+          data-target="#applyModal">
           Apply for Next Batch
         </a>
-        <a href="#programs" class="btn btn-outline-light py-3 px-5">
+        <a href="index.html#programs" class="btn btn-outline-light py-3 px-5">
           View Programs
         </a>
       </div>
@@ -231,10 +231,279 @@
 
   <!-- About End -->
 
+ <!-- APPLY MODAL -->
+  <div class="modal fade apply-modal" id="applyModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content apply-modal-content">
 
-  <!-- Feature Start -->
+        <!-- Close Button -->
+        <button type="button" class="close apply-modal-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
 
-  <!-- Feature Start -->
+        <div class="row no-gutters">
+          <!-- LEFT: Info / Visual -->
+          <div class="col-lg-4 d-none d-lg-flex align-items-stretch">
+            <div class="apply-modal-left">
+              <div class="apply-pill">BFSI Job Accelerator</div>
+              <h3 class="mb-3">Admission Form – Quick Online Application</h3>
+              <p>
+                Share your basic admission details for the
+                <strong>BFSI Job Accelerator Program</strong>. Our team will verify
+                and guide you on fees, batch and next steps.
+              </p>
+
+              <ul class="apply-highlights">
+                <li><i class="fa fa-check-circle"></i> NSDC / BFSI SSC aligned program</li>
+                <li><i class="fa fa-check-circle"></i> Placement-focused training</li>
+                <li><i class="fa fa-check-circle"></i> Support for banking & finance roles</li>
+              </ul>
+
+              <div class="apply-badge">
+                <i class="fa fa-shield-alt"></i>
+                Admission details stay secure & confidential
+              </div>
+
+              <div class="apply-contact mt-4">
+                <p class="small mb-1"><i class="fa fa-phone mr-1"></i> 080-23335777 / +91 84313 05295</p>
+                <p class="small mb-0"><i class="fa fa-envelope mr-1"></i> info@finedgetraininginstitute.com</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Multi-section Form -->
+          <div class="col-lg-8">
+            <div class="apply-modal-right">
+              <h4 class="mb-2">Fill Your Admission Details</h4>
+              <p class="text-muted small mb-4">
+                Fields marked with * are mandatory. You’ll receive a confirmation mail with program
+                details after submission.
+              </p>
+
+              <form id="applyForm">
+                <!-- SECTION: Personal Information -->
+                <div class="apply-section mb-3">
+                  <h6 class="text-uppercase text-muted small mb-2">Personal Information</h6>
+                  <!-- Full Name + DOB -->
+                  <div class="form-row">
+                    <div class="form-group col-md-8">
+                      <label class="small text-muted">Full Name*</label>
+                      <input type="text" name="name" class="form-control apply-input" placeholder="Enter your full name"
+                        required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label class="small text-muted">Date of Birth*</label>
+                      <input type="date" name="dob" class="form-control apply-input" required>
+                    </div>
+                  </div>
+
+                  <!-- Gender + Nationality -->
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label class="small text-muted">Gender*</label>
+                      <select name="gender" class="custom-select apply-input" required>
+                        <option value="" disabled selected>Select gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                        <option>Prefer not to say</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="small text-muted">Nationality*</label>
+                      <input type="text" name="nationality" class="form-control apply-input" placeholder="e.g. Indian"
+                        required>
+                    </div>
+                  </div>
+
+                  <!-- Contact Number + Email -->
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label class="small text-muted">Contact Number (WhatsApp)*</label>
+                      <input type="tel" name="phone" class="form-control apply-input"
+                        placeholder="10-digit mobile number" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="small text-muted">Email Address*</label>
+                      <input type="email" name="email" class="form-control apply-input" placeholder="you@example.com"
+                        required>
+                    </div>
+                  </div>
+
+                  <!-- Current & Permanent Address -->
+                  <div class="form-group">
+                    <label class="small text-muted">Current Address*</label>
+                    <textarea name="current_address" class="form-control apply-input" rows="2"
+                      placeholder="House No, Street, Area, City, State, Pincode" required></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="small text-muted">Permanent Address</label>
+                    <textarea name="permanent_address" class="form-control apply-input" rows="2"
+                      placeholder="Fill only if different from current address"></textarea>
+                  </div>
+                </div>
+
+                <!-- SECTION: Parent / Guardian Details -->
+                <div class="apply-section mb-3">
+                  <h6 class="text-uppercase text-muted small mb-2">Parent / Guardian</h6>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-8">
+                      <label class="small text-muted">Parent / Guardian Name</label>
+                      <input type="text" name="parent_name" class="form-control apply-input"
+                        placeholder="Name of parent or guardian">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label class="small text-muted">Relationship</label>
+                      <input type="text" name="parent_relationship" class="form-control apply-input"
+                        placeholder="e.g. Father, Mother">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SECTION: Educational Background -->
+                <div class="apply-section mb-3">
+                  <h6 class="text-uppercase text-muted small mb-2">Educational Background</h6>
+
+                  <div class="form-group">
+                    <label class="small text-muted">School / College / University*</label>
+                    <input type="text" name="institution" class="form-control apply-input"
+                      placeholder="Name of your latest institution" required>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label class="small text-muted">Year of Passing*</label>
+                      <input type="text" name="year_of_passing" class="form-control apply-input" placeholder="e.g. 2024"
+                        required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="small text-muted">Percentage / CGPA</label>
+                      <input type="text" name="marks" class="form-control apply-input"
+                        placeholder="e.g. 68% or 7.2 CGPA">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SECTION: Program Details -->
+                <div class="apply-section mb-3">
+                  <h6 class="text-uppercase text-muted small mb-2">Program Details</h6>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-7">
+                      <label class="small text-muted">Program Name*</label>
+                      <input type="text" name="program_name" class="form-control apply-input"
+                        value="BFSI Job Accelerator Program" required>
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label class="small text-muted">Preferred Batch / Session*</label>
+                      <input type="text" name="preferred_batch" class="form-control apply-input"
+                        placeholder="e.g. Jan 2026 Evening Batch" required>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label class="small text-muted">Duration of Program</label>
+                      <input type="text" name="duration" class="form-control apply-input" value="30 Days">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="small text-muted">Course Fee (₹)</label>
+                      <input type="text" name="course_fee" class="form-control apply-input" placeholder="As informed">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="small text-muted">Net Payable (₹)</label>
+                      <input type="text" name="net_payable" class="form-control apply-input"
+                        placeholder="Final payable">
+                    </div>
+                  </div>
+
+                  <!-- Role interest (kept for your existing EmailJS template) -->
+                  <div class="form-group">
+                    <label class="small text-muted">Preferred BFSI Role*</label>
+                    <select name="interest" class="custom-select apply-input" required>
+                      <option value="" disabled selected>Select your preferred role</option>
+                      <option>Personal Banker / Relationship Manager</option>
+                      <option>Loan Sales (Home/Auto/Personal)</option>
+                      <option>Credit / Collections / Operations</option>
+                      <option>Customer Support / Telecaller</option>
+                      <option>Insurance / Mutual Funds Sales</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- SECTION: Additional Notes -->
+                <div class="apply-section mb-3">
+                  <h6 class="text-uppercase text-muted small mb-2">Additional Information</h6>
+                  <div class="form-group mb-2">
+                    <label class="small text-muted">Any questions or current job/education status?</label>
+                    <textarea name="notes" class="form-control apply-input" rows="3"
+                      placeholder="Share your doubts, current job, or academic status"></textarea>
+                  </div>
+
+                  <p class="text-muted extra-small mb-0">
+                    By submitting this form, I confirm that the above information is true to the best of my knowledge
+                    and I agree to abide by the rules and regulations of Finedge Training Institute.
+                  </p>
+                </div>
+
+                <!-- ACTION & PAYMENT SECTION -->
+                <div class="mt-4">
+
+                  <!-- Submit Button -->
+                  <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100" style="height:48px;">
+                      Submit Admission Form
+                    </button>
+                  </div>
+
+                  <!-- AMOUNT SECTION -->
+                  <div class="row g-2">
+                    <div class="col-12 col-md-4">
+                      <label class="small text-muted">Program Fee (₹)</label>
+                      <input type="number" id="baseAmount" class="form-control apply-input" value="50000" min="500"
+                        step="100" required>
+                    </div>
+
+                    <div class="col-6 col-md-4">
+                      <label class="small text-muted">GST (18%)</label>
+                      <input type="text" id="gstAmount" class="form-control apply-input" readonly>
+                    </div>
+
+                    <div class="col-6 col-md-4">
+                      <label class="small text-muted">Total Payable (₹)</label>
+                      <input type="text" id="totalAmount" class="form-control apply-input fw-semibold" readonly>
+                    </div>
+                  </div>
+
+                  <!-- PAY BUTTON -->
+                  <button id="payButtonApply" type="button" class="btn btn-success w-100 mt-3"
+                    style="height:50px; font-size:1rem;" disabled>
+                    Pay & Enrol Now
+                  </button>
+
+                  <!-- INFO TEXT -->
+                  <p class="text-muted extra-small mt-2 text-center">
+                    Please complete all required details to enable payment.
+                  </p>
+
+                </div>
+
+                <p class="text-muted extra-small mt-3 mb-0">
+                  Note: As per institute policy, fees once paid are generally non-refundable except in specific
+                  cases as per official terms & conditions.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Apply Modal End -->
 
 
   <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-1">
@@ -297,14 +566,14 @@
           <div class="d-flex justify-content-start mt-4">
             <a class="text-white mr-4" href="https://www.facebook.com/share/1MMdVjofkq/?mibextid=wwXIfr"><i
                 class="fa-2x fa-brands fa-square-facebook"></i></a>
-        
+
             <a class="text-white mr-4"
               href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr"><i
                 class="fa-brands fa-2x fa-square-instagram"></i></a>
             <a class="text-white mr-4"
               href="https://www.linkedin.com/in/sharan-m-0a51bb70?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i
                 class="fa-brands fa-2x fa-linkedin"></i></a>
-              
+
 
           </div>
         </div>
@@ -375,7 +644,7 @@
 
 
   <!-- JavaScript Libraries -->
-   
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
   <script src="lib/easing/easing.min.js"></script>

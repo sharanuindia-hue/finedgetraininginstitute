@@ -1,4 +1,3 @@
-// api/create-order.js
 import Razorpay from "razorpay";
 
 export default async function handler(req, res) {
@@ -8,8 +7,9 @@ export default async function handler(req, res) {
 
   try {
     const { amount } = req.body;
-    if (!amount) {
-      return res.status(400).json({ error: "Amount required" });
+
+    if (!amount || amount < 500) {
+      return res.status(400).json({ error: "Invalid amount" });
     }
 
     const razorpay = new Razorpay({
@@ -17,17 +17,18 @@ export default async function handler(req, res) {
       key_secret: process.env.RAZORPAY_KEY_SECRET,
     });
 
-    const options = {
-      amount: Math.round(amount * 100), // rupees → paise
+    const order = await razorpay.orders.create({
+      amount: Math.round(amount * 100),
       currency: "INR",
       receipt: `rcpt_${Date.now()}`,
       payment_capture: 1,
-    };
+    });
 
-    const order = await razorpay.orders.create(options);
-    return res.status(200).json(order);
+    res.status(200).json(order);
+
   } catch (err) {
-    console.error("create-order error:", err);
-    return res.status(500).json({ error: "order creation failed" });
+    console.error(err);
+    res.status(500).json({ error: "Order creation failed" });
   }
 }
+

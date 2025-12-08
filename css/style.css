@@ -27,6 +27,7 @@
   --danger: #dc3545;
   --light: #ECF4FF;
   --dark: #120F2D;
+  --finegde:#243d93;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -215,12 +216,6 @@ sup {
 @media(max-width:768px){
   .hero-modern{height:auto; padding:80px 0;}
   .hero-title{font-size:2.2rem;}
-}
-
-/* === Modern About Section v2 === */
-
-.about-modern {
-  background: radial-gradient(circle at top left, #f0f6ff 0, #ffffff 50%, #f7f8fc 100%);
 }
 
 /* Tag above heading */
@@ -446,12 +441,6 @@ sup {
 /* =========================
    WHY CHOOSE US - MODERN
    ========================= */
-
-.why-modern-section {
-  background: radial-gradient(circle at top left, #e0f2fe 0, #eff6ff 28%, #f9fafb 70%, #ffffff 100%);
-  position: relative;
-  overflow: hidden;
-}
 
 /* subtle decorative circles */
 .why-modern-section::before,
@@ -1226,7 +1215,7 @@ a {
 }
 
 a:hover {
-  color: #1154b6;
+  color: #000;
   text-decoration: underline;
 }
 
@@ -1391,11 +1380,11 @@ legend {
   gap: 10px;
 }
 .logo-img{
-  max-width: 150px;
+  max-width: 200px;
   height: auto;
 }
 .about_page_img{
-  width: 500px;
+  width:100%;
   height: auto;
 }
 .partner-item img {
@@ -1696,7 +1685,7 @@ h6, .h6 {
 
 @media (max-width: 1200px) {
   .display-4 {
-    font-size: calc(1.475rem + 2.7vw) ;
+    font-size: calc(0.475rem + 2.7vw) ;
   }
 }
 .display-5 {
@@ -5488,8 +5477,7 @@ body.menu-open {
     position: fixed !important;
     top: -100%;
     right: 0;
-    width: 75%;
-    max-width: 320px;
+    width: 100%;
     height: auto;
     background: #ffffff;
     box-shadow: -4px 0 20px rgba(0,0,0,0.15);
@@ -7770,7 +7758,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #120F2D !important;
+  background-color: #243d93 !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -11351,6 +11339,7 @@ h6,
   border-radius: 999px;
   padding: 6px 14px;
   color: #e3f2ff;
+  margin-bottom: 10px;
 }
 
 .badge-soft-primary {
@@ -11904,4 +11893,25 @@ h6,
 .status-icon.info {
   background: rgba(59, 130, 246, 0.12);
   color: #2563eb;
+}
+.image-wrap {
+  position: relative;
+  width: 100%;
+  max-height: 420px;       /* optional cap for desktop */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile optimization */
+@media (max-width: 576px) {
+  .image-wrap {
+    max-height: none;
+  }
 }

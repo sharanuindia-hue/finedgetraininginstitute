@@ -107,181 +107,85 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ---------------------------------------------------------
    2. APPLY FORM (EmailJS)
 --------------------------------------------------------- */
-document.addEventListener('DOMContentLoaded', function () {
+document.getElementById("applyForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  async function attachRazorpayHandler(buttonId, requireFormValidation = false) {
-    const btn = document.getElementById(buttonId);
-    if (!btn) return;
+  const formData = new FormData(this);
 
-    btn.addEventListener('click', async function (e) {
-      e.preventDefault();
+  const params = Object.fromEntries(formData.entries());
 
-      let amountInRupees = 1000; // default fallback
+  // ADMIN EMAIL
+  emailjs.send("service_724c1ef", "template_apply_admin", params)
 
-      // If this button is the modal one, ensure form is valid first
-      if (requireFormValidation) {
-        const applyForm    = document.getElementById("applyForm");
-        const amountField  = document.getElementById("dynamicAmount");
+    .then(() => {
+      // AUTO-REPLY
+      return emailjs.send(
+        "service_724c1ef",
+        "template_apply_autoreply",
+        params
+      );
+    })
 
-        if (!applyForm || !amountField) {
-          showStatusPopup(
-            "error",
-            "Form Not Found",
-            "Please open the admission form and try again."
-          );
-          return;
-        }
+    .then(() => {
+      alert("Application submitted successfully. Check your email.");
+      document.getElementById("applyForm").reset();
+    })
 
-        // Trigger HTML5 built-in validation
-        const isValid = applyForm.reportValidity();
-        if (!isValid) {
-          // Browser will highlight invalid fields
-          return;
-        }
-
-        // Get amount from input
-        amountInRupees = parseFloat(amountField.value);
-        if (isNaN(amountInRupees) || amountInRupees <= 0) {
-          showStatusPopup(
-            "error",
-            "Invalid Amount",
-            "Please enter a valid program fee amount (in ₹) before proceeding to payment."
-          );
-          return;
-        }
-      }
-
-      try {
-        // 1️⃣ CREATE ORDER (BACKEND)
-        const orderRes = await fetch("/api/create-order", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: amountInRupees })
-        });
-
-        const order = await orderRes.json();
-
-        if (!order || !order.id) {
-          console.error("Order response:", order);
-          showStatusPopup(
-            "error",
-            "Order Failed",
-            "We couldn’t start the payment right now. Please try again in a moment."
-          );
-          return;
-        }
-
-        // 2️⃣ RAZORPAY CHECKOUT OPTIONS
-        const options = {
-          key: "rzp_live_RjGNUSpVFIuRog", // your LIVE key
-          amount: order.amount,
-          currency: order.currency,
-          name: "FINEDGE Training Institute",
-          description: "BFSI Job Accelerator Program",
-          order_id: order.id,
-
-          handler: async function (response) {
-            // 3️⃣ VERIFY PAYMENT (BACKEND)
-            const verifyRes = await fetch("/api/verify-payment", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature,
-              })
-            });
-
-            const verifyData = await verifyRes.json();
-
-            if (verifyData.verified) {
-              showStatusPopup(
-                "success",
-                "Payment Successful 🎉",
-                "Your payment is verified. Payment ID: " + verifyData.paymentId
-              );
-              // Optional redirect:
-              // window.location.href = "/thank-you.html";
-            } else {
-              showStatusPopup(
-                "error",
-                "Verification Failed",
-                "We received your payment but could not verify it. Please contact the institute with your Payment ID."
-              );
-            }
-          },
-
-          theme: { color: "#007bff" }
-        };
-
-        const rzp = new Razorpay(options);
-        rzp.open();
-      } catch (err) {
-        console.error(err);
-        showStatusPopup(
-          "error",
-          "Something Went Wrong",
-          "We couldn’t start the payment. Please check your internet connection and try again."
-        );
-      }
+    .catch(err => {
+      console.error("APPLY FORM ERROR", err);
+      alert("Submission failed. Please try again.");
     });
-  }
-
-  // ✅ Only Option 1: payment via Apply Form button
-  attachRazorpayHandler('payButtonApply', true);
-
-  // If you want navbar Pay button JUST to open the form:
-  const navPay = document.getElementById("payButton");
-  if (navPay) {
-    navPay.addEventListener("click", function (e) {
-      e.preventDefault();
-      $('#applyModal').modal('show'); // Bootstrap modal
-    });
-  }
 });
-
 
 
 
 /* ---------------------------------------------------------
    3. CONTACT FORM (EmailJS)
 --------------------------------------------------------- */
-document.addEventListener("DOMContentLoaded", function () {
-  const contactForm = document.getElementById("contactForm");
-  if (!contactForm) return;
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+  const formData = new FormData(this);
+  const params = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    subject: formData.get("subject"),
+    message: formData.get("message")
+  };
 
-    const formData = new FormData(contactForm);
+  const btn = this.querySelector("button");
+  btn.disabled = true;
+  btn.innerText = "Sending...";
 
-    const templateParams = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      subject: formData.get("subject"),
-      message: formData.get("message")
-    };
-
-    const submitBtn = contactForm.querySelector("button[type='submit']");
-    const originalText = submitBtn.innerText;
-    submitBtn.disabled = true;
-    submitBtn.innerText = "Sending...";
-
-    emailjs.send("service_724c1ef", "template_rohr2r4", templateParams)
-      .then(() => {
-        alert("Thank you! Your message has been sent.");
-        contactForm.reset();
-      })
-      .catch(err => {
-        console.error("CONTACT FAILED", err);
-        alert("Unable to send message. Try again.");
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerText = originalText;
-      });
+  // ADMIN EMAIL
+  emailjs.send(
+    "service_724c1ef",
+    "template_contact_admin",
+    params
+  )
+  .then(() => {
+    // AUTO-REPLY
+    return emailjs.send(
+      "service_724c1ef",
+      "template_contact_autoreply",
+      params
+    );
+  })
+  .then(() => {
+    alert("Thank you! We will contact you soon.");
+    document.getElementById("contactForm").reset();
+  })
+  .catch(err => {
+    console.error("CONTACT FORM ERROR", err);
+    alert("Message failed. Try again.");
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.innerText = "Send Message";
   });
 });
+
+
 
 
 /* ---------------------------------------------------------

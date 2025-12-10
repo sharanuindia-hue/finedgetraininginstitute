@@ -38,6 +38,8 @@
   <!-- <meta content="width=device-width, initial-scale=1.0" name="viewport"> -->
   <meta content="" name="">
   <meta content="" name="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
   <!-- Favicon -->
   <link href="img/favicon.ico" rel="icon">
@@ -59,30 +61,50 @@
 
   <!-- Customized Bootstrap Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '864005899444887');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
+
 <body>
-     <!-- LOGO BAR -->
-<div class="container-fluid logo-bar">
-  <div class="row align-items-center py-2 px-lg-5">
 
-    <!-- Left Logo -->
-    <div class="col-6 col-lg-6 text-left">
-      <a href="index.html" class="navbar-brand m-0">
-        <img src="img/logo-2-removebg.png" class="logo-img" alt="Finedge Logo">
-      </a>
+
+
+  <!-- LOGO BAR -->
+  <div class="container-fluid logo-bar">
+    <div class="row align-items-center py-2 px-lg-5">
+
+      <!-- Left Logo -->
+      <div class="col-6 col-lg-6 text-left">
+        <a href="index.html" class="navbar-brand m-0">
+          <img src="img/logo-2-removebg.png" class="logo-img" alt="Finedge Logo">
+        </a>
+      </div>
+
+      <!-- Right Logo -->
+      <div class="col-6 col-lg-6 text-right">
+        
+        <a href="index.html" class="navbar-brand m-0">
+          <img src="assets/img/top-bar-img.webp" class="logo-img-2" alt="Partner Logo">
+        </a>
+      </div>
+
     </div>
-
-    <!-- Right Logo -->
-    <div class="col-6 col-lg-6 text-right">
-      <a href="index.html" class="navbar-brand m-0">
-        <img src="img/finegde-partner-1.png" class="logo-img-2" alt="Partner Logo">
-      </a>
-    </div>
-
   </div>
-</div>
-
-    <!-- Topbar End -->
   <!-- NAVBAR -->
 <div class="container-fluid p-0 bg-dark">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 px-lg-5">
@@ -222,7 +244,7 @@
     <p>This Refund & Cancellation Policy is subject to applicable Indian laws, including the Consumer Protection Act, 2019. Nothing in this policy restricts your statutory rights as a consumer.</p>
   </div>
 
-   <!-- APPLY MODAL -->
+  <!-- APPLY MODAL -->
   <div class="modal fade apply-modal" id="applyModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content apply-modal-content">
@@ -412,14 +434,13 @@
 
                   <!-- Role interest (kept for your existing EmailJS template) -->
                   <div class="form-group">
-                    <label class="small text-muted">Preferred BFSI Role*</label>
+                    <label class="small text-muted">Preferred course*</label>
                     <select name="interest" class="custom-select apply-input" required>
-                      <option value="" disabled selected>Select your preferred role</option>
-                      <option>Personal Banker / Relationship Manager</option>
-                      <option>Loan Sales (Home/Auto/Personal)</option>
-                      <option>Credit / Collections / Operations</option>
-                      <option>Customer Support / Telecaller</option>
-                      <option>Insurance / Mutual Funds Sales</option>
+                      <option value="" disabled selected>Select your preferred course</option>
+                      <option>Accelerator Program</option>
+                      <option>Corporate Governance</option>
+                      <option>Investment Banking</option>
+                      <option>Treasury & Trade Finance</option>
                     </select>
                   </div>
                 </div>
@@ -495,7 +516,6 @@
   </div>
 
   <!-- Apply Modal End -->
-
 <!-- Footer Start -->
   <div class="container-fluid position-relative overlay-top bg-dark text-white py-1">
     <div class=" mt-5 pt-1">

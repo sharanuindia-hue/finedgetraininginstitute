@@ -61,39 +61,116 @@
   <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar Start -->
-  <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-      <a href="index.html" class="navbar-brand ml-lg-3">
-        <h4 class="m-0 text-uppercase text-primary">
-          <img src="img/logo-2-removebg.png" class="logo-img" alt="Logo">
-          <!-- FINEDGE TRAINING INSTITUTE -->
-        </h4>
+       <!-- LOGO BAR -->
+<div class="container-fluid logo-bar">
+  <div class="row align-items-center py-2 px-lg-5">
+
+    <!-- Left Logo -->
+    <div class="col-6 col-lg-6 text-left">
+      <a href="index.html" class="navbar-brand m-0">
+        <img src="img/logo-2-removebg.png" class="logo-img" alt="Finedge Logo">
       </a>
-      <button type="button" class="navbar-toggler" aria-label="Toggle navigation">
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </button>
+    </div>
 
+    <!-- Right Logo -->
+    <div class="col-6 col-lg-6 text-right">
+      <a href="index.html" class="navbar-brand m-0">
+        <img src="img/finegde-partner-1.png" class="logo-img-2" alt="Partner Logo">
+      </a>
+    </div>
 
-      <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
-        <div class="navbar-nav mx-auto py-0">
-          <a href="index.html" class="nav-item nav-link active">Home</a>
-          <a href="about.html" class="nav-item nav-link">About</a>
-          <a href="course.html" class="nav-item nav-link">Courses</a>
-          <a href="contact.html" class="nav-item nav-link">Contact</a>
-        </div>
-        <a href="#apply" id="payButton" class="btn btn-primary py-2 px-4 d-none d-lg-block" data-toggle="modal"
-          data-target="#applyModal">
-          Pay Now
-        </a>
-
-      </div>
-    </nav>
   </div>
+</div>
+
+    <!-- Topbar End -->
+  <!-- NAVBAR -->
+<div class="container-fluid p-0 bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 px-lg-5">
+
+  
+
+    <!-- HAMBURGER (RIGHT SIDE) -->
+    <button
+      class="navbar-toggler ml-auto"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarCollapse"
+      aria-controls="navbarCollapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- MENU -->
+    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+      <ul class="navbar-nav ml-auto text-right text-lg-center">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">HOME</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="about.html">ABOUT US</a>
+        </li>
+
+        <!-- DROPDOWN -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="course.html"
+            id="programsDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            PROGRAMS
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right text-right text-lg-left">
+            <a class="dropdown-item" href="bfsi-detail.html?subject=bfsi-career-accelerator">
+              Accelerator Program
+            </a>
+            <a class="dropdown-item" href="corporate-governance-detail.html?subject=corporate-governance">
+              Corporate Governance
+            </a>
+            <a class="dropdown-item" href="investment-banking-detail.html?subject=investment-banking">
+              Investment Banking
+            </a>
+            <a class="dropdown-item" href="treasury-forex-trade-detail.html?subject=treasury-forex-trade">
+              Treasury & Trade Finance
+            </a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="detail.html">REVIEWS</a></li>
+ 
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">CONTACT US</a>
+        </li>
+
+        <li class="nav-item d-lg-none mt-3">
+          <a href="#apply" class="btn btn-primary btn-block"
+             data-toggle="modal" data-target="#applyModal">
+            APPLY NOW
+          </a>
+        </li>
+
+      </ul>
+      
+    </div>
+    <div class="">
+
+     <a href="#apply" class="btn btn-primary btn-block apply-now-btn"
+             data-toggle="modal" data-target="#applyModal">
+            APPLY NOW
+          </a>
+    </div>
+
+    
+  </nav>
+</div>
+
+  <!-- <div id="menuOverlay" class="menu-overlay"></div> -->
+  <!-- Navbar End -->
   <div id="menuOverlay" class="menu-overlay"></div>
   <!-- Navbar End -->
   <div class="container">
@@ -176,9 +253,7 @@
     Sunkadakatte, Bangalore – 560 091<br>
     <strong>Phone:</strong> 080-23335777</p>
 
-    <div class="footer">
-      <p>© 2025 FinEdge Training Institute. All Rights Reserved.</p>
-    </div>
+    
   </div>
      <!-- APPLY MODAL -->
   <div class="modal fade apply-modal" id="applyModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -453,77 +528,31 @@
   </div>
 
   <!-- Apply Modal End -->
-   <!-- Footer Start -->
+ <!-- Footer Start -->
   <div class="container-fluid position-relative overlay-top bg-dark text-white py-1">
-    <div class=" mt-1 pt-1">
-      <div class="row">
-        <!-- About / tagline -->
-        <div class="col-md-6 mb-5">
-          <a href="index.html" class="navbar-brand">
-            <img class="" src="img/logo-white-removebg.png" alt="logo" width="200" height="100">
-            <!-- <h2 class="mt-n2 text-uppercase text-white footer-logo">
-              <img class="" src="img/logo-white.png" alt="logo" width="40" height="40">FINEDGE
-            </h2> -->
-          </a>
-          <p class="m-0">
-            FINEDGE Training Institute specialises in <strong>BFSI career readiness</strong> – training
-            learners for roles in Banking, Financial Services and Insurance with job-oriented
-            curriculum,
-            mock interviews and placement assistance.
-          </p>
-        </div>
+    <div class=" mt-5 pt-1">
 
-        <!-- Newsletter or simple CTA -->
-        <div class="col-md-6 mb-5">
-          <h3 class="text-white mb-4">Stay Updated</h3>
-          <p>Share your email to receive updates about upcoming batches and BFSI career tips.</p>
-          <div class="w-100">
-            <form id="newsletterForm">
-              <div class="input-group">
-                <input type="email" name="email" class="form-control border-light" style="padding: 30px;"
-                  placeholder="Your Email Address" required>
-                <div class="input-group-append">
-                  <button class="btn btn-primary px-4" type="submit">
-                    Notify Me
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
 
-        </div>
-      </div>
-
-      <div class="row">
-        <!-- Contact -->
+      <div class="row justify-content-center">
+       
+        <!-- Policies -->
         <div class="col-md-4 mb-5">
-          <h3 class="text-white mb-4">Get In Touch</h3>
-          <p><i class="fa fa-map-marker-alt mr-2"></i>
-            S5, Nirmal Residency, Kadathanamale, Doddaballapura Main Road,<br>
-            Opp. MES Pharmacy College, Bangalore – 561203.
-          </p>
-          <p><i class="fa fa-phone-alt mr-2"></i>
-            <a class="text-white" href="tel:+918023335777">080-23335777</a> /
-            <a class="text-white" href="tel:+918431305295">+91 84313 05295</a>
-          </p>
-          <p><i class="fa fa-envelope mr-2"></i>
-            <a class="text-white" href="mailto:info@finedgetraininginstitute.com">
-              info@finedgetraininginstitute.com
+          <h3 class="text-white mb-4">Quick Links</h3>
+          <div class="d-flex flex-column justify-content-start">
+            <a class="text-white mb-2" href="privacy-policy.html">
+              <i class="fa fa-angle-right mr-2"></i>Privacy Policy
             </a>
-          </p>
-          <div class="d-flex justify-content-start mt-4">
-            <a class="text-white mr-4" href="https://www.facebook.com/share/1MMdVjofkq/?mibextid=wwXIfr"><i
-                class="fa-2x fa-brands fa-square-facebook"></i></a>
-
-            <a class="text-white mr-4"
-              href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr"><i
-                class="fa-brands fa-2x fa-square-instagram"></i></a>
-            <a class="text-white mr-4"
-              href="https://www.linkedin.com/in/sharan-m-0a51bb70?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i
-                class="fa-brands fa-2x fa-linkedin"></i></a>
-
+            <a class="text-white mb-2" href="terms-and-conditions.html">
+              <i class="fa fa-angle-right mr-2"></i>Terms & Conditions
+            </a>
+            <a class="text-white mb-2" href="refund-policy.html">
+              <i class="fa fa-angle-right mr-2"></i>Refund Policy
+            </a>
+            <a class="text-white mb-2" href="contact.html">
+              <i class="fa fa-angle-right mr-2"></i>Contact</a>
           </div>
         </div>
+
 
         <!-- Courses area repurposed for BFSI -->
         <div class="col-md-4 mb-5">
@@ -542,43 +571,56 @@
           </div>
         </div>
 
-        <!-- Policies -->
+
+
+         <!-- Contact -->
         <div class="col-md-4 mb-5">
-          <h3 class="text-white mb-4">Quick Links</h3>
-          <div class="d-flex flex-column justify-content-start">
-            <a class="text-white mb-2" href="privacy-policy.html">
-              <i class="fa fa-angle-right mr-2"></i>Privacy Policy
+          <h3 class="text-white mb-4">Get In Touch</h3>
+          <p><i class="fa fa-map-marker-alt mr-2"></i>
+            S5, Nirmal Residency, Kadathanamale, Doddaballapura Main Road,<br>
+            Opp. MES Pharmacy College, Bangalore – 561203.
+          </p>
+          <p><i class="fa fa-phone-alt mr-2"></i>
+            <a class="text-white" href="tel:+918023335777">080-23335777</a> /
+            <a class="text-white" href="tel:+918431305295">+91 84313 05295</a>
+          </p>
+          <p><i class="fa fa-envelope mr-2"></i>
+            <a class="text-white" href="mailto:info@finedgetraininginstitute.com">
+              info@finedgetraininginstitute.com
             </a>
-            <a class="text-white mb-2" href="terms-and-conditions.html">
-              <i class="fa fa-angle-right mr-2"></i>Terms & Conditions
-            </a>
-            <a class="text-white mb-2" href="refund-policy.html">
-              <i class="fa fa-angle-right mr-2"></i>Refund Policy
-            </a>
-            <a class="text-white mb-2" href="contact.html">
-              <i class="fa fa-angle-right mr-2"></i>Contact</a>
-          </div>
+          </p>
         </div>
+
       </div>
     </div>
   </div>
 
   <div class="container-fluid bg-dark text-white border-top py-4"
     style="border-color: rgba(256, 256, 256, .1) !important;">
-    <div class="">
-      <div class="row">
-        <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center  mb-3 mb-md-0 ">
           <p class="m-0">
             Copyright &copy; <a class="text-white" href="#">FINEDGE Training Institute</a>.
             All Rights Reserved.
           </p>
+          
         </div>
+      <div class="col-md-6 text-center">
+                    <a class="text-white mr-4" href="https://www.facebook.com/share/1MMdVjofkq/?mibextid=wwXIfr"><i
+                class="fa-2x fa-brands fa-square-facebook"></i></a>
+
+            <a class="text-white mr-4"
+              href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr"><i
+                class="fa-brands fa-2x fa-square-instagram"></i></a>
+            <a class="text-white mr-4"
+              href="https://www.linkedin.com/company/finedgetraininginstitute/"><i
+                class="fa-brands fa-2x fa-linkedin"></i></a>
+                </div>
       </div>
     </div>
-  </div>
+ 
 
   <!-- Footer End -->
-
 
   <!-- Back to Top -->
   <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i

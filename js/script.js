@@ -387,3 +387,28 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
+  document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const subject = params.get("subject");
+
+  const selects = [
+    document.getElementById("subjectSelect"),
+    document.getElementById("sidebarSubjectSelect")
+  ];
+
+  selects.forEach(select => {
+    if (!select || !subject) return;
+    const exists = Array.from(select.options)
+      .some(opt => opt.value === subject);
+    if (exists) select.value = subject;
+  });
+});
+
+$(document).ready(function () {
+
+  // Close menu on link click (mobile)
+  $('.navbar-nav a:not(.dropdown-toggle)').on('click', function () {
+    $('.navbar-collapse').collapse('hide');
+  });
+
+});

@@ -1162,7 +1162,7 @@ sup {
 
 /* quote text */
 .student-quote {
-  margin-bottom: 0;
+  margin-bottom: 10px;
   font-size: 0.96rem;
   color: #111827;
   line-height: 1.7;
@@ -12128,4 +12128,39 @@ h6,
 .after-hero-section {
     gap: 30px;
     justify-content: space-evenly;
+}
+.gallery-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  height: 100%;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 220px;            /* SAME HEIGHT FOR ALL */
+  overflow: hidden;
+}
+
+.gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* KEY PROPERTY */
+}
+
+.gallery-caption {
+  padding: 15px;
+  text-align: center;
+}
+
+.gallery-caption h6 {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.gallery-caption p {
+  font-size: 14px;
+  color: #6c757d;
+  line-height: 1.4;
 }

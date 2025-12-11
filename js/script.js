@@ -121,7 +121,7 @@ document.getElementById("applyForm").addEventListener("submit", function (e) {
       // AUTO-REPLY
       return emailjs.send(
         "service_724c1ef",
-        "template_apply_autoreply",
+        "template_rohr2r4",
         params
       );
     })
@@ -160,14 +160,13 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   // ADMIN EMAIL
   emailjs.send(
     "service_724c1ef",
-    "template_contact_admin",
+    "template_rohr2r4",
     params
   )
   .then(() => {
     // AUTO-REPLY
     return emailjs.send(
-      "service_724c1ef",
-      "template_contact_autoreply",
+      "service_724c1ef", "template_rohr2r4",
       params
     );
   })
@@ -316,3 +315,16 @@ $(document).ready(function () {
   });
 
 });
+// Select all testimonial videos
+  const videos = document.querySelectorAll('.testimonial-video');
+
+  videos.forEach(video => {
+    video.addEventListener('play', () => {
+      // Pause all other videos
+      videos.forEach(v => {
+        if (v !== video) {
+          v.pause();
+        }
+      });
+    });
+  });

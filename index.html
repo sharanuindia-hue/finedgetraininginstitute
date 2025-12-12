@@ -133,42 +133,21 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
           </li>
 
           <!-- DROPDOWN -->
-          <li class="nav-item dropdown">
-  <div class="d-flex align-items-center">
+    <li class="nav-item dropdown">
+  <!-- MAIN LINK (NAVIGATES) -->
+  <a class="nav-link dropdown-toggle" href="course.html" id="programsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    PROGRAMS
+  </a>
 
-    <!-- MAIN LINK (NAVIGATES) -->
-    <a class="nav-link pr-1" href="course.html">
-      PROGRAMS
-    </a>
-
-    <!-- DROPDOWN TOGGLE (ONLY OPENS MENU) -->
-    <a
-      class="nav-link dropdown-toggle dropdown-toggle-split pl-1"
-      href="#"
-      id="programsDropdown"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false">
-      <span class="sr-only">Toggle Dropdown</span>
-    </a>
-
-    <div class="dropdown-menu dropdown-menu-right text-right text-lg-left">
-      <a class="dropdown-item" href="bfsi-detail.html?subject=bfsi-career-accelerator">
-        Accelerator Program
-      </a>
-      <a class="dropdown-item" href="corporate-governance-detail.html?subject=corporate-governance">
-        Corporate Governance
-      </a>
-      <a class="dropdown-item" href="investment-banking-detail.html?subject=investment-banking">
-        Investment Banking
-      </a>
-      <a class="dropdown-item" href="treasury-forex-trade-detail.html?subject=treasury-forex-trade">
-        Treasury & Trade Finance
-      </a>
-    </div>
-
+  <!-- DROPDOWN MENU -->
+  <div class="dropdown-menu" aria-labelledby="programsDropdown">
+    <a class="dropdown-item" href="bfsi-detail.html?subject=bfsi-career-accelerator">Accelerator Program</a>
+    <a class="dropdown-item" href="corporate-governance-detail.html?subject=corporate-governance">Corporate Governance</a>
+    <a class="dropdown-item" href="investment-banking-detail.html?subject=investment-banking">Investment Banking</a>
+    <a class="dropdown-item" href="treasury-forex-trade-detail.html?subject=treasury-forex-trade">Treasury & Trade Finance</a>
   </div>
 </li>
+
 
           <li class="nav-item"><a class="nav-link" href="detail.html">REVIEWS</a></li>
 
@@ -274,23 +253,6 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
             alt="Kotak" class="img-fluid">
         </div>
 
-        <!-- NCVET -->
-        <div class="partner-item d-flex align-items-center justify-content-center">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE1jf3XAr-9mO4gwKY86iGx9FgheynHPvd-g&s"
-            alt="LIC" class="img-fluid">
-        </div>
-
-        <div class="partner-item d-flex align-items-center justify-content-center">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/SBI_new_logo.svg/2560px-SBI_new_logo.svg.png"
-            alt="SBI" class="img-fluid">
-        </div>
-
-        <div class="partner-item d-flex align-items-center justify-content-center">
-          <img src="https://logoeps.com/wp-content/uploads/2014/01/l-t-infotech-vector-logo.png" alt="L&T"
-            class="img-fluid">
-        </div>
-
         <div class="partner-item d-flex align-items-center justify-content-center">
           <img
             src="https://static.vecteezy.com/system/resources/previews/020/190/428/non_2x/hdfc-logo-hdfc-icon-free-free-vector.jpg"
@@ -317,11 +279,7 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
           <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Tata_Capital_Logo-01.jpg"
             alt="Bank / NBFC Partner 2" class="img-fluid">
         </div>
-        <div class="partner-item d-flex align-items-center justify-content-center">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/en/thumb/7/75/Aditya_Birla_Group_Logo.svg/1200px-Aditya_Birla_Group_Logo.svg.png"
-            alt="Bank / NBFC Partner 2" class="img-fluid">
-        </div>
+        
       </div>
     </div>
   </div>
@@ -407,7 +365,7 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
     </div>
 
     <div class="sidebar-body">
-      <form id="enquiryForm">
+      <form id="contactForm">
 
         <!-- Full Name -->
         <div class="form-group">
@@ -615,7 +573,7 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
       <div class="row align-items-center mb-5">
         <div class="col-lg-5 mb-4 mb-lg-0">
           <div class="position-relative h-100">
-            <h6 class="d-inline-block position-relative text-secondary text-uppercase ">Sample Certificate</h6>
+            <h6 class=" text-secondary  text-center ">Sample Certificate</h6>
             <img src="assets/img/Finedge certificate.jpg" alt="Finedge BFSI Online Training" class="img-fluid rounded shadow"
               style="object-fit: cover; width: 100%; min-height: 260px;">
           </div>
@@ -1081,23 +1039,33 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
                   <h6 class="text-uppercase text-muted small mb-2">Program Details</h6>
 
                   <div class="form-row">
-                    <div class="form-group col-md-7">
-                      <label class="small text-muted">Program Name*</label>
-                      <input type="text" name="program_name" class="form-control apply-input"
-                        value="BFSI Job Accelerator Program" required>
-                    </div>
-                    <div class="form-group col-md-5">
+                     <div class="form-group col-md-5">
                       <label class="small text-muted">Preferred Batch / Session*</label>
                       <input type="text" name="preferred_batch" class="form-control apply-input"
                         placeholder="e.g. Jan 2026 Evening Batch" required>
                     </div>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-3">
                       <label class="small text-muted">Duration of Program</label>
                       <input type="text" name="duration" class="form-control apply-input" value="30 Days">
                     </div>
+          
+                  </div>
+
+
+                  <!-- Role interest (kept for your existing EmailJS template) -->
+                  <div class="form-group">
+                    <label class="small text-muted">Preferred course*</label>
+                    <select name="interest" class="custom-select apply-input" required>
+                      <option value="" disabled selected>Select your preferred course</option>
+                      <option>BFSI Career Accelerator Program</option>
+                      <option>Corporate Governance in BFSI</option>
+                      <option>Investment Banking</option>
+                      <option>Treasury, Forex & Trade Finance</option>
+                    </select>
+                  </div>
+
+                    <div class="form-row">
+                  
                     <div class="form-group col-md-3">
                       <label class="small text-muted">Course Fee (₹)</label>
                       <input type="text" name="course_fee" class="form-control apply-input" placeholder="As informed">
@@ -1108,33 +1076,6 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
                         placeholder="Final payable">
                     </div>
                   </div>
-
-                  <!-- Role interest (kept for your existing EmailJS template) -->
-                  <div class="form-group">
-                    <label class="small text-muted">Preferred course*</label>
-                    <select name="interest" class="custom-select apply-input" required>
-                      <option value="" disabled selected>Select your preferred course</option>
-                      <option>Accelerator Program</option>
-                      <option>Corporate Governance</option>
-                      <option>Investment Banking</option>
-                      <option>Treasury & Trade Finance</option>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- SECTION: Additional Notes -->
-                <div class="apply-section mb-3">
-                  <h6 class="text-uppercase text-muted small mb-2">Additional Information</h6>
-                  <div class="form-group mb-2">
-                    <label class="small text-muted">Any questions or current job/education status?</label>
-                    <textarea name="notes" class="form-control apply-input" rows="3"
-                      placeholder="Share your doubts, current job, or academic status"></textarea>
-                  </div>
-
-                  <p class="text-muted extra-small mb-0">
-                    By submitting this form, I confirm that the above information is true to the best of my knowledge
-                    and I agree to abide by the rules and regulations of Finedge Training Institute.
-                  </p>
                 </div>
 
                 <!-- ACTION & PAYMENT SECTION -->
@@ -1192,7 +1133,8 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <!-- Apply Modal End -->
+ <!-- Apply Modal End -->
+
 <!-- Footer Start -->
   <div class="container-fluid position-relative overlay-top bg-dark text-white py-1">
     <div class=" mt-5 pt-1">
@@ -1228,13 +1170,13 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
     <a href="bfsi-detail.html?program=accelerator"
        class="text-white mb-2 text-decoration-none">
       <i class="fa fa-angle-right mr-2"></i>
-      Accelerator Program
+     BFSI Career Accelerator Program
     </a>
 
     <a href="corporate-governance-detail.html?program=corporate-governance"
        class="text-white mb-2 text-decoration-none">
       <i class="fa fa-angle-right mr-2"></i>
-      Corporate Governance
+      Corporate Governance in BFSI
     </a>
 
     <a href="investment-banking-detail.html?program=investment-banking"
@@ -1246,7 +1188,7 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
     <a href="treasury-forex-trade-detail.html?program=treasury-trade-finance"
        class="text-white text-decoration-none">
       <i class="fa fa-angle-right mr-2"></i>
-      Treasury &amp; Trade Finance
+      Treasury, Forex &amp; Trade Finance
     </a>
 
   </div>

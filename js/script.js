@@ -115,13 +115,13 @@ document.getElementById("applyForm").addEventListener("submit", function (e) {
   const params = Object.fromEntries(formData.entries());
 
   // ADMIN EMAIL
-  emailjs.send("service_724c1ef", "template_apply_admin", params)
+  emailjs.send("service_724c1ef", "template_n5mq7jd", params)
 
     .then(() => {
       // AUTO-REPLY
       return emailjs.send(
         "service_724c1ef",
-        "template_rohr2r4",
+        "template_n5mq7jd",
         params
       );
     })

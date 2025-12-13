@@ -226,16 +226,22 @@ document.getElementById("verifyOtpBtn").addEventListener("click", function () {
   const enteredOtp = document.getElementById("otpInput").value;
 
   if (enteredOtp == generatedOTP) {
-    alert("OTP Verified. Download starting...");
-    window.open(
-      "https://www.finedgetraininginstitute.com/boucher/Finedge Brochure.pdf",
-      "_blank"
-    );
+    alert("OTP verified. Download starting...");
+
+    // CREATE TEMP DOWNLOAD LINK
+    const link = document.createElement("a");
+    link.href = "https://www.finedgetraininginstitute.com/boucher/Finedge-Brochure.pdf";
+    link.download = "Finedge-Brochure.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
     $('#brochureModal').modal('hide');
   } else {
     alert("Invalid OTP");
   }
 });
+
 
 
 

@@ -873,10 +873,9 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
                 <a href="#apply" class="btn btn-primary btn-lg mr-2 mb-2" data-toggle="modal" data-target="#applyModal">
                   Apply for Next Batch
                 </a>
-                <a href="https://www.finedgetraininginstitute.com/boucher/Finedge Brochure.pdf" target="_blank"
-                  class="btn btn-outline-light btn-lg mb-2">
-                  Download Brochure
-                </a>
+                <button class="btn btn-outline-light btn-lg mb-2" id="openBrochureModal">
+  Download Brochure
+</button>
               </div>
 
 
@@ -891,6 +890,39 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
 
 
   <!-- CA Section End -->
+
+   <div class="modal fade" id="brochureModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content p-4">
+
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+      <h5 class="text-center mb-3">Download Brochure</h5>
+
+      <!-- STEP 1 -->
+      <form id="otpForm">
+        <input type="text" class="form-control mb-2" placeholder="Full Name" required id="otpName">
+        <input type="email" class="form-control mb-2" placeholder="Email Address" required id="otpEmail">
+        <input type="tel" class="form-control mb-3" placeholder="Mobile Number" required id="otpPhone">
+
+        <button class="btn btn-primary btn-block" type="submit">
+          Send OTP
+        </button>
+      </form>
+
+      <!-- STEP 2 -->
+      <div id="otpVerifySection" class="d-none mt-3">
+        <input type="number" class="form-control mb-2" placeholder="Enter OTP" id="otpInput">
+
+        <button class="btn btn-success btn-block" id="verifyOtpBtn">
+          Verify & Download
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
   <!-- Testimonial Start -->
   <div class="container-fluid py-1 ">

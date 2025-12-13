@@ -185,6 +185,58 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
 });
 
 
+/* ----------------------------------------
+
+------------------------------*/
+let generatedOTP = null;
+
+// Open modal
+document.getElementById("openBrochureModal").addEventListener("click", () => {
+  $('#brochureModal').modal('show');
+});
+
+// SEND OTP
+document.getElementById("otpForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  generatedOTP = Math.floor(100000 + Math.random() * 900000);
+
+  const params = {
+    name: document.getElementById("otpName").value,
+    email: document.getElementById("otpEmail").value,
+    subject: "Brochure Download OTP",
+    message: `Your OTP to download the Finedge brochure is: ${generatedOTP}`
+  };
+
+  emailjs.send(
+    "service_724c1ef",
+    "template_rohr2r4", // SAME TEMPLATE
+    params
+  ).then(() => {
+    alert("OTP sent to your email");
+    document.getElementById("otpVerifySection").classList.remove("d-none");
+  }).catch(err => {
+    console.error(err);
+    alert("OTP sending failed");
+  });
+});
+
+// VERIFY OTP
+document.getElementById("verifyOtpBtn").addEventListener("click", function () {
+  const enteredOtp = document.getElementById("otpInput").value;
+
+  if (enteredOtp == generatedOTP) {
+    alert("OTP Verified. Download starting...");
+    window.open(
+      "https://www.finedgetraininginstitute.com/boucher/Finedge Brochure.pdf",
+      "_blank"
+    );
+    $('#brochureModal').modal('hide');
+  } else {
+    alert("Invalid OTP");
+  }
+});
+
 
 
 /* ---------------------------------------------------------

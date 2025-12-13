@@ -106,8 +106,9 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
 
     </div>
   </div>
+
   <!-- NAVBAR -->
- <div class="container-fluid p-0 bg-dark">
+  <div class="container-fluid p-0 bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 px-lg-5">
 
 
@@ -131,42 +132,39 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
           </li>
 
           <!-- DROPDOWN -->
-          <li class="nav-item dropdown">
-  <div class="d-flex align-items-center">
+  <li class="nav-item dropdown programs-split">
 
-    <!-- MAIN LINK (NAVIGATES) -->
-    <a class="nav-link pr-1" href="course.html">
-      PROGRAMS
-    </a>
+  <!-- PROGRAM TEXT (Navigates) -->
+  <a 
+    class="nav-link programs-link"
+    href="course.html"
+    id="programsMainLink"
+  >
+    PROGRAMS
+  </a>
 
-    <!-- DROPDOWN TOGGLE (ONLY OPENS MENU) -->
-    <a
-      class="nav-link dropdown-toggle dropdown-toggle-split pl-1"
-      href="#"
-      id="programsDropdown"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false">
-      <span class="sr-only">Toggle Dropdown</span>
-    </a>
+  <!-- DROPDOWN TOGGLE ARROW ONLY -->
+  <a 
+    class="nav-link dropdown-toggle programs-icon"
+    href="#"
+    id="programsDropdown"
+    role="button"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  ></a>
 
-    <div class="dropdown-menu dropdown-menu-right text-right text-lg-left">
-      <a class="dropdown-item active"  href="bfsi-detail.html?subject=bfsi-career-accelerator">
-        Accelerator Program
-      </a>
-      <a class="dropdown-item" href="corporate-governance-detail.html?subject=corporate-governance">
-        Corporate Governance
-      </a>
-      <a class="dropdown-item" href="investment-banking-detail.html?subject=investment-banking">
-        Investment Banking
-      </a>
-      <a class="dropdown-item" href="treasury-forex-trade-detail.html?subject=treasury-forex-trade">
-        Treasury & Trade Finance
-      </a>
-    </div>
-
+  <!-- DROPDOWN MENU -->
+ <div class="dropdown-menu dropdown-menu-right" aria-labelledby="programsDropdown">
+    <a class="dropdown-item" href="bfsi-detail.html?subject=bfsi-career-accelerator">BFSI Career Accelerator Program</a>
+    <a class="dropdown-item" href="corporate-governance-detail.html?subject=corporate-governance">Corporate Governance in BFSI</a>
+    <a class="dropdown-item" href="investment-banking-detail.html?subject=investment-banking">Investment Banking</a>
+    <a class="dropdown-item active" href="treasury-forex-trade-detail.html?subject=treasury-forex-trade">Treasury, Forex & Trade Finance</a>
   </div>
+
 </li>
+
+
 
           <li class="nav-item"><a class="nav-link" href="detail.html">REVIEWS</a></li>
 
@@ -175,8 +173,8 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
           </li>
 
           <li class="nav-item d-lg-none mt-3">
-            <a href="#apply" class="btn btn-primary btn-block" data-toggle="modal" data-target="#applyModal">
-              APPLY NOW
+            <a href="#contactModal" class="btn btn-primary btn-block" data-toggle="modal" data-target="#contactModal">
+              Contact Now
             </a>
           </li>
 
@@ -185,15 +183,96 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
       </div>
       <div class="">
 
-        <a href="#apply" class="btn btn-primary btn-block apply-now-btn" data-toggle="modal" data-target="#applyModal">
-          APPLY NOW
+        <a href="#contactModal" class="btn btn-primary btn-block apply-now-btn" data-toggle="modal" data-target="#contactModal">
+          Contact Now
         </a>
       </div>
 
 
     </nav>
   </div>
+
   <!-- <div id="menuOverlay" class="menu-overlay"></div> -->
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+    <div class="modal-content contact-popup">
+
+      <!-- Close -->
+      <button type="button" class="close p-2 pr-3" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="p-4">
+        <h4 class="mb-2 text-center">Request a Call Back</h4>
+        <p class="text-muted text-center small mb-4">
+          Share your details — we will contact you shortly.
+        </p>
+
+        <form id="contactForm">
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <label class="small text-muted mb-1">Full Name</label>
+            <input
+              type="text"
+              name="name"
+              class="form-control contact-input"
+              placeholder="Your Name"
+              required>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="small text-muted mb-1">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              class="form-control contact-input"
+              placeholder="Your Email"
+              required>
+          </div>
+
+          <!-- Program -->
+          <div class="form-group">
+            <label class="small text-muted mb-1">Program Interested In</label>
+            <select
+              name="program"
+              class="form-control contact-input"
+              required>
+              <option value="" disabled selected>Select Program</option>
+              <option value="bfsi-career-accelerator">BFSI Career Accelerator Program</option>
+              <option value="corporate-governance">Corporate Governance in BFSI</option>
+              <option value="investment-banking">Investment Banking</option>
+              <option value="treasury-forex-trade">Treasury, Forex & Trade Finance</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label class="small text-muted mb-1">Message</label>
+            <textarea
+              name="message"
+              class="form-control contact-input"
+              rows="3"
+              placeholder="I would like to know more about this program"
+              required></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn-primary btn-block">
+            Request Call Back
+          </button>
+
+          <small class="d-block text-muted text-center mt-2">
+            We will contact you shortly
+          </small>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
   <!-- Navbar End -->
 
 

@@ -5516,7 +5516,8 @@ body.menu-open {
     width: 100%;
     padding-left: 15px;
     text-align: left;
-    background: transparent;
+    background: #fff;
+    border-radius: 2px;
   }
 
   .navbar-nav .dropdown-item {
@@ -5524,9 +5525,6 @@ body.menu-open {
     text-align: left;
   }
 }
-
-
-
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
@@ -5548,6 +5546,87 @@ body.menu-open {
   content: "";
   background: no-repeat center center;
   background-size: 100% 100%;
+}
+/* keep text + toggle visually inline without changing navbar appearance */
+.nav-item-programs { display: inline-flex; align-items: center; }
+
+/* make the button look like the other nav-links (no default button chrome) */
+.nav-item-programs .programs-toggle {
+  border: 0;
+  background: transparent;
+  padding-left: .25rem;
+  padding-right: 0;
+  color: inherit;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+/* Keep PROGRAMS + icon always in one horizontal line */
+/* Keep PROGRAM + arrow inline */
+.programs-split {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;       /* IMPORTANT */
+}
+
+/* DROPDOWN MUST ESCAPE FLEX LAYOUT */
+.programs-split > .dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  display: none;
+  flex: none !important;    /* FORCE REMOVE FLEX BEHAVIOR */
+  white-space: normal !important;
+  min-width: 220px;
+  z-index: 9999;
+}
+
+/* When opened */
+.programs-split > .dropdown-menu.show {
+  display: block !important;
+}
+.apply-now-btn,
+.navbar .btn,
+.nav-item .btn {
+    position: relative;
+    /* z-index: 9999 !important; */
+}
+.modal {
+    z-index: 99999 !important;
+}
+
+
+/* Adjust icon size spacing */
+.programs-icon {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+
+/* Ensure dropdown menu fits neatly */
+.dropdown-menu {
+  min-width: 220px;
+}
+@media (max-width: 576px) {
+  .programs-split {
+    flex-wrap: nowrap !important;
+  }
+  
+  .programs-link,
+  .programs-icon {
+    display: inline-flex;
+  }
+}
+
+/* reduce the toggle size so it matches original tiny caret */
+.nav-item-programs .programs-toggle::after {
+  margin-left: .15rem;
+}
+
+/* ensure mobile menu layout still stacks normally */
+@media (max-width: 991px) {
+  .nav-item-programs { display: inline-flex; } /* keeps inline text + icon */
+  .dropdown-menu { width: 100%; } /* optional: full-width dropdown on mobile */
 }
 
 @media (max-width: 575.98px) {
@@ -6728,6 +6807,28 @@ a.badge-dark:focus, a.badge-dark.focus {
 .apply-now-btn {
   display: none; /* Hidden by default */
 }
+
+/* CONTACT FROM POP UP  */
+.contact-popup {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.contact-popup .close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 10;
+  font-size: 28px;
+  color: #333;
+  opacity: 0.8;
+}
+
+.contact-popup .close:hover {
+  opacity: 1;
+}
+
 
 @media (min-width: 992px) {
   .apply-now-btn {

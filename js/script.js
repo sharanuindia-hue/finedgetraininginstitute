@@ -328,3 +328,22 @@ $(document).ready(function () {
       });
     });
   });
+
+ document.addEventListener("DOMContentLoaded", function () {
+
+  const toggle = document.getElementById("programsDropdown");
+  const menu = toggle.parentElement.querySelector(".dropdown-menu");
+
+  toggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // toggle only the dropdown menu
+    menu.classList.toggle("show");
+  });
+
+  // close if clicking outside
+  document.addEventListener("click", function () {
+    menu.classList.remove("show");
+  });
+});

@@ -5474,10 +5474,10 @@ body.menu-open {
 
   .navbar-collapse {
     position: fixed !important;
-    top: 0;
+    top: 135px;
     right: 0;
     width: 100%;
-    height: 100vh;                /* Full height */
+    height: 50vh;                /* Full height */
     overflow-y: auto;             /* Make menu scrollable */
     background: #233e94;
     box-shadow: -4px 0 20px rgba(0,0,0,0.15);
@@ -6439,11 +6439,50 @@ a.badge-dark:focus, a.badge-dark.focus {
   box-shadow: 0 0 0 0.2rem rgba(18, 15, 45, 0.5);
 }
 
+
+/* Common styles for all jumbotrons */
+.jumbotron,
+.jumbotron.page-header {
+  position: relative;
+  width: 100%;
+  min-height: 300px;        /* mobile default */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;  /* KEY for responsiveness */
+}
+
+/* Page header background */
+.jumbotron.page-header {
+  background-image:
+    linear-gradient(rgba(0, 27, 78, 0.75), rgba(0, 27, 78, 0.75)),
+    url("../img/page-header.jpg");
+}
+
+/* Default jumbotron background */
 .jumbotron {
-  padding: 2rem 1rem;
-  /* margin-bottom: 2rem; */
-  background-color: #e9ecef;
-  border-radius: 0.3rem;
+  background-image:
+    linear-gradient(rgba(40, 120, 235, 0.9), rgba(40, 120, 235, 0.9)),
+    url("../img/header.jpg");
+}
+
+/* Desktop height */
+@media (min-width: 992px) {
+  .jumbotron,
+  .jumbotron.page-header {
+    min-height: 450px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .jumbotron,
+  .jumbotron.page-header {
+    min-height: 520px;
+  }
 }
 
 @media (min-width: 576px) {
@@ -11262,9 +11301,18 @@ h6,
 .back-to-top {
   position: fixed;
   display: none;
-  right: 30px;
-  bottom: 30px;
+  right: 20px;
+  bottom: 20px;
   z-index: 11;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    color: #fff;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -11294,27 +11342,6 @@ h6,
     padding: 10px 15px;
   }
 }
-
-.jumbotron {
-  background: linear-gradient(rgba(40, 120, 235, 0.9), rgba(40, 120, 235, 0.9)), url(../img/header.jpg), no-repeat center center;
-  background-size: cover;
-}
-
-.jumbotron.page-header {
-  background: linear-gradient(rgba(0, 27, 78, 0.75), rgba(0, 27, 78, 0.75)), url(../img/page-header.jpg), no-repeat center center;
-  background-size: cover;
-}
-
-/* .overlay-top::before,
-.overlay-bottom::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 85px;
-  left: 0;
-  z-index: 1;
-} */
-
 .overlay-top::before {
   top: 0;
   background: url(../img/overlay-top.png) top center no-repeat;
@@ -11957,6 +11984,7 @@ h6,
       font-weight: 600;
       font-size: 28px;
       margin-bottom: 8px;
+      color: wheat;
     }
 
     .thankyou-subtitle {
@@ -12320,4 +12348,71 @@ h6,
   font-size: 14px;
   color: #6c757d;
   line-height: 1.4;
+}
+/* FAB container */
+.fab-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99999;
+}
+
+.fab-main {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.fab-menu {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.fab-wrapper.active .fab-menu {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.fab-item {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+}
+
+.fab-item.call { background: #28a745; }
+.fab-item.whatsapp { background: #25d366; }
+.fab-item.contact { background: #ffc107; color: #000; }
+
+
+.fab-item.call {
+  background: #198754;
+}
+
+.fab-item.whatsapp {
+  background: #25d366;
+}
+
+.fab-item.contact {
+  background: #6610f2;
 }

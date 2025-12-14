@@ -1,13 +1,13 @@
+let generatedOTP = null;
+
 /* ---------------------------------------------------------
    1. RAZORPAY PAYMENT HANDLER
 --------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
-
   const form = document.getElementById("applyForm");
   const payButton = document.getElementById("payButtonApply");
 
   const GST_RATE = 0.18;
-
   const baseInput = document.getElementById("baseAmount");
   const gstInput = document.getElementById("gstAmount");
   const totalInput = document.getElementById("totalAmount");
@@ -22,34 +22,23 @@ document.addEventListener("DOMContentLoaded", () => {
     return total;
   }
 
-  // initial GST calculation
   calculate();
-
   baseInput.addEventListener("input", calculate);
 
-  // 🔹 Enable button only when form is valid
   function togglePayButton() {
     payButton.disabled = !form.checkValidity();
   }
-
-  // listen to all inputs
   form.addEventListener("input", togglePayButton);
   form.addEventListener("change", togglePayButton);
-
-  // initial check
   togglePayButton();
 
-  // Razorpay flow
   payButton.addEventListener("click", async () => {
-
-    // Final safety check
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
     const totalAmount = calculate();
-
     if (totalAmount < 500) {
       alert("Invalid payment amount");
       return;
@@ -75,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
         name: "FINEDGE Training Institute",
         description: "Program Fee + 18% GST",
         order_id: order.id,
-
         handler: async function (response) {
           const verifyRes = await fetch("/api/verify-payment", {
             method: "POST",
@@ -102,177 +90,245 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
 /* ---------------------------------------------------------
    2. APPLY FORM (EmailJS)
 --------------------------------------------------------- */
-document.getElementById("applyForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const applyForm = document.getElementById("applyForm");
 
-  const formData = new FormData(this);
+  applyForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!applyForm.checkValidity()) {
+      applyForm.reportValidity();
+      return;
+    }
 
-  const params = Object.fromEntries(formData.entries());
+    const formData = new FormData(applyForm);
+    const params = Object.fromEntries(formData.entries());
 
-  // ADMIN EMAIL
-  emailjs.send("service_724c1ef", "template_n5mq7jd", params)
+    // Admin email
+    const adminParams = {
+      ...params,
+      subject: "🎓 New Program Application",
+      message: `
+New application received:
+Name: ${params.name}
+Email: ${params.email}
+Phone: ${params.phone}
+Program: ${params.program}
+Message: ${params.message}`
+    };
 
-    .then(() => {
-      // AUTO-REPLY
-      return emailjs.send(
-        "service_724c1ef",
-        "template_n5mq7jd",
-        params
-      );
-    })
+    // User email
+    const userParams = {
+      name: params.name,
+      email: params.email,
+      subject: "Application Received – Finedge",
+      message: `Hi ${params.name},\n\nThank you for applying for ${params.program}. Our team will review and contact you shortly.`
+    };
 
-    .then(() => {
-      alert("Application submitted successfully. Check your email.");
-      document.getElementById("applyForm").reset();
-    })
-
-    .catch(err => {
-      console.error("APPLY FORM ERROR", err);
-      alert("Submission failed. Please try again.");
-    });
+    emailjs.send("service_724c1ef", "template_n5mq7jd", adminParams)
+      .then(() => emailjs.send("service_724c1ef", "template_n5mq7jd", userParams))
+      .then(() => {
+        window.location.href = "Thank-you.html";
+      })
+      .catch(err => {
+        console.error("APPLY ERROR", err);
+        alert("Application failed. Please try again.");
+      });
+  });
 });
-
-
 
 /* ---------------------------------------------------------
    3. CONTACT FORM (EmailJS)
 --------------------------------------------------------- */
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+// ---------------- Contact Form Submission ----------------
+document.addEventListener("DOMContentLoaded", function () {
+  const forms = [
+    document.getElementById("contact-form"),
+    document.getElementById("contact-form-pop"),
+    
+  ];
 
-  const formData = new FormData(this);
-  const params = {
-    name: formData.get("name"),
-    email: formData.get("email"),
-    subject: formData.get("subject"),
-    message: formData.get("message")
-  };
+  forms.forEach(form => {
+    if (!form) return;
 
-  const btn = this.querySelector("button");
-  btn.disabled = true;
-  btn.innerText = "Sending...";
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-  // ADMIN EMAIL
-  emailjs.send(
-    "service_724c1ef",
-    "template_rohr2r4",
-    params
-  )
-  .then(() => {
-    // AUTO-REPLY
-    return emailjs.send(
-      "service_724c1ef", "template_rohr2r4",
-      params
-    );
-  })
-  .then(() => {
-    alert("Thank you! We will contact you soon.");
-    document.getElementById("contactForm").reset();
-  })
-  .catch(err => {
-    console.error("CONTACT FORM ERROR", err);
-    alert("Message failed. Try again.");
-  })
-  .finally(() => {
-    btn.disabled = false;
-    btn.innerText = "Send Message";
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(form);
+      const params = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        program: formData.get("program"),
+        subject: "New Contact Enquiry",
+        message: `
+Program Interested: ${formData.get("program")}
+Message: ${formData.get("message")}
+        `
+      };
+
+      const btn = form.querySelector("button");
+      btn.disabled = true;
+      btn.innerText = "Sending...";
+
+      emailjs.send("service_724c1ef", "template_rohr2r4", params)
+        .then(() => {
+          // Close modal if it's modal form
+          const modal = form.closest(".modal");
+          if (modal) $(modal).modal("hide");
+
+          // Redirect to Thank You page
+          window.location.href = "thank-you.html";
+        })
+        .catch(err => {
+          console.error("CONTACT FORM ERROR:", err);
+          alert("Submission failed. Please try again.");
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.innerText = "Request Call Back";
+        });
+    });
   });
 });
 
 
-/* ----------------------------------------
+/* ---------------------------------------------------------
+   4. OTP FOR BROCHURE DOWNLOAD
+--------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", function () {
+  const sendOtpBtn = document.getElementById("sendOtpBtn");
+  const verifyOtpBtn = document.getElementById("verifyOtpBtn");
 
-------------------------------*/
-let generatedOTP = null;
+  sendOtpBtn?.addEventListener("click", function () {
+    const name = document.getElementById("brochureName").value.trim();
+    const email = document.getElementById("brochureEmail").value.trim();
+    const phone = document.getElementById("brochurePhone").value.trim();
 
+    if (!name || !email || !phone) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+    console.log("Generated OTP:", generatedOTP);
+
+    emailjs.send("service_724c1ef", "template_rohr2r4", { name, email, otp: generatedOTP })
+      .then(() => {
+        alert("OTP sent to your email");
+        document.getElementById("otpVerifySection").classList.remove("d-none");
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Failed to send OTP");
+      });
+  });
+
+  verifyOtpBtn?.addEventListener("click", function () {
+    const enteredOtp = document.getElementById("otpInput").value.trim();
+
+    if (!generatedOTP) {
+      alert("Please request OTP first");
+      return;
+    }
+
+    if (enteredOtp === generatedOTP) {
+      alert("OTP verified. Downloading brochure...");
+      const a = document.createElement("a");
+      a.href = "https://www.finedgetraininginstitute.com/boucher/Finedge-Brochure.pdf";
+      a.download = "Finedge-Brochure.pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else {
+      alert("Invalid OTP");
+    }
+  });
+});
+
+/* ---------------------------------------------------------
+   5. MOBILE NAV MENU & DROPDOWN FIX
+--------------------------------------------------------- */
 // Open modal
 document.getElementById("openBrochureModal").addEventListener("click", () => {
   $('#brochureModal').modal('show');
 });
 
-// SEND OTP
-document.getElementById("otpForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  generatedOTP = Math.floor(100000 + Math.random() * 900000);
-
-  const params = {
-    name: document.getElementById("otpName").value,
-    email: document.getElementById("otpEmail").value,
-    subject: "Brochure Download OTP",
-    message: `Your OTP to download the Finedge brochure is: ${generatedOTP}`
-  };
-
-  emailjs.send(
-    "service_724c1ef",
-    "template_rohr2r4", // SAME TEMPLATE
-    params
-  ).then(() => {
-    alert("OTP sent to your email");
-    document.getElementById("otpVerifySection").classList.remove("d-none");
-  }).catch(err => {
-    console.error(err);
-    alert("OTP sending failed");
-  });
-});
-
-// VERIFY OTP
-document.getElementById("verifyOtpBtn").addEventListener("click", function () {
-  const enteredOtp = document.getElementById("otpInput").value;
-
-  if (enteredOtp == generatedOTP) {
-    alert("OTP verified. Download starting...");
-
-    // CREATE TEMP DOWNLOAD LINK
-    const link = document.createElement("a");
-    link.href = "https://www.finedgetraininginstitute.com/boucher/Finedge-Brochure.pdf";
-    link.download = "Finedge-Brochure.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    $('#brochureModal').modal('hide');
-  } else {
-    alert("Invalid OTP");
-  }
-});
-
-
-
-
-/* ---------------------------------------------------------
-   4. NEWSLETTER FORM (EmailJS)
---------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", function () {
-  const newsletterForm = document.getElementById("newsletterForm");
-  if (!newsletterForm) return;
 
-  newsletterForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+  let generatedOTP = null;
 
-    const email = this.email.value.trim();
-    if (!email) {
-      alert("Please enter a valid email.");
+  const sendOtpBtn = document.getElementById("sendOtpBtn");
+  const verifyOtpBtn = document.getElementById("verifyOtpBtn");
+
+  // ================= SEND OTP =================
+  sendOtpBtn.addEventListener("click", function () {
+
+    const name  = document.getElementById("brochureName").value.trim();
+    const email = document.getElementById("brochureEmail").value.trim();
+    const phone = document.getElementById("brochurePhone").value.trim();
+
+    if (!name || !email || !phone) {
+      alert("Please fill all fields");
       return;
     }
 
-    emailjs.send("service_724c1ef", "template_rohr2r4", { subscriber_email: email })
-      .then(() => {
-        alert("Subscribed successfully!");
-        newsletterForm.reset();
-      })
-      .catch(err => {
-        alert("Subscription failed.");
-        console.error("Newsletter Error:", err);
-      });
-  });
-});
+    generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+    console.log("Generated OTP:", generatedOTP);
 
+    emailjs.send(
+      "service_724c1ef",
+      "template_rohr2r4",
+      {
+        name: name,
+        email: email,
+        otp: generatedOTP
+      }
+    ).then(() => {
+      alert("OTP sent to your email");
+      document.getElementById("otpVerifySection").classList.remove("d-none");
+    }).catch(err => {
+      console.error(err);
+      alert("Failed to send OTP");
+    });
+
+  });
+
+  // ================= VERIFY OTP =================
+  verifyOtpBtn.addEventListener("click", function () {
+
+    const enteredOtp = document.getElementById("otpInput").value.trim();
+
+    console.log("Entered OTP:", enteredOtp);
+    console.log("Stored OTP:", generatedOTP);
+
+    if (!generatedOTP) {
+      alert("Please request OTP first");
+      return;
+    }
+
+    if (enteredOtp === generatedOTP) {
+      alert("OTP verified. Downloading brochure...");
+
+      const a = document.createElement("a");
+      a.href = "https://www.finedgetraininginstitute.com/boucher/Finedge-Brochure.pdf";
+      a.download = "Finedge-Brochure.pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else {
+      alert("Invalid OTP");
+    }
+  });
+
+});
 
 /* ---------------------------------------------------------
    5. MOBILE NAV MENU (Hamburger + Overlay)
@@ -403,5 +459,62 @@ $(document).ready(function () {
   // close if clicking outside
   document.addEventListener("click", function () {
     menu.classList.remove("show");
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const fab = document.querySelector(".fab-wrapper");
+  const toggle = document.getElementById("fabToggle");
+
+  toggle.addEventListener("click", function (e) {
+    e.stopPropagation();
+    fab.classList.toggle("active");
+  });
+
+  // Close drawer when clicking outside
+  document.addEventListener("click", function () {
+    fab.classList.remove("active");
+  });
+});
+
+/* ---------------------------------------------------------
+   6. FAB (Floating Action Button) TOGGLE
+--------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", function () {
+  const fab = document.querySelector(".fab-wrapper");
+  const toggle = document.getElementById("fabToggle");
+
+  if (!fab || !toggle) return;
+
+  toggle.addEventListener("click", function (e) {
+    e.stopPropagation();
+    fab.classList.toggle("active");
+  });
+
+  fab.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
+
+  document.addEventListener("click", function () {
+    fab.classList.remove("active");
+  });
+});
+
+
+/* ---------------------------------------------------------
+   7. Preselect program in forms via URL
+--------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const subject = params.get("subject");
+
+  const selects = [
+    document.getElementById("subjectSelect"),
+    document.getElementById("sidebarSubjectSelect")
+  ];
+
+  selects.forEach(select => {
+    if (!select || !subject) return;
+    const exists = Array.from(select.options).some(opt => opt.value === subject);
+    if (exists) select.value = subject;
   });
 });

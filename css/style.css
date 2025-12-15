@@ -1374,19 +1374,72 @@ legend {
   color: inherit;
   white-space: normal;
 }
-.logo-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+* Logo bar container */
+.logo-bar {
+  background: #fff;
 }
-.logo-img{
-  max-width: 200px;
-  height: auto;
+
+/* LEFT main logo */
+.logo-img {
+  max-height: 60px;
+  width: auto;
 }
-.logo-img-2{
-  width: 100%;
-  height: auto;
+
+/* COMMON partner logo rules */
+.logo-img-2 {
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
 }
+
+/* DESKTOP VIEW */
+.desktop-logo {
+  display: inline-block;
+  max-height:42px;   /* slim, professional */
+}
+
+.mobile-logo {
+  display: none;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 767px) {
+
+  /* Keep row layout */
+  .logo-bar .row {
+    flex-wrap: nowrap;
+  }
+
+  /* Main logo slightly smaller */
+  .logo-img {
+    max-height: 48px;
+  }
+
+  /* Switch partner logo */
+  .desktop-logo {
+    display: none;
+  }
+
+  .mobile-logo {
+    display: inline-block;
+    max-height: 95px;   /* 👈 key: readable on mobile */
+    width: auto;
+  }
+
+  /* Better alignment */
+  .logo-bar .col-6 {
+    display: flex;
+    align-items: start;
+  }
+
+  .logo-bar .col-6:last-child {
+    justify-content: flex-end;
+  }
+}
+🎯 WHAT THIS FIXES
+Issu
+
+
 .about_page_img{
   width:100%;
   height: auto;
@@ -5376,16 +5429,56 @@ body.menu-open {
   visibility: visible;
 }
 /* HAMBURGER TOGGLE ICON */
+/* Custom toggler icon */
 .navbar-toggler {
   border: none;
-  padding: 4px;
-  background: transparent !important;
+  outline: none;
 }
 
-.navbar-toggler:focus {
-  outline: none;
-  box-shadow: none;
+/* Hamburger */
+.toggler-icon {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  display: block;
+  position: relative;
+  transition: all 0.3s ease;
 }
+
+.toggler-icon::before,
+.toggler-icon::after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.toggler-icon::before {
+  top: -7px;
+}
+
+.toggler-icon::after {
+  top: 7px;
+}
+
+/* OPEN STATE (X icon) */
+.navbar-toggler[aria-expanded="true"] .toggler-icon {
+  background: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
 
 .hamburger {
   width: 26px;
@@ -5421,7 +5514,7 @@ body.menu-open {
 
 /* Hamburger icon color fix */
 .navbar-light .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.6);
+  
   outline: none;
 }
 
@@ -5529,8 +5622,6 @@ body.menu-open {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1;
-  background-color: transparent;
-  border: 1px solid transparent;
   border-radius: false;
 }
 
@@ -5640,11 +5731,11 @@ body.menu-open {
   }
 
   .logo-img {
-    max-height: 44px;
+    max-height: 70px;
   }
 
   .logo-img-2 {
-    max-height: 36px;
+    max-height: 37px;
   }
 }
 
@@ -5850,7 +5941,7 @@ body.menu-open {
   color: rgba(0, 0, 0, 0.9);
 }
 .navbar-dark .navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.6);
+  background-color: transparent;
 
 }
 
@@ -5904,7 +5995,6 @@ body.menu-open {
 
 .navbar-dark .navbar-toggler {
   color: rgba(255, 255, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar-dark .navbar-toggler-icon {
@@ -6515,6 +6605,9 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .alert-dismissible {
   padding-right: 4rem;
+}
+.opt-close{
+  display: inline;
 }
 
 .alert-dismissible .close {
@@ -7280,6 +7373,49 @@ a.close.disabled {
   padding: 1rem 1rem;
   margin: -1rem -1rem -1rem auto;
 }
+/* Modal close button styling */
+.apply-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1051;
+  transition: all 0.25s ease;
+}
+
+/* Close icon */
+.apply-modal-close span {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1;
+}
+
+/* Hover effect */
+.apply-modal-close:hover {
+  background: #dc3545;
+  transform: scale(1.1);
+}
+
+.apply-modal-close:hover span {
+  color: #fff;
+}
+
+/* Remove Bootstrap default outline */
+.apply-modal-close:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 
 .modal-title {
   margin-bottom: 0;
@@ -12352,7 +12488,7 @@ h6,
 /* FAB container */
 .fab-wrapper {
   position: fixed;
-  bottom: 20px;
+  bottom: 100px;
   right: 20px;
   z-index: 99999;
 }
@@ -12402,7 +12538,7 @@ h6,
 
 .fab-item.call { background: #28a745; }
 .fab-item.whatsapp { background: #25d366; }
-.fab-item.contact { background: #ffc107; color: #000; }
+.fab-item.contact { background: #ffc107; color: #fff; }
 
 
 .fab-item.call {
@@ -12415,4 +12551,13 @@ h6,
 
 .fab-item.contact {
   background: #6610f2;
+}
+/* Rotate animation for main FAB icon */
+.fab-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Rotate when FAB is open */
+.fab-wrapper.active .fab-icon {
+  transform: rotate(135deg);
 }

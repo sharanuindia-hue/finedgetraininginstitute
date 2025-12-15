@@ -18,7 +18,9 @@
   <!-- Android Icons -->
   <link rel="icon" type="image/png" sizes="192x192" href="img/icons/android-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="img/icons/android-512.png">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <!-- EmailJS SDK (new recommended script) -->
@@ -48,14 +50,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
     rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
   <!-- Libraries Stylesheet -->
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-
+  
 
   <!-- Customized Bootstrap Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
@@ -89,36 +86,45 @@
     <div class="row align-items-center py-2 px-lg-5">
 
       <!-- Left Logo -->
-      <div class="col-6 col-lg-6 text-left">
+      <div class="col-6 col-lg-6 text-left d-flex flex-column">
         <a href="index.html" class="navbar-brand m-0">
           <img src="img/logo-2-removebg.png" class="logo-img" alt="Finedge Logo">
         </a>
+
       </div>
 
       <!-- Right Logo -->
-      <div class="col-6 col-lg-6 text-right">
+      <div class="col-6 text-right">
 
         <a href="index.html" class="navbar-brand m-0">
-          <img src="assets/img/top-bar-img.webp" class="logo-img-2" alt="Partner Logo">
+           <!-- Desktop image -->
+  <img src="assets/img/asset 6.png"
+       class="logo-img-2 desktop-logo"
+       alt="Partner Logo Desktop">
+
+  <!-- Mobile image -->
+  <img src="assets/img/asset-5-1400x200.png"
+       class="logo-img-2 mobile-logo"
+       alt="Partner Logo Mobile">
         </a>
       </div>
-
     </div>
   </div>
 
-
-  <!-- Navbar Start -->
+  <!-- Topbar End -->
   <!-- NAVBAR -->
   <div class="container-fluid p-0 bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 px-lg-5">
 
 
 
-      <!-- HAMBURGER (RIGHT SIDE) -->
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+  data-target="#navbarCollapse"
+  aria-controls="navbarCollapse" aria-expanded="false"
+  aria-label="Toggle navigation">
+  
+  <span class="toggler-icon"></span>
+</button>
 
       <!-- MENU -->
       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
@@ -136,7 +142,7 @@
           <li class="nav-item dropdown programs-split">
 
             <!-- PROGRAM TEXT (Navigates) -->
-            <a class="nav-link programs-link" href="course.html active" id="programsMainLink">
+            <a class="nav-link programs-link active" href="course.html" id="programsMainLink">
               PROGRAMS
             </a>
 
@@ -527,7 +533,7 @@
   </div>
   <!-- Enquiry Modal End -->
 
-  <!-- Footer Start -->
+ <!-- Footer Start -->
   <div class="container-fluid position-relative overlay-top bg-dark text-white py-1">
     <div class=" mt-5 pt-1">
 
@@ -589,7 +595,9 @@
 
         <!-- Contact -->
         <div class="col-md-4 mb-5">
-          <h3 class="text-white mb-4">Get In Touch</h3>
+          <h3 class="text-white mb-4">Contact Us Instead Of Get In Touch</h3>
+          <h4 class="text-white mb-0">Findge Training Institute</h4>
+          <h6 class="text-white">(A Unit OF Fincareer Edtech Technoligies Private Limited)</h6>
           <p><i class="fa fa-map-marker-alt mr-2"></i>
             No. 35, 2nd Floor, 4th Main, 4th Cross, Chandan Layout,<br>
             Srigandhada Kavalu, Sunkadakatte, Bangalore – 560091.
@@ -622,16 +630,16 @@
       </div>
       <div class="col-md-6 text-center">
         <a class="text-white mr-4" href="https://www.facebook.com/share/1MMdVjofkq/?mibextid=wwXIfr"><i
-            class="fa-2x fa-brands fa-square-facebook"></i></a>
+            class="fa-2x fa-brands fa-square-facebook" target="_blank"></i></a>
 
         <a class="text-white mr-4"
-          href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr"><i
+          href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr" target="_blank"><i
             class="fa-brands fa-2x fa-square-instagram"></i></a>
-        <a class="text-white mr-4" href="https://www.linkedin.com/company/finedgetraininginstitute/"><i
+        <a class="text-white mr-4" href="https://www.linkedin.com/company/finedgetraininginstitute/" target="_blank"><i
             class="fa-brands fa-2x fa-linkedin"></i></a>
-        <a class="text-white mr-4" href="https://youtube.com/@finedgetraininginstitute?si=42frBJ1-harvTuIZ"><i
+        <a class="text-white mr-4" href="https://youtube.com/@finedgetraininginstitute?si=42frBJ1-harvTuIZ" target="_blank"><i
             class="fa-brands fa-2x fa-youtube"></i></a>
-        <a class="text-white mr-4" href="https://maps.app.goo.gl/DQUo3eVygCAqVGKM9?g_st=ipc"><i
+        <a class="text-white mr-4" href="https://maps.app.goo.gl/DQUo3eVygCAqVGKM9?g_st=ipc" target="_blank"><i
             class="fa-solid fa-2x fa-location-dot"></i></a>
       </div>
     </div>
@@ -657,7 +665,7 @@
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
   <script src="js/script.js"></script>
-
+<script src="js/floating.js"></script>
 
   <!-- Status Popup -->
   <div id="statusPopup" class="status-popup">
@@ -674,32 +682,29 @@
   <!-- Floating Action Button -->
   <div class="fab-wrapper">
 
-    <!-- Drawer buttons -->
-    <div class="fab-menu">
+  <!-- Drawer buttons -->
+  <div class="fab-menu">
 
-      <a href="tel:+919876543210" class="fab-item call" title="Call Us">
-        <i class="fa fa-phone"></i>
-      </a>
+    <a href="tel:+918431305295" class="fab-item call">
+      <i class="fa-solid fa-phone"></i>
+    </a>
 
-      <a href="https://wa.me/919876543210" target="_blank" class="fab-item whatsapp" title="WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
+    <a href="https://wa.me/918431305295" class="fab-item whatsapp" target="_blank">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 
-      <button class="fab-item contact" data-toggle="modal" data-target="#contactModal" title="Request Call Back">
-        <i class="fa fa-envelope"></i>
-      </button>
 
-    </div>
-
-    <!-- Main FAB -->
-    <button class="fab-main" id="fabToggle">
-      <i class="fa fa-comment"></i>
+    <button class="fab-item contact" data-toggle="modal" data-target="#contactModal">
+      <i class="fa-solid fa-envelope"></i>
     </button>
 
   </div>
 
+  <!-- Main FAB -->
+  <button class="fab-main" id="fabToggle">
+    <i class="fa-solid fa-comment fab-icon"></i>
+  </button>
 
+</div>
 </body>
-
-
 </html>

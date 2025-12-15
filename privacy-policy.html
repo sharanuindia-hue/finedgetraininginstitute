@@ -49,35 +49,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
     rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
   <!-- Libraries Stylesheet -->
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-
+  
 
   <!-- Customized Bootstrap Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
   <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '864005899444887');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '864005899444887');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -89,33 +85,45 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
     <div class="row align-items-center py-2 px-lg-5">
 
       <!-- Left Logo -->
-      <div class="col-6 col-lg-6 text-left">
+      <div class="col-6 col-lg-6 text-left d-flex flex-column">
         <a href="index.html" class="navbar-brand m-0">
           <img src="img/logo-2-removebg.png" class="logo-img" alt="Finedge Logo">
         </a>
+
       </div>
 
       <!-- Right Logo -->
-      <div class="col-6 col-lg-6 text-right">
-        
+      <div class="col-6 text-right">
+
         <a href="index.html" class="navbar-brand m-0">
-          <img src="assets/img/top-bar-img.webp" class="logo-img-2" alt="Partner Logo">
+           <!-- Desktop image -->
+  <img src="assets/img/asset 6.png"
+       class="logo-img-2 desktop-logo"
+       alt="Partner Logo Desktop">
+
+  <!-- Mobile image -->
+  <img src="assets/img/asset-5-1400x200.png"
+       class="logo-img-2 mobile-logo"
+       alt="Partner Logo Mobile">
         </a>
       </div>
-
     </div>
   </div>
- <!-- NAVBAR -->
+
+  <!-- Topbar End -->
+  <!-- NAVBAR -->
   <div class="container-fluid p-0 bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 px-lg-5">
 
 
 
-      <!-- HAMBURGER (RIGHT SIDE) -->
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+  data-target="#navbarCollapse"
+  aria-controls="navbarCollapse" aria-expanded="false"
+  aria-label="Toggle navigation">
+  
+  <span class="toggler-icon"></span>
+</button>
 
       <!-- MENU -->
       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
@@ -126,41 +134,34 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" href="about.html">ABOUT US</a>
+            <a class="nav-link" href="about.html">ABOUT US</a>
           </li>
 
           <!-- DROPDOWN -->
-  <li class="nav-item dropdown programs-split">
+          <li class="nav-item dropdown programs-split">
 
-  <!-- PROGRAM TEXT (Navigates) -->
-  <a 
-    class="nav-link programs-link"
-    href="course.html"
-    id="programsMainLink"
-  >
-    PROGRAMS
-  </a>
+            <!-- PROGRAM TEXT (Navigates) -->
+            <a class="nav-link programs-link" href="course.html" id="programsMainLink">
+              PROGRAMS
+            </a>
 
-  <!-- DROPDOWN TOGGLE ARROW ONLY -->
-  <a 
-    class="nav-link dropdown-toggle programs-icon"
-    href="#"
-    id="programsDropdown"
-    role="button"
-    data-toggle="dropdown"
-    aria-haspopup="true"
-    aria-expanded="false"
-  ></a>
+            <!-- DROPDOWN TOGGLE ARROW ONLY -->
+            <a class="nav-link dropdown-toggle programs-icon" href="#" id="programsDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 
-  <!-- DROPDOWN MENU -->
- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="programsDropdown">
-    <a class="dropdown-item" href="bfsi-detail.html?subject=bfsi-career-accelerator">BFSI Career Accelerator Program</a>
-    <a class="dropdown-item" href="corporate-governance-detail.html?subject=corporate-governance">Corporate Governance in BFSI</a>
-    <a class="dropdown-item" href="investment-banking-detail.html?subject=investment-banking">Investment Banking</a>
-    <a class="dropdown-item" href="treasury-forex-trade-detail.html?subject=treasury-forex-trade">Treasury, Forex & Trade Finance</a>
-  </div>
+            <!-- DROPDOWN MENU -->
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="programsDropdown">
+              <a class="dropdown-item" href="bfsi-detail.html?subject=bfsi-career-accelerator">BFSI Career Accelerator
+                Program</a>
+              <a class="dropdown-item" href="corporate-governance-detail.html?subject=corporate-governance">Corporate
+                Governance in BFSI</a>
+              <a class="dropdown-item" href="investment-banking-detail.html?subject=investment-banking">Investment
+                Banking</a>
+              <a class="dropdown-item" href="treasury-forex-trade-detail.html?subject=treasury-forex-trade">Treasury,
+                Forex & Trade Finance</a>
+            </div>
 
-</li>
+          </li>
 
 
 
@@ -181,7 +182,8 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
       </div>
       <div class="">
 
-        <a href="#contactModal" class="btn btn-primary btn-block apply-now-btn" data-toggle="modal" data-target="#contactModal">
+        <a href="#contactModal" class="btn btn-primary btn-block apply-now-btn" data-toggle="modal"
+          data-target="#contactModal">
           Contact Now
         </a>
       </div>
@@ -189,87 +191,6 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
 
     </nav>
   </div>
-
-  <!-- <div id="menuOverlay" class="menu-overlay"></div> -->
-    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-    <div class="modal-content contact-popup">
-
-      <!-- Close -->
-      <button type="button" class="close p-2 pr-3" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-
-      <div class="p-4">
-        <h4 class="mb-2 text-center">Request a Call Back</h4>
-        <p class="text-muted text-center small mb-4">
-          Share your details — we will contact you shortly.
-        </p>
-
-        <form id="contactForm">
-
-          <!-- Full Name -->
-          <div class="form-group">
-            <label class="small text-muted mb-1">Full Name</label>
-            <input
-              type="text"
-              name="name"
-              class="form-control contact-input"
-              placeholder="Your Name"
-              required>
-          </div>
-
-          <!-- Email -->
-          <div class="form-group">
-            <label class="small text-muted mb-1">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              class="form-control contact-input"
-              placeholder="Your Email"
-              required>
-          </div>
-
-          <!-- Program -->
-          <div class="form-group">
-            <label class="small text-muted mb-1">Program Interested In</label>
-            <select
-              name="program"
-              class="form-control contact-input"
-              required>
-              <option value="" disabled selected>Select Program</option>
-              <option value="bfsi-career-accelerator">BFSI Career Accelerator Program</option>
-              <option value="corporate-governance">Corporate Governance in BFSI</option>
-              <option value="investment-banking">Investment Banking</option>
-              <option value="treasury-forex-trade">Treasury, Forex & Trade Finance</option>
-            </select>
-          </div>
-
-          <!-- Message -->
-          <div class="form-group">
-            <label class="small text-muted mb-1">Message</label>
-            <textarea
-              name="message"
-              class="form-control contact-input"
-              rows="3"
-              placeholder="I would like to know more about this program"
-              required></textarea>
-          </div>
-
-          <!-- Submit -->
-          <button type="submit" class="btn btn-primary btn-block">
-            Request Call Back
-          </button>
-
-          <small class="d-block text-muted text-center mt-2">
-            We will contact you shortly
-          </small>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
 
   <!-- Navbar End -->
   <div class="container">
@@ -338,285 +259,81 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
        - Continued use of our services implies acceptance of updated policies.</p>
   </div>
   <!-- APPLY MODAL -->
-  <div class="modal fade apply-modal" id="applyModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-      <div class="modal-content apply-modal-content">
+  <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+      <div class="modal-content contact-popup">
 
-        <!-- Close Button -->
-        <button type="button" class="close apply-modal-close" data-dismiss="modal" aria-label="Close">
+        <!-- Close -->
+        <button type="button" class="close p-2 pr-3" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
 
-        <div class="row no-gutters">
-          <!-- LEFT: Info / Visual -->
-          <div class="col-lg-4 d-none d-lg-flex align-items-stretch">
-            <div class="apply-modal-left">
-              <div class="apply-pill">BFSI Job Accelerator</div>
-              <h3 class="mb-3">Admission Form – Quick Online Application</h3>
-              <p>
-                Share your basic admission details for the
-                <strong>BFSI Job Accelerator Program</strong>. Our team will verify
-                and guide you on fees, batch and next steps.
-              </p>
+        <div class="p-4">
+          <h4 class="mb-2 text-center">Request a Call Back</h4>
+          <p class="text-muted text-center small mb-4">
+            Share your details — we will contact you shortly.
+          </p>
 
-              <ul class="apply-highlights">
-                <li><i class="fa fa-check-circle"></i> NSDC / BFSI SSC aligned program</li>
-                <li><i class="fa fa-check-circle"></i> Placement-focused training</li>
-                <li><i class="fa fa-check-circle"></i> Support for banking & finance roles</li>
-              </ul>
+          <form id="contact-form-pop">
 
-              <div class="apply-badge">
-                <i class="fa fa-shield-alt"></i>
-                Admission details stay secure & confidential
-              </div>
-
-              <div class="apply-contact mt-4">
-                <p class="small mb-1"><i class="fa fa-phone mr-1"></i> 080-23335777 / +91 84313 05295</p>
-                <p class="small mb-0"><i class="fa fa-envelope mr-1"></i> info@finedgetraininginstitute.com</p>
-              </div>
+            <!-- Full Name -->
+            <div class="form-group">
+              <label class="small text-muted mb-1">Full Name</label>
+              <input type="text" name="name" class="form-control contact-input" placeholder="Your Name" required>
             </div>
-          </div>
 
-          <!-- RIGHT: Multi-section Form -->
-          <div class="col-lg-8">
-            <div class="apply-modal-right">
-              <h4 class="mb-2">Fill Your Admission Details</h4>
-              <p class="text-muted small mb-4">
-                Fields marked with * are mandatory. You’ll receive a confirmation mail with program
-                details after submission.
-              </p>
-
-              <form id="applyForm">
-                <!-- SECTION: Personal Information -->
-                <div class="apply-section mb-3">
-                  <h6 class="text-uppercase text-muted small mb-2">Personal Information</h6>
-                  <!-- Full Name + DOB -->
-                  <div class="form-row">
-                    <div class="form-group col-md-8">
-                      <label class="small text-muted">Full Name*</label>
-                      <input type="text" name="name" class="form-control apply-input" placeholder="Enter your full name"
-                        required>
-                    </div>
-                    <div class="form-group col-md-4">
-                      <label class="small text-muted">Date of Birth*</label>
-                      <input type="date" name="dob" class="form-control apply-input" required>
-                    </div>
-                  </div>
-
-                  <!-- Gender + Nationality -->
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label class="small text-muted">Gender*</label>
-                      <select name="gender" class="custom-select apply-input" required>
-                        <option value="" disabled selected>Select gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Other</option>
-                        <option>Prefer not to say</option>
-                      </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label class="small text-muted">Nationality*</label>
-                      <input type="text" name="nationality" class="form-control apply-input" placeholder="e.g. Indian"
-                        required>
-                    </div>
-                  </div>
-
-                  <!-- Contact Number + Email -->
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label class="small text-muted">Contact Number (WhatsApp)*</label>
-                      <input type="tel" name="phone" class="form-control apply-input"
-                        placeholder="10-digit mobile number" required>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label class="small text-muted">Email Address*</label>
-                      <input type="email" name="email" class="form-control apply-input" placeholder="you@example.com"
-                        required>
-                    </div>
-                  </div>
-
-                  <!-- Current & Permanent Address -->
-                  <div class="form-group">
-                    <label class="small text-muted">Current Address*</label>
-                    <textarea name="current_address" class="form-control apply-input" rows="2"
-                      placeholder="House No, Street, Area, City, State, Pincode" required></textarea>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="small text-muted">Permanent Address</label>
-                    <textarea name="permanent_address" class="form-control apply-input" rows="2"
-                      placeholder="Fill only if different from current address"></textarea>
-                  </div>
-                </div>
-
-                <!-- SECTION: Parent / Guardian Details -->
-                <div class="apply-section mb-3">
-                  <h6 class="text-uppercase text-muted small mb-2">Parent / Guardian</h6>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-8">
-                      <label class="small text-muted">Parent / Guardian Name</label>
-                      <input type="text" name="parent_name" class="form-control apply-input"
-                        placeholder="Name of parent or guardian">
-                    </div>
-                    <div class="form-group col-md-4">
-                      <label class="small text-muted">Relationship</label>
-                      <input type="text" name="parent_relationship" class="form-control apply-input"
-                        placeholder="e.g. Father, Mother">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- SECTION: Educational Background -->
-                <div class="apply-section mb-3">
-                  <h6 class="text-uppercase text-muted small mb-2">Educational Background</h6>
-
-                  <div class="form-group">
-                    <label class="small text-muted">School / College / University*</label>
-                    <input type="text" name="institution" class="form-control apply-input"
-                      placeholder="Name of your latest institution" required>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label class="small text-muted">Year of Passing*</label>
-                      <input type="text" name="year_of_passing" class="form-control apply-input" placeholder="e.g. 2024"
-                        required>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label class="small text-muted">Percentage / CGPA</label>
-                      <input type="text" name="marks" class="form-control apply-input"
-                        placeholder="e.g. 68% or 7.2 CGPA">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- SECTION: Program Details -->
-                <div class="apply-section mb-3">
-                  <h6 class="text-uppercase text-muted small mb-2">Program Details</h6>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-7">
-                      <label class="small text-muted">Program Name*</label>
-                      <input type="text" name="program_name" class="form-control apply-input"
-                        value="BFSI Job Accelerator Program" required>
-                    </div>
-                    <div class="form-group col-md-5">
-                      <label class="small text-muted">Preferred Batch / Session*</label>
-                      <input type="text" name="preferred_batch" class="form-control apply-input"
-                        placeholder="e.g. Jan 2026 Evening Batch" required>
-                    </div>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label class="small text-muted">Duration of Program</label>
-                      <input type="text" name="duration" class="form-control apply-input" value="30 Days">
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label class="small text-muted">Course Fee (₹)</label>
-                      <input type="text" name="course_fee" class="form-control apply-input" placeholder="As informed">
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label class="small text-muted">Net Payable (₹)</label>
-                      <input type="text" name="net_payable" class="form-control apply-input"
-                        placeholder="Final payable">
-                    </div>
-                  </div>
-
-                  <!-- Role interest (kept for your existing EmailJS template) -->
-                  <div class="form-group">
-                    <label class="small text-muted">Preferred course*</label>
-                    <select name="interest" class="custom-select apply-input" required>
-                      <option value="" disabled selected>Select your preferred course</option>
-                      <option>Accelerator Program</option>
-                      <option>Corporate Governance</option>
-                      <option>Investment Banking</option>
-                      <option>Treasury & Trade Finance</option>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- SECTION: Additional Notes -->
-                <div class="apply-section mb-3">
-                  <h6 class="text-uppercase text-muted small mb-2">Additional Information</h6>
-                  <div class="form-group mb-2">
-                    <label class="small text-muted">Any questions or current job/education status?</label>
-                    <textarea name="notes" class="form-control apply-input" rows="3"
-                      placeholder="Share your doubts, current job, or academic status"></textarea>
-                  </div>
-
-                  <p class="text-muted extra-small mb-0">
-                    By submitting this form, I confirm that the above information is true to the best of my knowledge
-                    and I agree to abide by the rules and regulations of Finedge Training Institute.
-                  </p>
-                </div>
-
-                <!-- ACTION & PAYMENT SECTION -->
-                <div class="mt-4">
-
-                  <!-- Submit Button -->
-                  <div class="mb-3">
-                    <button type="submit" class="btn btn-primary w-100" style="height:48px;">
-                      Submit Admission Form
-                    </button>
-                  </div>
-
-                  <!-- AMOUNT SECTION -->
-                  <div class="row g-2">
-                    <div class="col-12 col-md-4">
-                      <label class="small text-muted">Program Fee (₹)</label>
-                      <input type="number" id="baseAmount" class="form-control apply-input" value="50000" min="500"
-                        step="100" required>
-                    </div>
-
-                    <div class="col-6 col-md-4">
-                      <label class="small text-muted">GST (18%)</label>
-                      <input type="text" id="gstAmount" class="form-control apply-input" readonly>
-                    </div>
-
-                    <div class="col-6 col-md-4">
-                      <label class="small text-muted">Total Payable (₹)</label>
-                      <input type="text" id="totalAmount" class="form-control apply-input fw-semibold" readonly>
-                    </div>
-                  </div>
-
-                  <!-- PAY BUTTON -->
-                  <button id="payButtonApply" type="button" class="btn btn-success w-100 mt-3"
-                    style="height:50px; font-size:1rem;" disabled>
-                    Pay & Enrol Now
-                  </button>
-
-                  <!-- INFO TEXT -->
-                  <p class="text-muted extra-small mt-2 text-center">
-                    Please complete all required details to enable payment.
-                  </p>
-
-                </div>
-
-                <p class="text-muted extra-small mt-3 mb-0">
-                  Note: As per institute policy, fees once paid are generally non-refundable except in specific
-                  cases as per official terms & conditions.
-                </p>
-              </form>
+            <!-- Email -->
+            <div class="form-group">
+              <label class="small text-muted mb-1">Email Address</label>
+              <input type="email" name="email" class="form-control contact-input" placeholder="Your Email" required>
             </div>
-          </div>
+            <div class="form-group">
+              <label class="small text-muted mb-1">Mobile Number</label>
+              <input type="tel" name="phone" class="form-control contact-input" placeholder="Your Mobile Number"
+                required>
+            </div>
+            <!-- Program -->
+            <div class="form-group">
+              <label class="small text-muted mb-1">Program Interested In</label>
+              <select name="program" class="form-control contact-input" required>
+                <option value="" disabled selected>Select Program</option>
+                <option value="bfsi-career-accelerator">BFSI Career Accelerator Program</option>
+                <option value="corporate-governance">Corporate Governance in BFSI</option>
+                <option value="investment-banking">Investment Banking</option>
+                <option value="treasury-forex-trade">Treasury, Forex & Trade Finance</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label class="small text-muted mb-1">Message</label>
+              <textarea name="message" class="form-control contact-input" rows="3"
+                placeholder="I would like to know more about this program" required></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary btn-block">
+              Request Call Back
+            </button>
+
+            <small class="d-block text-muted text-center mt-2">
+              We will contact you shortly
+            </small>
+          </form>
         </div>
 
       </div>
     </div>
   </div>
-
   <!-- Apply Modal End -->
    
-<!-- Footer Start -->
+  <!-- Footer Start -->
   <div class="container-fluid position-relative overlay-top bg-dark text-white py-1">
     <div class=" mt-5 pt-1">
 
 
       <div class="row justify-content-center">
-       
+
         <!-- Policies -->
         <div class="col-md-4 mb-5">
           <h3 class="text-white mb-4">Quick Links</h3>
@@ -637,47 +354,48 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
 
 
         <!-- Courses area repurposed for BFSI -->
-  <div class="col-md-4 mb-5">
-  <h3 class="text-white mb-4">Career-Focused Programs</h3>
-
-  <div class="d-flex flex-column justify-content-start">
-
-    <a href="bfsi-detail.html?program=accelerator"
-       class="text-white mb-2 text-decoration-none">
-      <i class="fa fa-angle-right mr-2"></i>
-     BFSI Career Accelerator Program
-    </a>
-
-    <a href="corporate-governance-detail.html?program=corporate-governance"
-       class="text-white mb-2 text-decoration-none">
-      <i class="fa fa-angle-right mr-2"></i>
-      Corporate Governance in BFSI
-    </a>
-
-    <a href="investment-banking-detail.html?program=investment-banking"
-       class="text-white mb-2 text-decoration-none">
-      <i class="fa fa-angle-right mr-2"></i>
-      Investment Banking
-    </a>
-
-    <a href="treasury-forex-trade-detail.html?program=treasury-trade-finance"
-       class="text-white text-decoration-none">
-      <i class="fa fa-angle-right mr-2"></i>
-      Treasury, Forex &amp; Trade Finance
-    </a>
-
-  </div>
-</div>
-
-
-
-         <!-- Contact -->
         <div class="col-md-4 mb-5">
-          <h3 class="text-white mb-4">Get In Touch</h3>
+          <h3 class="text-white mb-4">Career-Focused Programs</h3>
+
+          <div class="d-flex flex-column justify-content-start">
+
+            <a href="bfsi-detail.html?program=accelerator" class="text-white mb-2 text-decoration-none">
+              <i class="fa fa-angle-right mr-2"></i>
+              BFSI Career Accelerator Program
+            </a>
+
+            <a href="corporate-governance-detail.html?program=corporate-governance"
+              class="text-white mb-2 text-decoration-none">
+              <i class="fa fa-angle-right mr-2"></i>
+              Corporate Governance in BFSI
+            </a>
+
+            <a href="investment-banking-detail.html?program=investment-banking"
+              class="text-white mb-2 text-decoration-none">
+              <i class="fa fa-angle-right mr-2"></i>
+              Investment Banking
+            </a>
+
+            <a href="treasury-forex-trade-detail.html?program=treasury-trade-finance"
+              class="text-white text-decoration-none">
+              <i class="fa fa-angle-right mr-2"></i>
+              Treasury, Forex &amp; Trade Finance
+            </a>
+
+          </div>
+        </div>
+
+
+
+        <!-- Contact -->
+        <div class="col-md-4 mb-5">
+          <h3 class="text-white mb-4">Contact Us Instead Of Get In Touch</h3>
+          <h4 class="text-white mb-0">Findge Training Institute</h4>
+          <h6 class="text-white">(A Unit OF Fincareer Edtech Technoligies Private Limited)</h6>
           <p><i class="fa fa-map-marker-alt mr-2"></i>
             No. 35, 2nd Floor, 4th Main, 4th Cross, Chandan Layout,<br>
-                Srigandhada Kavalu, Sunkadakatte, Bangalore – 560091.
-                
+            Srigandhada Kavalu, Sunkadakatte, Bangalore – 560091.
+
           </p>
           <p><i class="fa fa-phone-alt mr-2"></i>
             <a class="text-white" href="tel:+918023335777">080-23335777</a> /
@@ -696,39 +414,38 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
 
   <div class="container-fluid bg-dark text-white border-top py-4"
     style="border-color: rgba(256, 256, 256, .1) !important;">
-      <div class="row justify-content-center">
-        <div class="col-md-6 text-center  mb-3 mb-md-0 ">
-          <p class="m-0">
-            Copyright &copy; <a class="text-white" href="#">FINEDGE Training Institute</a>.
-            All Rights Reserved.
-          </p>
-          
-        </div>
-      <div class="col-md-6 text-center">
-                    <a class="text-white mr-4" href="https://www.facebook.com/share/1MMdVjofkq/?mibextid=wwXIfr"><i
-                class="fa-2x fa-brands fa-square-facebook"></i></a>
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center  mb-3 mb-md-0 ">
+        <p class="m-0">
+          Copyright &copy; <a class="text-white" href="#">FINEDGE Training Institute</a>.
+          All Rights Reserved.
+        </p>
 
-            <a class="text-white mr-4"
-              href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr"><i
-                class="fa-brands fa-2x fa-square-instagram"></i></a>
-            <a class="text-white mr-4"
-              href="https://www.linkedin.com/company/finedgetraininginstitute/"><i
-                class="fa-brands fa-2x fa-linkedin"></i></a>
-                <a class="text-white mr-4"
-              href="https://youtube.com/@finedgetraininginstitute?si=42frBJ1-harvTuIZ"><i
-                class="fa-brands fa-2x fa-youtube"></i></a>
-                <a class="text-white mr-4"
-              href="https://maps.app.goo.gl/DQUo3eVygCAqVGKM9?g_st=ipc"><i
-                class="fa-solid fa-2x fa-location-dot"></i></a>
-                </div>
+      </div>
+      <div class="col-md-6 text-center">
+        <a class="text-white mr-4" href="https://www.facebook.com/share/1MMdVjofkq/?mibextid=wwXIfr"><i
+            class="fa-2x fa-brands fa-square-facebook" target="_blank"></i></a>
+
+        <a class="text-white mr-4"
+          href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr" target="_blank"><i
+            class="fa-brands fa-2x fa-square-instagram"></i></a>
+        <a class="text-white mr-4" href="https://www.linkedin.com/company/finedgetraininginstitute/" target="_blank"><i
+            class="fa-brands fa-2x fa-linkedin"></i></a>
+        <a class="text-white mr-4" href="https://youtube.com/@finedgetraininginstitute?si=42frBJ1-harvTuIZ" target="_blank"><i
+            class="fa-brands fa-2x fa-youtube"></i></a>
+        <a class="text-white mr-4" href="https://maps.app.goo.gl/DQUo3eVygCAqVGKM9?g_st=ipc" target="_blank"><i
+            class="fa-solid fa-2x fa-location-dot"></i></a>
       </div>
     </div>
- 
+  </div>
+
 
   <!-- Footer End -->
+
+
+
   <!-- Back to Top -->
-  <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i
-      class="fa fa-angle-double-up"></i></a>
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
   <!-- JavaScript Libraries -->
@@ -742,26 +459,46 @@ src="https://www.facebook.com/tr?id=864005899444887&ev=PageView&noscript=1"
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
   <script src="js/script.js"></script>
+<script src="js/floating.js"></script>
 
-
-
-
-
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/918431305295?text=Hi%20I%20want%20to%20know%20more%20about%20BFSI%20Job%20Readiness%20Program"
-    class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
   <!-- Status Popup -->
   <div id="statusPopup" class="status-popup">
     <div class="status-popup-inner">
       <div id="statusIcon" class="status-icon"></div>
       <h4 id="statusTitle" class="mb-2"></h4>
       <p id="statusMessage" class="mb-3 small text-muted"></p>
-      <button id="statusClose" class="btn btn-primary btn-sm px-4">
+      <button id="statusClose" class="btn btn-sm px-4 To-top">
         OK
       </button>
     </div>
   </div>
+
+  <!-- Floating Action Button -->
+  <div class="fab-wrapper">
+
+  <!-- Drawer buttons -->
+  <div class="fab-menu">
+
+    <a href="tel:+918431305295" class="fab-item call">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+
+    <a href="https://wa.me/918431305295" class="fab-item whatsapp" target="_blank">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+
+    <button class="fab-item contact" data-toggle="modal" data-target="#contactModal">
+      <i class="fa-solid fa-envelope"></i>
+    </button>
+
+  </div>
+
+  <!-- Main FAB -->
+  <button class="fab-main" id="fabToggle">
+    <i class="fa-solid fa-comment fab-icon"></i>
+  </button>
+
+</div>
 </body>
 </html>

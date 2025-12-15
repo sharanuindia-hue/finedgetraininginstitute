@@ -94,13 +94,20 @@
       </div>
 
       <!-- Right Logo -->
-      <div class="col-6 col-lg-6 text-right">
+      <div class="col-6 text-right">
 
         <a href="index.html" class="navbar-brand m-0">
-          <img src="assets/img/top-bar-img.webp" class="logo-img-2" alt="Partner Logo">
+           <!-- Desktop image -->
+  <img src="assets/img/asset 6.png"
+       class="logo-img-2 desktop-logo"
+       alt="Partner Logo Desktop">
+
+  <!-- Mobile image -->
+  <img src="assets/img/asset-5-1400x200.png"
+       class="logo-img-2 mobile-logo"
+       alt="Partner Logo Mobile">
         </a>
       </div>
-
     </div>
   </div>
 
@@ -111,11 +118,13 @@
 
 
 
-      <!-- HAMBURGER (RIGHT SIDE) -->
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+  data-target="#navbarCollapse"
+  aria-controls="navbarCollapse" aria-expanded="false"
+  aria-label="Toggle navigation">
+  
+  <span class="toggler-icon"></span>
+</button>
 
       <!-- MENU -->
       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
@@ -800,9 +809,11 @@
     <div class="modal-dialog modal-dialog-centered modal-md">
       <div class="modal-content p-4">
 
+        <div class="opt-close ">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
         <h5 class="text-center mb-3">Download Brochure</h5>
+        </div>
 
         <!-- STEP 1 -->
         <form id="otpForm">
@@ -810,7 +821,7 @@
           <input type="email" class="form-control mb-2" placeholder="Email Address" required id="otpEmail">
           <input type="tel" class="form-control mb-3" placeholder="Mobile Number" required id="otpPhone">
 
-          <button type="button" id="sendOtpBtn">Send OTP</button>
+          <button type="button" id="sendOtpBtn" class="btn btn-success">Send OTP</button>
 
         </form>
 
@@ -1234,7 +1245,9 @@
 
         <!-- Contact -->
         <div class="col-md-4 mb-5">
-          <h3 class="text-white mb-4">Get In Touch</h3>
+          <h3 class="text-white mb-4">Contact Us Instead Of Get In Touch</h3>
+          <h4 class="text-white mb-0">Findge Training Institute</h4>
+          <h6 class="text-white">(A Unit OF Fincareer Edtech Technoligies Private Limited)</h6>
           <p><i class="fa fa-map-marker-alt mr-2"></i>
             No. 35, 2nd Floor, 4th Main, 4th Cross, Chandan Layout,<br>
             Srigandhada Kavalu, Sunkadakatte, Bangalore – 560091.
@@ -1267,16 +1280,16 @@
       </div>
       <div class="col-md-6 text-center">
         <a class="text-white mr-4" href="https://www.facebook.com/share/1MMdVjofkq/?mibextid=wwXIfr"><i
-            class="fa-2x fa-brands fa-square-facebook"></i></a>
+            class="fa-2x fa-brands fa-square-facebook" target="_blank"></i></a>
 
         <a class="text-white mr-4"
-          href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr"><i
+          href="https://www.instagram.com/finedgetraininginstitute?igsh=a2oyMmRkZ3pvZ2Ex&utm_source=qr" target="_blank"><i
             class="fa-brands fa-2x fa-square-instagram"></i></a>
-        <a class="text-white mr-4" href="https://www.linkedin.com/company/finedgetraininginstitute/"><i
+        <a class="text-white mr-4" href="https://www.linkedin.com/company/finedgetraininginstitute/" target="_blank"><i
             class="fa-brands fa-2x fa-linkedin"></i></a>
-        <a class="text-white mr-4" href="https://youtube.com/@finedgetraininginstitute?si=42frBJ1-harvTuIZ"><i
+        <a class="text-white mr-4" href="https://youtube.com/@finedgetraininginstitute?si=42frBJ1-harvTuIZ" target="_blank"><i
             class="fa-brands fa-2x fa-youtube"></i></a>
-        <a class="text-white mr-4" href="https://maps.app.goo.gl/DQUo3eVygCAqVGKM9?g_st=ipc"><i
+        <a class="text-white mr-4" href="https://maps.app.goo.gl/DQUo3eVygCAqVGKM9?g_st=ipc" target="_blank"><i
             class="fa-solid fa-2x fa-location-dot"></i></a>
       </div>
     </div>
@@ -1288,20 +1301,6 @@
 
   <!-- Back to Top -->
   <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-
-  <!-- JavaScript Libraries -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/counterup/counterup.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-  <!-- Template Javascript -->
-  <script src="js/main.js"></script>
-  <script src="js/script.js"></script>
-
 
   <!-- Status Popup -->
   <div id="statusPopup" class="status-popup">
@@ -1318,29 +1317,45 @@
   <!-- Floating Action Button -->
   <div class="fab-wrapper">
 
- <!-- Drawer buttons -->
-<a href="tel:+919876543210" class="fab-item call">
-  <i class="fa-solid fa-phone"></i>
-</a>
+  <!-- Drawer buttons -->
+  <div class="fab-menu">
 
-<a href="https://wa.me/919876543210" class="fab-item whatsapp" target="_blank">
+    <a href="tel:+918431305295" class="fab-item call">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+
+    <a href="https://wa.me/918431305295" class="fab-item whatsapp" target="_blank">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<button class="fab-item contact" data-toggle="modal" data-target="#contactModal">
-  <i class="fa-solid fa-envelope"></i>
-</button>
 
-<!-- Main FAB -->
-<button class="fab-main" id="fabToggle">
-  <i class="fa-solid fa-comment"></i>
-</button>
-
+    <button class="fab-item contact" data-toggle="modal" data-target="#contactModal">
+      <i class="fa-solid fa-envelope"></i>
+    </button>
 
   </div>
 
+  <!-- Main FAB -->
+  <button class="fab-main" id="fabToggle">
+    <i class="fa-solid fa-comment fab-icon"></i>
+  </button>
 
+</div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/floating.js"></script>
+  <!-- FAB HTML here -->
 
 </body>
 
-</html>
+</html> 

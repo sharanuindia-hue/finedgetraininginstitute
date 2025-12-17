@@ -4,45 +4,41 @@ let generatedOTP = null;
    1. RAZORPAY PAYMENT HANDLER
 --------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("applyForm");
-  const payButton = document.getElementById("payButtonApply");
 
   const GST_RATE = 0.18;
-  const baseInput = document.getElementById("baseAmount");
-  const gstInput = document.getElementById("gstAmount");
-  const totalInput = document.getElementById("totalAmount");
+
+  const baseInput  = document.getElementById("payBaseAmount");
+  const gstInput   = document.getElementById("payGST");
+  const totalInput = document.getElementById("payTotal");
+  const payBtn     = document.getElementById("payNowBtn");
+
+  if (!baseInput || !payBtn) return;
 
   function calculate() {
     const base = Number(baseInput.value || 0);
-    const gst = Math.round(base * GST_RATE);
+    const gst  = Math.round(base * GST_RATE);
     const total = base + gst;
 
-    gstInput.value = gst.toLocaleString("en-IN");
+    gstInput.value   = gst.toLocaleString("en-IN");
     totalInput.value = total.toLocaleString("en-IN");
+
     return total;
   }
 
   calculate();
   baseInput.addEventListener("input", calculate);
 
-  function togglePayButton() {
-    payButton.disabled = !form.checkValidity();
-  }
-  form.addEventListener("input", togglePayButton);
-  form.addEventListener("change", togglePayButton);
-  togglePayButton();
-
-  payButton.addEventListener("click", async () => {
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
+  payBtn.addEventListener("click", async () => {
 
     const totalAmount = calculate();
+
     if (totalAmount < 500) {
-      alert("Invalid payment amount");
+      alert("Minimum payable amount is ₹500");
       return;
     }
+
+    payBtn.disabled = true;
+    payBtn.innerText = "Processing...";
 
     try {
       const res = await fetch("/api/create-order", {
@@ -52,10 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const order = await res.json();
-      if (!order.id) {
-        alert("Order creation failed");
-        return;
-      }
+      if (!order.id) throw new Error("Order creation failed");
 
       const options = {
         key: "rzp_live_RjGNUSpVFIuRog",
@@ -64,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name: "FINEDGE Training Institute",
         description: "Program Fee + 18% GST",
         order_id: order.id,
+
         handler: async function (response) {
           const verifyRes = await fetch("/api/verify-payment", {
             method: "POST",
@@ -74,9 +68,17 @@ document.addEventListener("DOMContentLoaded", () => {
           const verifyData = await verifyRes.json();
 
           if (verifyData.verified) {
-            alert("✅ Payment successful!");
+            alert("✅ Payment successful");
+            window.location.href = "thank-you.html";
           } else {
             alert("❌ Payment verification failed");
+          }
+        },
+
+        modal: {
+          ondismiss: () => {
+            payBtn.disabled = false;
+            payBtn.innerText = "Pay Now";
           }
         }
       };
@@ -86,9 +88,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (err) {
       console.error(err);
       alert("Payment initiation failed");
+      payBtn.disabled = false;
+      payBtn.innerText = "Pay Now";
     }
   });
+
 });
+
 
 /* ---------------------------------------------------------
    2. APPLY FORM (EmailJS)
@@ -205,6 +211,21 @@ document.addEventListener("DOMContentLoaded", () => {
 //   });
 // });
 
+
+const baseInput = document.getElementById("payBaseAmount");
+const gstInput  = document.getElementById("payGST");
+const totalInput = document.getElementById("payTotal");
+
+function updatePayment() {
+  const base = Number(baseInput.value || 0);
+  const gst = Math.round(base * 0.18);
+  gstInput.value = gst;
+  totalInput.value = base + gst;
+}
+
+baseInput?.addEventListener("input", updatePayment);
+updatePayment();
+
 /* ---------------------------------------------------------
    3. CONTACT FORM (EmailJS)
 --------------------------------------------------------- */
@@ -315,7 +336,11 @@ Net Payable : ${fd.get("net_payable")}
 
       emailjs.send(SERVICE_ID, ADMIN_TEMPLATE, adminParams)
         .then(() => emailjs.send(SERVICE_ID, USER_TEMPLATE, userParams))
-        .then(() => window.location.href = "Thank-you.html")
+        .then(() => {
+  $('#applyModal').modal('hide');
+  $('#paymentModal').modal('show');
+})
+
         .catch(err => {
           console.error("FORM ERROR:", err);
           alert("Submission failed. Please try again.");

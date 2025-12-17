@@ -1154,11 +1154,7 @@
                     </div>
                   </div>
 
-                  <!-- PAY BUTTON -->
-                  <button id="payButtonApply" type="button" class="btn btn-success w-100 mt-3"
-                    style="height:50px; font-size:1rem;" disabled>
-                    Pay & Enrol Now
-                  </button>
+                
 
                   <!-- INFO TEXT -->
                   <p class="text-muted extra-small mt-2 text-center">
@@ -1181,6 +1177,36 @@
   </div>
 
   <!-- Apply Modal End -->
+<div class="modal fade" id="paymentModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content p-4">
+
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+      <h5 class="mb-3 text-center">Complete Your Payment</h5>
+
+      <div class="form-group">
+        <label>Program Fee (₹)</label>
+        <input type="number" id="payBaseAmount" class="form-control" value="50000">
+      </div>
+
+      <div class="form-group">
+        <label>GST (18%)</label>
+        <input type="text" id="payGST" class="form-control" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Total Payable (₹)</label>
+        <input type="text" id="payTotal" class="form-control fw-bold" readonly>
+      </div>
+
+      <button id="payNowBtn" class="btn btn-success btn-block mt-3">
+        Pay Now
+      </button>
+
+    </div>
+  </div>
+</div>
 
 
   <!-- Footer Start -->

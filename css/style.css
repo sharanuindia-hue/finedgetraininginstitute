@@ -12565,3 +12565,22 @@ h6,
 .fab-wrapper.active .fab-icon {
   transform: rotate(135deg);
 }
+/* Mobile: single horizontal row */
+@media (max-width: 575.98px) {
+  .about-stats-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .about-stats-row .about-stat-item {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 120px; /* adjust if needed */
+    text-align: center;
+  }
+
+  /* Optional: smooth scroll */
+  .about-stats-row {
+    -webkit-overflow-scrolling: touch;
+  }
+}

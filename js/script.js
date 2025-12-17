@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (verifyData.verified) {
             alert("✅ Payment successful");
-            window.location.href = "thank-you.html";
+            window.location.href = "Thank-you.html";
           } else {
             alert("❌ Payment verification failed");
           }
@@ -95,123 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
-/* ---------------------------------------------------------
-   2. APPLY FORM (EmailJS)
---------------------------------------------------------- */
-// document.addEventListener("DOMContentLoaded", function () {
-//   const applyForm = document.getElementById("applyForm");
-
-//   applyForm.addEventListener("submit", function (e) {
-//     e.preventDefault();
-//     if (!applyForm.checkValidity()) {
-//       applyForm.reportValidity();
-//       return;
-//     }
-
-//     const formData = new FormData(applyForm);
-//     const params = Object.fromEntries(formData.entries());
-
-//     // Admin email
-//     const adminParams = {
-//       ...params,
-//       subject: "🎓 New Program Application",
-//       message: `
-// New application received:
-// Name: ${params.name}
-// Email: ${params.email}
-// Phone: ${params.phone}
-// Program: ${params.program}
-// Message: ${params.message}`
-//     };
-
-//     // User email
-//     const userParams = {
-//       name: params.name,
-//       email: params.email,
-//       subject: "Application Received – Finedge",
-//       message: `Hi ${params.name},\n\nThank you for applying for ${params.program}. Our team will review and contact you shortly.`
-//     };
-
-//     emailjs.send("service_724c1ef", "template_n5mq7jd", adminParams)
-//       .then(() => emailjs.send("service_724c1ef", "template_n5mq7jd", userParams))
-//       .then(() => {
-//         window.location.href = "Thank-you.html";
-//       })
-//       .catch(err => {
-//         console.error("APPLY ERROR", err);
-//         alert("Application failed. Please try again.");
-//       });
-//   });
-// });
-// document.addEventListener("DOMContentLoaded", function () {
-//   const forms = [
-//     document.getElementById("contact-form"),
-//     document.getElementById("contact-form-pop"),
-
-//   ];
-
-//   forms.forEach(form => {
-//     if (!form) return;
-
-//     form.addEventListener("submit", function (e) {
-//       e.preventDefault();
-
-//       if (!form.checkValidity()) {
-//         form.reportValidity();
-//         return;
-//       }
-
-//       const formData = new FormData(form);
-//       const params = {
-//         name: formData.get("name"),
-//         email: formData.get("email"),
-//         phone: formData.get("phone"),
-//         program: formData.get("program"),
-//         subject: "New Contact Enquiry",
-//         message: `
-// Program Interested: ${formData.get("program")}
-// Message: ${formData.get("message")}
-//         `
-//       };
-
-//       const btn = form.querySelector("button");
-//       btn.disabled = true;
-//       btn.innerText = "Sending...";
-
-
-//       emailjs.send("service_724c1ef", "template_n5mq7jd", {
-//         name: formData.get("name"),
-//         email: formData.get("email"),
-//         phone: formData.get("phone"),
-//         program: formData.get("program"),
-//         message: formData.get("message")
-//       })
-//         .then(() => {
-//           return emailjs.send("service_724c1ef", "template_rohr2r4", {
-//             name: formData.get("name"),
-//             email: formData.get("email")
-//           });
-//         })
-//         .then(() => {
-//           const modal = form.closest(".modal");
-//           if (modal) $(modal).modal("hide");
-
-//           window.location.href = "thank-you.html";
-//         })
-//         .catch(err => {
-//           console.error("EMAIL ERROR:", err);
-//           alert("Submission failed. Please try again.");
-//         })
-//         .finally(() => {
-//           btn.disabled = false;
-//           btn.innerText = "Request Call Back";
-//         });
-//     });
-//   });
-// });
-
-
+// -----------------------------
 const baseInput = document.getElementById("payBaseAmount");
 const gstInput  = document.getElementById("payGST");
 const totalInput = document.getElementById("payTotal");
@@ -336,10 +220,17 @@ Net Payable : ${fd.get("net_payable")}
 
       emailjs.send(SERVICE_ID, ADMIN_TEMPLATE, adminParams)
         .then(() => emailjs.send(SERVICE_ID, USER_TEMPLATE, userParams))
-        .then(() => {
-  $('#applyModal').modal('hide');
-  $('#paymentModal').modal('show');
+       .then(() => {
+  if (type === "apply") {
+    // Apply form → open payment modal
+    $('#applyModal').modal('hide');
+    $('#paymentModal').modal('show');
+  } else {
+    // Contact forms → Thank you page
+    window.location.href = "Thank-you.html";
+  }
 })
+
 
         .catch(err => {
           console.error("FORM ERROR:", err);

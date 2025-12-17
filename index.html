@@ -1122,6 +1122,14 @@
                       <input type="text" name="net_payable" class="form-control apply-input"
                         placeholder="Final payable">
                     </div>
+                      <!-- AMOUNT SECTION -->
+                  <div class="row g-2">
+                    <div class="col-12 col-md-4">
+                      <label class="small text-muted">Program Fee (₹)</label>
+                      <input type="number" id="baseAmount" class="form-control apply-input" value="50000" min="500"
+                        step="100" required>
+                    </div>
+                  </div>
                   </div>
                 </div>
 
@@ -1134,27 +1142,6 @@
                       Submit Admission Form
                     </button>
                   </div>
-
-                  <!-- AMOUNT SECTION -->
-                  <div class="row g-2">
-                    <div class="col-12 col-md-4">
-                      <label class="small text-muted">Program Fee (₹)</label>
-                      <input type="number" id="baseAmount" class="form-control apply-input" value="50000" min="500"
-                        step="100" required>
-                    </div>
-
-                    <div class="col-6 col-md-4">
-                      <label class="small text-muted">GST (18%)</label>
-                      <input type="text" id="gstAmount" class="form-control apply-input" readonly>
-                    </div>
-
-                    <div class="col-6 col-md-4">
-                      <label class="small text-muted">Total Payable (₹)</label>
-                      <input type="text" id="totalAmount" class="form-control apply-input fw-semibold" readonly>
-                    </div>
-                  </div>
-
-                
 
                   <!-- INFO TEXT -->
                   <p class="text-muted extra-small mt-2 text-center">

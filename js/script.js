@@ -315,7 +315,7 @@ Net Payable : ${fd.get("net_payable")}
 
       emailjs.send(SERVICE_ID, ADMIN_TEMPLATE, adminParams)
         .then(() => emailjs.send(SERVICE_ID, USER_TEMPLATE, userParams))
-        .then(() => window.location.href = "thank-you.html")
+        .then(() => window.location.href = "Thank-you.html")
         .catch(err => {
           console.error("FORM ERROR:", err);
           alert("Submission failed. Please try again.");

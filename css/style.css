@@ -12597,8 +12597,10 @@ h6,
   white-space: nowrap;
   padding-left: 100%;
   animation: marquee 15s linear infinite;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 900;
+    font-size: 22px;
+    margin-bottom: 1rem;
+    color: yellow;
 }
 
 @keyframes marquee {

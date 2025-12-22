@@ -1374,7 +1374,7 @@ legend {
   color: inherit;
   white-space: normal;
 }
-* Logo bar container */
+*logo-img Logo bar container */
 .logo-bar {
   background: #fff;
 }
@@ -1405,39 +1405,42 @@ legend {
 /* MOBILE VIEW */
 @media (max-width: 767px) {
 
-  /* Keep row layout */
+  /* Stack logos vertically */
   .logo-bar .row {
-    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;                 /* spacing between logos */
   }
 
-  /* Main logo slightly smaller */
+  /* Full width columns */
+  /* .logo-bar .col-6 {
+  display: flex;
+  align-items: flex-start;   
+}
+
+.logo-img,
+.logo-img-2 {
+  align-self: center;        
+} */
+  /* Main logo */
   .logo-img {
     max-height: 48px;
+    max-width: 100%;
   }
 
-  /* Switch partner logo */
+  /* Partner logo switch */
   .desktop-logo {
     display: none;
   }
 
   .mobile-logo {
-    display: inline-block;
-    max-height: 95px;   /* 👈 key: readable on mobile */
+    display: block;
+    max-height: 95px;
     width: auto;
   }
-
-  /* Better alignment */
-  .logo-bar .col-6 {
-    display: flex;
-    align-items: start;
-  }
-
-  .logo-bar .col-6:last-child {
-    justify-content: flex-end;
-  }
 }
-🎯 WHAT THIS FIXES
-Issu
+
+
 
 
 .about_page_img{
@@ -5738,8 +5741,9 @@ body.menu-open {
   }
 
   .logo-img-2 {
-    max-height: 35px;
+    max-height: 60px;
     margin-bottom: 5px;
+    margin-left: -20px;
   }
 }
 

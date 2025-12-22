@@ -5675,7 +5675,7 @@ body.menu-open {
   display: none;
   flex: none !important;    /* FORCE REMOVE FLEX BEHAVIOR */
   white-space: normal !important;
-  min-width: 220px;
+  min-width: 300px;
   z-index: 9999;
 }
 

@@ -3988,7 +3988,14 @@ fieldset:disabled a.btn {
 .show > .btn-outline-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(40, 120, 235, 0.5);
 }
-
+.navbar .dropdown-toggle,
+.navbar .dropdown-toggle:focus,
+.navbar .dropdown-toggle:active,
+.navbar .dropdown-toggle:hover {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
 .btn-outline-secondary {
   color: #F14D5D;
   border-color: #F14D5D;
@@ -4335,7 +4342,7 @@ input[type="button"].btn-block {
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  /* border: 1px solid rgba(0, 0, 0, 0.15); */
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: false;
 }
 

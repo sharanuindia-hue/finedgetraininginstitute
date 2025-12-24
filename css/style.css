@@ -1374,7 +1374,7 @@ legend {
   color: inherit;
   white-space: normal;
 }
-*logo-img Logo bar container */
+
 .logo-bar {
   background: #fff;
 }
@@ -1409,7 +1409,7 @@ legend {
   .logo-bar .row {
     display: flex;
     flex-direction: column;
-    gap: 12px;                 /* spacing between logos */
+    gap: 5px;                 /* spacing between logos */
   }
 
   /* Full width columns */

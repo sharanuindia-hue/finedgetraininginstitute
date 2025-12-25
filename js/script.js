@@ -1,5 +1,3 @@
-let generatedOTP = null;
-
 /* ---------------------------------------------------------
    1. RAZORPAY PAYMENT HANDLER
 --------------------------------------------------------- */
@@ -233,7 +231,7 @@ Net Payable : ${fd.get("net_payable")}
 
 
         .catch(err => {
-          console.error("FORM ERROR:", err);
+          
           alert("Submission failed. Please try again.");
         })
         .finally(() => {

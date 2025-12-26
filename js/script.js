@@ -116,11 +116,11 @@ document.addEventListener("DOMContentLoaded", function () {
   /* =====================================================
      EMAILJS INIT
   ===================================================== */
-  emailjs.init("5TP3xMNs4APsdgAgx");
+  emailjs.init("4i__dSi1JmGNB5W3E");
 
-  const SERVICE_ID       = "service_724c1ef";
-  const ADMIN_TEMPLATE   = "template_rohr2r4";
-  const USER_TEMPLATE    = "template_n5mq7jd";
+  const SERVICE_ID       = "service_54ky42l";
+  const ADMIN_TEMPLATE   = "template_yz4m945";
+  const USER_TEMPLATE    = "template_xm62d1b";
 
   /* =====================================================
      1. CONTACT + APPLY FORMS

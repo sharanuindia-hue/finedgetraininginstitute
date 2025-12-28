@@ -23,6 +23,7 @@
   "homepage": "https://github.com/sharanuindia-hue/finedgetraininginstitute#readme",
   "dependencies": {
     "nodemailer": "^7.0.12",
-    "razorpay": "^2.9.6"
+    "razorpay": "^2.9.6",
+    "resend": "^6.6.0"
   }
 }

@@ -102,7 +102,7 @@ if (contactPopupForm) {
     sendOtpBtn.disabled = true;
     sendOtpBtn.innerText = "Sending...";
 
-    const res = await fetch("/api/send-otp", {
+    const res = await fetch("/api/otp-send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, phone })
@@ -128,7 +128,7 @@ if (contactPopupForm) {
       return;
     }
 
-    const res = await fetch("/api/verify-otp", {
+    const res = await fetch("/api/otp-verify", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, otp })

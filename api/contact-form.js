@@ -14,10 +14,11 @@ export default async function handler(req, res) {
       return res.status(400).json({ success: false, message: "Missing fields" });
     }
 
+    /* ================= ADMIN EMAIL ================= */
     await resend.emails.send({
       from: "FinEdge <info@finedgetraininginstitute.com>",
       to: ["info@finedgetraininginstitute.com"],
-      replyTo: email,
+      reply_to: email,   // ✅ correct field name
       subject: "New Contact Form Submission",
       html: `
         <h3>Contact Details</h3>
@@ -28,20 +29,24 @@ export default async function handler(req, res) {
         <p><b>Message:</b> ${message}</p>
       `
     });
-// USER CONFIRMATION
+
+    /* ================= USER CONFIRMATION ================= */
     await resend.emails.send({
       from: "FinEdge <info@finedgetraininginstitute.com>",
-      to: [data.email],
-      subject: "Application Received - Finedge Training Institute",
+      to: [email],
+      subject: "Application Received – FinEdge Training Institute",
       html: `
         <p>Dear ${name},</p>
-        <p>Thank you for applying to FinEdge.</p>
-        <p>We have successfully received your application for<b>${program}</b></p>
-        <p>Our team will review your profile and get in touch with you shortly regarding the next steps.</p>
+        <p>Thank you for contacting <b>FinEdge Training Institute</b>.</p>
+        <p>We have received your enquiry${program ? ` for <b>${program}</b>` : ""}.</p>
+        <p>Our team will get in touch with you shortly.</p>
         <br>
-        <p>Warm regards,<br>FinEdge Training Institute<br>( A Unit of FinCareer Edtech Technologies Private Limited )</p>
+        <p>Warm regards,<br>
+        <b>FinEdge Training Institute</b><br>
+        (A Unit of FinCareer Edtech Technologies Pvt. Ltd.)</p>
       `
     });
+
     return res.status(200).json({ success: true });
 
   } catch (err) {

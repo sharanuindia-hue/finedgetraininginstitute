@@ -1,12 +1,20 @@
-import { OTP_STORE } from "./send-otp";
-
 export default function handler(req, res) {
-  const { email, otp } = req.body;
+  if (req.method !== "POST") return res.status(405).end();
 
-  if (OTP_STORE[email] && OTP_STORE[email] == otp) {
-    delete OTP_STORE[email];
-    return res.json({ success: true });
+  const { email, otp } = req.body;
+  const record = otpStore?.get(email);
+
+  if (!record) return res.json({ success: false });
+
+  if (Date.now() > record.expires) {
+    otpStore.delete(email);
+    return res.json({ success: false, message: "Expired" });
   }
 
-  res.status(400).json({ success: false });
+  if (record.otp !== otp) {
+    return res.json({ success: false });
+  }
+
+  otpStore.delete(email);
+  res.json({ success: true });
 }

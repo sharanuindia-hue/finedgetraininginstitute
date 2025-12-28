@@ -1,72 +1,38 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
-  // Allow only POST
   if (req.method !== "POST") {
-    return res.status(405).json({
-      success: false,
-      message: "Method not allowed"
-    });
+    return res.status(405).json({ success: false, message: "Method not allowed" });
   }
 
   try {
-    const { name, email, phone, program, message } = req.body;
+    const { name, email, phone, message, program } = req.body;
 
-    // Basic validation
     if (!name || !email || !phone || !message) {
-      return res.status(400).json({
-        success: false,
-        message: "Missing required fields"
-      });
+      return res.status(400).json({ success: false, message: "Missing fields" });
     }
 
-    // Check env variables
-    if (!process.env.TITAN_EMAIL || !process.env.TITAN_PASSWORD) {
-      console.error("Missing TITAN_EMAIL or TITAN_PASSWORD");
-      return res.status(500).json({
-        success: false,
-        message: "Server email configuration error"
-      });
-    }
-
-    // Create transporter
-    const transporter = nodemailer.createTransport({
-      host: "smtp.titan.email",
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.TITAN_EMAIL,
-        pass: process.env.TITAN_PASSWORD
-      }
-    });
-
-    // Send admin email
-    await transporter.sendMail({
-      from: `"Website Contact Form" <${process.env.TITAN_EMAIL}>`,
-      to: "info@finedgetraininginstitute.com",
+    await resend.emails.send({
+      from: "FinEdge <info@finedgetraininginstitute.com>",
+      to: ["info@finedgetraininginstitute.com"],
+      replyTo: email,
       subject: "New Contact Form Submission",
       html: `
-        <h3>New Enquiry</h3>
+        <h3>Contact Details</h3>
         <p><b>Name:</b> ${name}</p>
         <p><b>Email:</b> ${email}</p>
         <p><b>Phone:</b> ${phone}</p>
         <p><b>Program:</b> ${program || "-"}</p>
-        <p><b>Message:</b><br/>${message}</p>
+        <p><b>Message:</b> ${message}</p>
       `
     });
 
-    // Success response
-    return res.status(200).json({
-      success: true,
-      message: "Contact form submitted successfully"
-    });
+    return res.status(200).json({ success: true });
 
-  } catch (error) {
-    console.error("CONTACT FORM ERROR:", error);
-
-    return res.status(500).json({
-      success: false,
-      message: "Internal server error"
-    });
+  } catch (err) {
+    console.error("CONTACT FORM ERROR:", err);
+    return res.status(500).json({ success: false, message: "Internal server error" });
   }
 }

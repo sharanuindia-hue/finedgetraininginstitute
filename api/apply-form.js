@@ -1,81 +1,52 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
-
-  const {
-    name,
-    dob,
-    gender,
-    nationality,
-    phone,
-    email,
-    current_address,
-    permanent_address,
-    parent_name,
-    parent_relationship,
-    institution,
-    year_of_passing,
-    marks,
-    preferred_batch,
-    duration,
-    interest,
-    course_fee,
-    net_payable
-  } = req.body;
-
-  if (!name || !dob || !gender || !nationality || !phone || !email || !institution || !year_of_passing || !preferred_batch || !interest) {
-    return res.status(400).json({ message: "Missing required fields" });
+    return res.status(405).json({ success: false });
   }
 
   try {
-    const transporter = nodemailer.createTransport({
-      host: "smtp.titan.email",
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.TITAN_EMAIL,
-        pass: process.env.TITAN_PASSWORD
-      }
+    const data = req.body;
+
+    if (!data.name || !data.email || !data.phone || !data.interest) {
+      return res.status(400).json({ success: false, message: "Missing required fields" });
+    }
+
+    // ADMIN MAIL
+    await resend.emails.send({
+      from: "FinEdge <info@finedgetraininginstitute.com>",
+      to: ["info@finedgetraininginstitute.com"],
+      subject: "New Admission Application",
+      html: `
+        <h3>Admission Application</h3>
+        <p><b>Name:</b> ${data.name}</p>
+        <p><b>Email:</b> ${data.email}</p>
+        <p><b>Phone:</b> ${data.phone}</p>
+        <p><b>Course:</b> ${data.interest}</p>
+        <p><b>Batch:</b> ${data.preferred_batch}</p>
+      `
     });
 
-    // ADMIN EMAIL
-    await transporter.sendMail({
-      from: `"New Admission Application" <${process.env.TITAN_EMAIL}>`,
-      to: "info@finedgetraininginstitute.com",
-      subject: "New Admission Application Received",
-      html: `<h3>Admission Application Details</h3>
-      <p><b>Name:</b> ${name}</p>
-      <p><b>Email:</b> ${email}</p>
-      <p><b>Course:</b> ${interest}</p>
-      <p><b>Preferred Batch:</b> ${preferred_batch}</p>`
+    // USER CONFIRMATION
+    await resend.emails.send({
+      from: "FinEdge <info@finedgetraininginstitute.com>",
+      to: [data.email],
+      subject: "Application Received – FinEdge",
+      html: `
+        <p>Dear ${data.name},</p>
+        <p>Your application for <b>${data.interest}</b> has been received.</p>
+        <p>Our team will contact you shortly.</p>
+        <br>
+        <p>Regards,<br>FinEdge Team</p>
+      `
     });
 
-    // USER EMAIL
-    await transporter.sendMail({
-      from: `"FinEdge Training Institute" <${process.env.TITAN_EMAIL}>`,
-      to: email,
-      subject: "Application Received – FinEdge Training Institute",
-      html: `<p>Dear ${name},</p>
-      <p>Thank you for submitting your admission application.</p>
-      <p>Our admissions team will contact you shortly.</p>`
-    });
+    return res.status(200).json({ success: true });
 
-    // ✅ Return success + trigger payment modal
-    return res.status(200).json({ 
-      message: "Application submitted successfully",
-      showPaymentModal: true,
-      paymentData: {
-        baseAmount: course_fee || 50000,
-        gst: course_fee ? course_fee * 0.18 : 9000,
-        total: course_fee ? course_fee * 1.18 : 59000
-      }
-    });
-
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "Failed to send application email" });
+  } catch (err) {
+    console.error("APPLY FORM ERROR:", err);
+    return res.status(500).json({ success: false });
   }
 }

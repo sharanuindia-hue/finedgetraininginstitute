@@ -18,7 +18,7 @@ async function postData(url, data) {
 
     const res = await postData("/api/contact-form", data);
     if (res.success) {
-      window.location.href = "/thank-you.html";
+      window.location.href = "/Thank-you.html";
     } else {
       alert("Something went wrong");
     }
@@ -34,7 +34,7 @@ if (applyForm) {
 
     const res = await postData("/api/apply-form", data);
     if (res.success) {
-      window.location.href = "/thank-you.html";
+      window.location.href = "/Thank-you.html";
     } else {
       alert("Submission failed");
     }
@@ -56,7 +56,7 @@ if (contactPopupForm) {
       }).then(r => r.json());
 
       if (res.success) {
-        window.location.href = "/thank-you.html";
+        window.location.href = "/Thank-you.html";
       } else {
         alert("Submission failed. Please try again.");
       }
@@ -89,7 +89,7 @@ document.getElementById("verifyOtpBtn")?.addEventListener("click", async () => {
   }).then(r => r.json());
 
   if (res.success) {
-    window.location.href = "/thank-you.html";
+    window.location.href = "/Thank-you.html";
   } else {
     alert("Invalid OTP");
   }

@@ -86,65 +86,58 @@ if (contactPopupForm) {
   });
 }
 
+ const sendOtpBtn = document.getElementById("sendOtpBtn");
+  const verifyOtpBtn = document.getElementById("verifyOtpBtn");
 
-let generatedOTP = null;
-let otpExpiresAt = null;
+  sendOtpBtn?.addEventListener("click", async () => {
+    const name = otpName.value.trim();
+    const email = otpEmail.value.trim();
+    const phone = otpPhone.value.trim();
 
-/* SEND OTP */
-document.getElementById("sendOtpBtn")?.addEventListener("click", async () => {
-  const email = otpEmail.value;
-  const name = otpName.value;
+    if (!name || !email || !phone) {
+      alert("Please fill all details");
+      return;
+    }
 
-  if (!email) {
-    alert("Enter email");
-    return;
-  }
+    sendOtpBtn.disabled = true;
+    sendOtpBtn.innerText = "Sending...";
 
-  generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
-  otpExpiresAt = Date.now() + 5 * 60 * 1000;
+    const res = await fetch("/api/send-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, phone })
+    }).then(r => r.json());
 
-  const res = await fetch("/api/send-otp", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email,
-      name,
-      otp: generatedOTP
-    })
-  }).then(r => r.json());
+    if (res.success) {
+      alert("OTP sent to your email");
+      document.getElementById("otpVerifySection").classList.remove("d-none");
+    } else {
+      alert("Failed to send OTP");
+    }
 
-  if (res.success) {
-    alert("OTP sent to your email");
-    document.getElementById("otpVerifySection")?.classList.remove("d-none");
-  } else {
-    alert("Failed to send OTP");
-  }
-});
+    sendOtpBtn.disabled = false;
+    sendOtpBtn.innerText = "Send OTP";
+  });
 
-/* VERIFY OTP */
-document.getElementById("verifyOtpBtn")?.addEventListener("click", () => {
-  const enteredOtp = otpInput.value.trim();
+  verifyOtpBtn?.addEventListener("click", async () => {
+    const email = otpEmail.value.trim();
+    const otp = otpInput.value.trim();
 
-  if (!generatedOTP) {
-    alert("Request OTP first");
-    return;
-  }
+    if (!otp) {
+      alert("Enter OTP");
+      return;
+    }
 
-  if (Date.now() > otpExpiresAt) {
-    alert("OTP expired");
-    generatedOTP = null;
-    return;
-  }
+    const res = await fetch("/api/verify-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, otp })
+    }).then(r => r.json());
 
-  if (enteredOtp === generatedOTP) {
-    const a = document.createElement("a");
-    a.href =
-      "https://www.finedgetraininginstitute.com/boucher/Finedge-Brochure.pdf";
-    a.download = "Finedge-Brochure.pdf";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  } else {
-    alert("Invalid OTP");
-  }
-});
+    if (res.success) {
+      window.location.href =
+        "https://www.finedgetraininginstitute.com/boucher/Finedge-Brochure.pdf";
+    } else {
+      alert(res.message || "Invalid OTP");
+    }
+  });

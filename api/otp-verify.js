@@ -1,20 +1,25 @@
-export default function handler(req, res) {
-  if (req.method !== "POST") return res.status(405).end();
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ success: false });
+  }
 
   const { email, otp } = req.body;
-  const record = otpStore?.get(email);
 
-  if (!record) return res.json({ success: false });
+  const record = global.otpStore?.get(email);
+
+  if (!record) {
+    return res.json({ success: false, message: "OTP not found" });
+  }
 
   if (Date.now() > record.expires) {
-    otpStore.delete(email);
-    return res.json({ success: false, message: "Expired" });
+    global.otpStore.delete(email);
+    return res.json({ success: false, message: "OTP expired" });
   }
 
   if (record.otp !== otp) {
-    return res.json({ success: false });
+    return res.json({ success: false, message: "Invalid OTP" });
   }
 
-  otpStore.delete(email);
-  res.json({ success: true });
+  global.otpStore.delete(email);
+  return res.json({ success: true });
 }

@@ -11,7 +11,7 @@ popupForm?.addEventListener("submit", async e => {
   }).then(r => r.json());
 
   if (res.success) {
-    window.location.href = "/thank-you.html";
+    window.location.href = "/Thank-you.html";
   } else {
     alert("Submission failed");
   }

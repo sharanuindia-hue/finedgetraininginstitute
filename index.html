@@ -35,7 +35,42 @@
       });
     })();
   </script>
+<script>
+document.getElementById("payNowBtn").addEventListener("click", function () {
+  const totalAmount = Number(document.getElementById("payTotal").value) * 100;
 
+  const options = {
+    key: "RAZORPAY_KEY_ID",
+    amount: totalAmount,
+    currency: "INR",
+    name: "FinEdge Training Institute",
+    description: "Admission Fee",
+    handler: async function (response) {
+
+      // Send payment + form data to backend
+      const res = await fetch("/api/payment-success", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          payment_id: response.razorpay_payment_id,
+          amount: totalAmount / 100,
+          ...applyFormData
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        window.location.href = "/Thank-you.html";
+      } else {
+        alert("Payment successful but email failed");
+      }
+    }
+  };
+
+  new Razorpay(options).open();
+});
+</script>
 
 
   <!-- <meta content="width=device-width, initial-scale=1.0" name="viewport"> -->

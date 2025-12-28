@@ -28,7 +28,20 @@ export default async function handler(req, res) {
         <p><b>Message:</b> ${message}</p>
       `
     });
-
+// USER CONFIRMATION
+    await resend.emails.send({
+      from: "FinEdge <info@finedgetraininginstitute.com>",
+      to: [data.email],
+      subject: "Application Received - Finedge Training Institute",
+      html: `
+        <p>Dear ${data.name},</p>
+        <p>Thank you for applying to FinEdge.</p>
+        <p>We have successfully received your application for<b>${program}</b></p>
+        <p>Our team will review your profile and get in touch with you shortly regarding the next steps.</p>
+        <br>
+        <p>Warm regards,<br>FinEdge Training Institute<br>( A Unit of FinCareer Edtech Technologies Private Limited )</p>
+      `
+    });
     return res.status(200).json({ success: true });
 
   } catch (err) {

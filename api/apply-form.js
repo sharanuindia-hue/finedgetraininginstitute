@@ -8,38 +8,82 @@ export default async function handler(req, res) {
   }
 
   try {
-    const data = req.body;
+    const d = req.body;
 
-    if (!data.name || !data.email || !data.phone || !data.interest) {
-      return res.status(400).json({ success: false, message: "Missing required fields" });
+    // Basic required validation
+    if (
+      !d.name ||
+      !d.email ||
+      !d.phone ||
+      !d.dob ||
+      !d.gender ||
+      !d.nationality ||
+      !d.institution ||
+      !d.year_of_passing ||
+      !d.preferred_batch ||
+      !d.interest
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Missing required fields"
+      });
     }
 
-    // ADMIN MAIL
+    /* ================= ADMIN MAIL ================= */
     await resend.emails.send({
       from: "FinEdge <info@finedgetraininginstitute.com>",
       to: ["info@finedgetraininginstitute.com"],
       subject: "New Admission Application",
       html: `
         <h3>Admission Application</h3>
-        <p><b>Name:</b> ${data.name}</p>
-        <p><b>Email:</b> ${data.email}</p>
-        <p><b>Phone:</b> ${data.phone}</p>
-        <p><b>Course:</b> ${data.interest}</p>
-        <p><b>Batch:</b> ${data.preferred_batch}</p>
+
+        <h4>Personal Information</h4>
+        <p><b>Name:</b> ${d.name}</p>
+        <p><b>DOB:</b> ${d.dob}</p>
+        <p><b>Gender:</b> ${d.gender}</p>
+        <p><b>Nationality:</b> ${d.nationality}</p>
+        <p><b>Phone:</b> ${d.phone}</p>
+        <p><b>Email:</b> ${d.email}</p>
+
+        <h4>Address</h4>
+        <p><b>Current:</b> ${d.current_address}</p>
+        <p><b>Permanent:</b> ${d.permanent_address || "Same as current"}</p>
+
+        <h4>Parent / Guardian</h4>
+        <p><b>Name:</b> ${d.parent_name || "-"}</p>
+        <p><b>Relationship:</b> ${d.parent_relationship || "-"}</p>
+
+        <h4>Education</h4>
+        <p><b>Institution:</b> ${d.institution}</p>
+        <p><b>Year of Passing:</b> ${d.year_of_passing}</p>
+        <p><b>Marks:</b> ${d.marks || "-"}</p>
+
+        <h4>Program Details</h4>
+        <p><b>Course:</b> ${d.interest}</p>
+        <p><b>Preferred Batch:</b> ${d.preferred_batch}</p>
+        <p><b>Duration:</b> ${d.duration || "-"}</p>
+        <p><b>Course Fee:</b> ${d.course_fee || "-"}</p>
+        <p><b>Net Payable:</b> ${d.net_payable || "-"}</p>
       `
     });
 
-    // USER CONFIRMATION
+    /* ================= USER CONFIRMATION ================= */
     await resend.emails.send({
       from: "FinEdge <info@finedgetraininginstitute.com>",
-      to: [data.email],
-      subject: "Application Received – FinEdge",
+      to: [d.email],
+      subject: "Application Received – FinEdge Training Institute",
       html: `
-        <p>Dear ${data.name},</p>
-        <p>Your application for <b>${data.interest}</b> has been received.</p>
-        <p>Our team will contact you shortly.</p>
+        <p>Dear ${d.name},</p>
+
+        <p>Thank you for submitting your admission application.</p>
+
+        <p><b>Course:</b> ${d.interest}</p>
+        <p><b>Preferred Batch:</b> ${d.preferred_batch}</p>
+
+        <p>Please proceed with the payment to complete your admission.</p>
+
         <br>
-        <p>Regards,<br>FinEdge Team</p>
+        <p>Regards,<br>FinEdge Admissions Team</p>
       `
     });
 

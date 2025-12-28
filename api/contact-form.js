@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       to: [data.email],
       subject: "Application Received - Finedge Training Institute",
       html: `
-        <p>Dear ${data.name},</p>
+        <p>Dear ${name},</p>
         <p>Thank you for applying to FinEdge.</p>
         <p>We have successfully received your application for<b>${program}</b></p>
         <p>Our team will review your profile and get in touch with you shortly regarding the next steps.</p>

@@ -1,25 +1,24 @@
+import redis from "../lib/redis";
+
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ success: false });
-  }
+  if (req.method !== "POST") return res.status(405).end();
 
   const { email, otp } = req.body;
-
-  const record = global.otpStore?.get(email);
-
-  if (!record) {
-    return res.json({ success: false, message: "OTP not found" });
+  if (!email || !otp) {
+    return res.status(400).json({ success: false });
   }
 
-  if (Date.now() > record.expires) {
-    global.otpStore.delete(email);
-    return res.json({ success: false, message: "OTP expired" });
+  const savedOtp = await redis.get(`otp:${email}`);
+
+  if (!savedOtp) {
+    return res.json({ success: false, message: "OTP expired or not found" });
   }
 
-  if (record.otp !== otp) {
+  if (savedOtp !== otp) {
     return res.json({ success: false, message: "Invalid OTP" });
   }
 
-  global.otpStore.delete(email);
-  return res.json({ success: true });
+  await redis.del(`otp:${email}`);
+
+  res.json({ success: true });
 }

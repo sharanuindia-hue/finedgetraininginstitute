@@ -119,25 +119,21 @@ if (contactPopupForm) {
     sendOtpBtn.innerText = "Send OTP";
   });
 
-  verifyOtpBtn?.addEventListener("click", async () => {
-    const email = otpEmail.value.trim();
-    const otp = otpInput.value.trim();
+  document.getElementById("verifyOtpBtn").addEventListener("click", async () => {
+  const email = otpEmail.value;
+  const otp = otpInput.value;
 
-    if (!otp) {
-      alert("Enter OTP");
-      return;
-    }
+  const res = await fetch("/api/verify-otp", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, otp })
+  }).then(r => r.json());
 
-    const res = await fetch("/api/otp-verify", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, otp })
-    }).then(r => r.json());
+  if (res.success) {
+    window.location.href =
+      "https://www.finedgetraininginstitute.com/boucher/Finedge-Brochure.pdf";
+  } else {
+    alert(res.message || "Invalid OTP");
+  }
+});
 
-    if (res.success) {
-      window.location.href =
-        "https://www.finedgetraininginstitute.com/boucher/Finedge-Brochure.pdf";
-    } else {
-      alert(res.message || "Invalid OTP");
-    }
-  });

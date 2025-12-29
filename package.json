@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/sharanuindia-hue/finedgetraininginstitute#readme",
   "dependencies": {
+    "@vercel/kv": "^3.0.0",
+    "ioredis": "^5.8.2",
     "nodemailer": "^7.0.12",
     "razorpay": "^2.9.6",
     "resend": "^6.6.0"

@@ -123,7 +123,7 @@ if (contactPopupForm) {
   const email = otpEmail.value;
   const otp = otpInput.value;
 
-  const res = await fetch("/api/verify-otp", {
+  const res = await fetch("/api/otp-verify", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, otp })

@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
   // Save OTP for 5 minutes
-  await redis.set(`otp:${email}`, otp, "EX", 300)
+  await redis.set(`otp:${email}`, otp, "EX", 300);
 
   // USER MAIL
   await resend.emails.send({

@@ -36,48 +36,50 @@
     })();
   </script>
 <script>
-document.getElementById("payNowBtn").addEventListener("click", function () {
-  const totalAmount = Number(document.getElementById("payTotal").value) * 100;
 
-  const options = {
-    key: "RAZORPAY_KEY_ID",
-    amount: totalAmount,
-    currency: "INR",
-    name: "FinEdge Training Institute",
-    description: "Admission Fee",
-    handler: async function (response) {
+document.querySelectorAll(".payNowBtn").forEach(button => {
+  button.addEventListener("click", function (e) {
 
-      // Send payment + form data to backend
-      const res = await fetch("/api/payment-success", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          payment_id: response.razorpay_payment_id,
-          amount: totalAmount / 100,
-          ...applyFormData
-        })
-      });
+    // If anchor tag, prevent default jump
+    e.preventDefault();
 
-      const data = await res.json();
+    const totalAmount = Number(document.getElementById("payTotal").value) * 100;
 
-      if (data.success) {
-        window.location.href = "/payment-success.html";
-      } else {
-        alert("Payment successful but email failed");
+    const options = {
+      key: "RAZORPAY_KEY_ID",
+      amount: totalAmount,
+      currency: "INR",
+      name: "FinEdge Training Institute",
+      description: "Admission Fee",
+      handler: async function (response) {
+
+        const res = await fetch("/api/payment-success", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            payment_id: response.razorpay_payment_id,
+            amount: totalAmount / 100,
+            ...applyFormData
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          window.location.href = "/payment-success.html";
+        } else {
+          alert("Payment successful but email failed");
+        }
       }
-    }
-  };
+    };
 
-  new Razorpay(options).open();
+    new Razorpay(options).open();
+  });
 });
+
 </script>
 
-
-  <!-- <meta content="width=device-width, initial-scale=1.0" name="viewport"> -->
-  <meta content="" name="">
-  <meta content="" name="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
   <!-- Favicon -->
   <link href="img/favicon.ico" rel="icon">
@@ -199,6 +201,7 @@ document.getElementById("payNowBtn").addEventListener("click", function () {
                 Banking</a>
               <a class="dropdown-item" href="treasury-forex-trade-detail.html?subject=treasury-forex-trade">Treasury,
                 Forex & Trade Finance</a>
+                <a class="dropdown-item" href="BFSI-Crash-Course.html?subject=bfsi-crash-course">BFSI Crash Course</a>
             </div>
 
           </li>
@@ -275,6 +278,7 @@ document.getElementById("payNowBtn").addEventListener("click", function () {
                 <option value="corporate-governance">Corporate Governance in BFSI</option>
                 <option value="investment-banking">Investment Banking</option>
                 <option value="treasury-forex-trade">Treasury, Forex & Trade Finance</option>
+                <option value="bfsi-crash-course">BFSI Crash Course</option>
               </select>
             </div>
 
@@ -331,7 +335,7 @@ document.getElementById("payNowBtn").addEventListener("click", function () {
       <div class="d-flex flex-column flex-sm-row justify-content-center">
         <a href="#contactModal" class="btn btn-primary hero-btn mr-sm-3 mb-3 mb-sm-0" data-toggle="modal"
           data-target="#contactModal">
-          Enquiry Now
+          Enquire Now
         </a>
         <a href="#programs" class="btn btn-outline-light hero-btn">
           Explore Programs
@@ -422,7 +426,7 @@ document.getElementById("payNowBtn").addEventListener("click", function () {
           <div class="program-sidebar-card mb-5 shadow-sm">
             <div class="sidebar-header">
               <h3 class="m-0 text-white">
-                <i class="fa fa-envelope mr-2"></i>Quick Enquiry
+                <i class="fa fa-envelope mr-2"></i>Quick Enquire
               </h3>
             </div>
 
@@ -457,6 +461,7 @@ document.getElementById("payNowBtn").addEventListener("click", function () {
                     <option value="Corporate Governance in BFSI">Corporate Governance in BFSI</option>
                     <option value="Investment Banking">Investment Banking</option>
                     <option value="Treasury, Forex & Trade Finance">Treasury, Forex & Trade Finance</option>
+                    <option value="bfsi-crash-course">BFSI Crash Course</option>
                   </select>
                 </div>
 
@@ -664,63 +669,49 @@ document.getElementById("payNowBtn").addEventListener("click", function () {
 
       <!-- Program Cards Grid -->
       <!-- Program Grid with Background Image Cards -->
-      <div class="row">
-
-        <!-- Program 1 -->
-        <div class="col-md-6 col-lg-3 mb-4">
-          <div class="program-card" style="background-image: url('img/courses-1.jpg');">
-            <div class="program-overlay">
-              <h4 class="text-white">BFSI Career Accelerator Program</h4>
-              <p>4 Weeks • Live Online</p>
-
-              <div class="program-hover-content">
-                <p class="small">
-                  30-day, job-oriented program covering banking basics, products, operations,
-                  credit, soft skills and interview preparation.
-                </p>
-                <a href="bfsi-detail.html" class="btn btn-primary btn-sm mt-2">View Program</a>
-              </div>
-            </div>
-          </div>
+      <div class="carousel-container d-flex align-items-center">
+  <button class="custom-prev btn btn-light shadow-sm"><i class="fa fa-chevron-left"></i></button>
+  
+  <div class="program-carousel owl-carousel owl-theme flex-grow-1 mx-3">
+      <div class="item">
+    <div class="program-card" style="background-image: url('img/courses-1.jpg');">
+      <div class="program-overlay">
+        <h4 class="text-white">BFSI Career Accelerator Program</h4>
+        <p>4 Weeks • Live Online</p>
+        <div class="program-hover-content">
+          <p class="small">30-day, job-oriented program covering banking basics, products, operations, credit, soft skills and interview preparation.</p>
+          <a href="bfsi-detail.html" class="btn btn-primary btn-sm mt-2">View Program</a>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Program 2 -->
-        <div class="col-md-6 col-lg-3 mb-4">
-          <div class="program-card" style="background-image: url('img/courses-2.jpg');">
-            <div class="program-overlay">
-              <h4 class="text-white">Certificate in Investment Banking (Intro)</h4>
-              <p>1 Month • Online</p>
-
-              <div class="program-hover-content">
-                <p class="small">
-                  Beginner-friendly introduction to investment banking, markets & financial analysis.
-                </p>
-                <a href="investment-banking-detail.html" class="btn btn-primary btn-sm mt-2">View Program</a>
-              </div>
-            </div>
-          </div>
+  <div class="item">
+    <div class="program-card" style="background-image: url('img/courses-2.jpg');">
+      <div class="program-overlay">
+        <h4 class="text-white">Corporate Governance in BFSI</h4>
+        <p>1 Month • Online</p>
+        <div class="program-hover-content">
+          <p class="small">Beginner-friendly introduction to investment banking, markets & financial analysis.</p>
+          <a href="investment-banking-detail.html" class="btn btn-primary btn-sm mt-2">View Program</a>
         </div>
-
-        <!-- Program 3 -->
-        <div class="col-md-6 col-lg-3 mb-4">
-          <div class="program-card" style="background-image: url('img/courses-3.jpg');">
-            <div class="program-overlay">
-              <h4 class="text-white">Corporate Governance in BFSI</h4>
-              <p>Governance & Compliance</p>
-
-              <div class="program-hover-content">
-                <p class="small">
-                  Learn governance, regulatory and compliance concepts for banks, NBFCs and FIs.
-                </p>
-                <a href="corporate-governance-detail.html" class="btn btn-primary btn-sm mt-2">View Program</a>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+    <div class="item">
+    <div class="program-card" style="background-image: url('img/courses-3.jpg');">
+      <div class="program-overlay">
+        <h4 class="text-white">Certificate in Investment Banking</h4>
+        <p>Governance & Compliance</p>
+        <div class="program-hover-content">
+          <p class="small"> Learn governance, regulatory and compliance concepts for banks, NBFCs and FIs.</p>
+          <a href="corporate-governance-detail.html" class="btn btn-primary btn-sm mt-2">View Program</a>
         </div>
-
-        <!-- Program 4 -->
-        <div class="col-md-6 col-lg-3 mb-4">
-          <div class="program-card" style="background-image: url('img/courses-4.jpg');">
+      </div>
+    </div>
+  </div>
+    <div class="item">
+    <div class="program-card" style="background-image: url('img/courses-4.jpg');">
             <div class="program-overlay">
               <h4 class="text-white">Treasury, Forex & Trade Finance</h4>
               <p>Treasury • FX • Trade</p>
@@ -733,13 +724,31 @@ document.getElementById("payNowBtn").addEventListener("click", function () {
               </div>
             </div>
           </div>
+  </div>
+    <div class="item">
+    <div class="program-card" style="background-image: url('assets/img/course=img.jpg');">
+      <div class="program-overlay">
+        <h4 class="text-white">BFSI Crash Course</h4>
+        <p>1 Week • Online/Offline</p>
+        <div class="program-hover-content">
+          <p class="small">Fast-Track Training for Banking & Financial Services Careers</p>
+          <a href="BFSI-Crash-Course.html" class="btn btn-primary btn-sm mt-2">View Program</a>
         </div>
-
       </div>
+    </div>
+  </div>
+  </div>
+
+  <button class="custom-next btn btn-light shadow-sm"><i class="fa fa-chevron-right"></i></button>
+</div>
 
 
     </div>
   </div>
+
+
+
+  
   <!-- Programs Section End -->
   <!-- Modern CTA Section -->
   <!-- Infographic CTA Section -->
@@ -1145,6 +1154,7 @@ document.getElementById("payNowBtn").addEventListener("click", function () {
                       <option>Corporate Governance in BFSI</option>
                       <option>Investment Banking</option>
                       <option>Treasury, Forex & Trade Finance</option>
+                      <option>BFSI Crash Course</option>
                     </select>
                   </div>
 
@@ -1223,9 +1233,9 @@ document.getElementById("payNowBtn").addEventListener("click", function () {
         <input type="text" id="payTotal" class="form-control fw-bold" readonly>
       </div>
 
-      <button id="payNowBtn" class="btn btn-success btn-block mt-3">
-        Pay Now
-      </button>
+      <button class="payNowBtn btn btn-success btn-block mt-3">
+  Pay Now
+</button>
 
     </div>
   </div>
@@ -1286,7 +1296,12 @@ document.getElementById("payNowBtn").addEventListener("click", function () {
               <i class="fa fa-angle-right mr-2"></i>
               Treasury, Forex &amp; Trade Finance
             </a>
-
+            
+            <a href="BFSI-Crash-Course.html?program=bfsi-crash-course"
+              class="text-white text-decoration-none mt-1">
+              <i class="fa fa-angle-right mr-2"></i>
+              BFSI Crash Course
+            </a>
           </div>
         </div>
 

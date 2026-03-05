@@ -151,6 +151,62 @@
         992: { items: 5 }
       }
     });
+
+    $(document).ready(function(){
+  var owl = $('.program-carousel');
+  
+  owl.owlCarousel({
+    loop: true,             // Infinite looping
+    margin: 20,
+    autoplay: true,         // Enable auto-sliding
+    autoplayTimeout: 3000,  // Slide every 3 seconds
+    autoplayHoverPause: true, // Stop sliding when mouse is over a card
+    smartSpeed: 800,        // Smooth transition speed
+    responsive: {
+      0: { items: 1 },
+      768: { items: 2 },
+      1200: { items: 4 }
+    }
+  });
+
+  // Custom Navigation (linking your < and > buttons)
+  $('.custom-next').click(function() {
+    owl.trigger('next.owl.carousel');
+  });
+  
+  $('.custom-prev').click(function() {
+    owl.trigger('prev.owl.carousel');
+  });
+});
+
+$(document).ready(function(){
+  var courseOwl = $('.course-carousel');
+
+  courseOwl.owlCarousel({
+    loop: true,
+    margin: 20,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    smartSpeed: 800,
+    nav: false, // Disabling default nav as we have custom buttons
+    dots: true,
+    responsive: {
+      0: { items: 1 },
+      768: { items: 2 },
+      1200: { items: 4 }
+    }
+  });
+
+  // Custom Navigation Trigger
+  $('.custom-next').click(function() {
+    courseOwl.trigger('next.owl.carousel');
+  });
+
+  $('.custom-prev').click(function() {
+    courseOwl.trigger('prev.owl.carousel');
+  });
+});
     
 })(jQuery);
 

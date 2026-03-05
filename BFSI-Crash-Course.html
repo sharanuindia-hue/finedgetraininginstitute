@@ -24,7 +24,6 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <!-- EmailJS SDK (new recommended script) -->
     <!-- EmailJS SDK (v4) -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -567,13 +566,7 @@
         </div>
     </div>
 
-   <a href="#apply"
-   class="payNowBtn pay-btn"
-   data-toggle="modal"
-   data-target="#applyModal">
-   <span>Pay Now</span>
-   <span class="arrow">→</span>
-</a>
+   <button class="payBtn" value="50000">Pay Now</button>
                         </div>
                     </div>
 
@@ -1057,21 +1050,6 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/forms.js"></script>
-
-
     <!-- Status Popup -->
     <div id="statusPopup" class="status-popup">
         <div class="status-popup-inner">
@@ -1114,6 +1092,50 @@
 
     </div>
 
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/forms.js"></script>
+
+
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+document.querySelectorAll(".payBtn").forEach(button => {
+
+  button.addEventListener("click", function () {
+
+    // Get amount from clicked button
+    const amount = Number(this.value) * 100; // convert to paisa
+
+    const options = {
+      key: "zp_test_SNYpIS3fqLVqoj",
+      amount: amount,
+      currency: "INR",
+      name: "FinEdge Training Institute",
+      description: "Admission Fee",
+
+      handler: function (response) {
+        alert("Payment Successful: " + response.razorpay_payment_id);
+      }
+    };
+
+    const rzp = new Razorpay(options);
+    rzp.open();
+
+  });
+
+});
+</script>
 
 </body>
 

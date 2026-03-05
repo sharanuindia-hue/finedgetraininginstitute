@@ -6656,7 +6656,7 @@ a.badge-dark:focus, a.badge-dark.focus {
     gap: 5px;
 }
 
-.pay-btn {
+.payBtn {
     background: linear-gradient(135deg, #4CAF50, #2e7d32);
     border: none;
     padding: 10px 22px;
@@ -6670,7 +6670,7 @@ a.badge-dark:focus, a.badge-dark.focus {
     gap: 8px;
 }
 
-.pay-btn:hover {
+.payBtn:hover {
     background: linear-gradient(135deg, #2e7d32, #1b5e20);
     box-shadow: 0 5px 15px rgba(46, 125, 50, 0.4);
 }

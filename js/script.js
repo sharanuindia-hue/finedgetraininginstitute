@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!order.id) throw new Error("Order creation failed");
 
       const options = {
-        key: "rzp_live_RjGNUSpVFIuRog",
+        key: "rzp_live_SNvNkmgjRBXu3r",
         amount: order.amount,
         currency: "INR",
         name: "FINEDGE Training Institute",

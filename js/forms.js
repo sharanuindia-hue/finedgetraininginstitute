@@ -48,7 +48,7 @@ if (applyForm) {
       if (result.success) {
 
         // Redirect to thank you page
-        window.location.href = "/thank-you.html";
+        window.location.href = "/Thank-you.html";
 
       } else {
         alert("Submission failed. Please try again.");
@@ -140,3 +140,70 @@ if (contactPopupForm) {
 
 
 
+const sendApplyOtpBtn = document.getElementById("sendApplyOtpBtn");
+
+sendApplyOtpBtn?.addEventListener("click", async () => {
+
+  const name = document.querySelector("[name='name']").value;
+  const email = document.querySelector("[name='email']").value;
+  const phone = document.querySelector("[name='phone']").value;
+
+  if (!name || !email || !phone) {
+    alert("Please fill name, email, phone first");
+    return;
+  }
+
+  sendApplyOtpBtn.disabled = true;
+  sendApplyOtpBtn.innerText = "Sending...";
+
+  const res = await fetch("/api/otp-send", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({ name, email, phone })
+  }).then(r=>r.json());
+
+  if(res.success){
+    alert("OTP sent to your email");
+    document.getElementById("applyOtpSection").classList.remove("d-none");
+  }else{
+    alert("Failed to send OTP");
+  }
+
+  sendApplyOtpBtn.disabled=false;
+  sendApplyOtpBtn.innerText="Send OTP";
+
+});
+
+document.getElementById("verifyApplyOtpBtn").addEventListener("click", async () => {
+
+  const email = document.querySelector("[name='email']").value;
+  const otp = document.getElementById("applyOtpInput").value;
+
+  const verify = await fetch("/api/otp-verify", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify({ email, otp })
+  }).then(r=>r.json());
+
+  if(!verify.success){
+    alert(verify.message || "Invalid OTP");
+    return;
+  }
+
+  // OTP verified → submit application
+  const form = document.getElementById("applyForm");
+  const data = Object.fromEntries(new FormData(form));
+
+  const res = await fetch("/api/apply-form", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify(data)
+  }).then(r=>r.json());
+
+  if(res.success){
+    window.location.href="/thank-you.html";
+  }else{
+    alert("Submission failed");
+  }
+
+});

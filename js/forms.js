@@ -139,71 +139,132 @@ if (contactPopupForm) {
 });
 
 
+let otpVerified = false;
 
 const sendApplyOtpBtn = document.getElementById("sendApplyOtpBtn");
+const verifyApplyOtpBtn = document.getElementById("verifyApplyOtpBtn");
+const submitApplyBtn = document.getElementById("submitApplyBtn");
 
-sendApplyOtpBtn?.addEventListener("click", async () => {
 
-  const name = document.querySelector("[name='name']").value;
-  const email = document.querySelector("[name='email']").value;
-  const phone = document.querySelector("[name='phone']").value;
+sendApplyOtpBtn.addEventListener("click", async () => {
 
-  if (!name || !email || !phone) {
-    alert("Please fill name, email, phone first");
-    return;
-  }
+const name = document.querySelector("[name='name']").value.trim();
+const email = document.querySelector("[name='email']").value.trim();
+const phone = document.querySelector("[name='phone']").value.trim();
 
-  sendApplyOtpBtn.disabled = true;
-  sendApplyOtpBtn.innerText = "Sending...";
+if(!name || !email || !phone){
+alert("Please fill name, email and phone");
+return;
+}
 
-  const res = await fetch("/api/otp-send", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify({ name, email, phone })
-  }).then(r=>r.json());
+sendApplyOtpBtn.disabled = true;
+sendApplyOtpBtn.innerText = "Sending...";
 
-  if(res.success){
-    alert("OTP sent to your email");
-    document.getElementById("applyOtpSection").classList.remove("d-none");
-  }else{
-    alert("Failed to send OTP");
-  }
+try{
 
-  sendApplyOtpBtn.disabled=false;
-  sendApplyOtpBtn.innerText="Send OTP";
+const res = await fetch("/api/otp-send",{
+method:"POST",
+headers:{ "Content-Type":"application/json"},
+body: JSON.stringify({ name,email,phone })
+}).then(r=>r.json());
+
+if(res.success){
+
+alert("OTP sent to your email");
+
+document.getElementById("applyOtpSection").classList.remove("d-none");
+
+}else{
+
+alert("Failed to send OTP");
+
+}
+
+}catch(err){
+
+alert("Server error");
+
+}
+
+sendApplyOtpBtn.disabled=false;
+sendApplyOtpBtn.innerText="Send OTP";
 
 });
 
-document.getElementById("verifyApplyOtpBtn").addEventListener("click", async () => {
 
-  const email = document.querySelector("[name='email']").value;
-  const otp = document.getElementById("applyOtpInput").value;
 
-  const verify = await fetch("/api/otp-verify", {
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body: JSON.stringify({ email, otp })
-  }).then(r=>r.json());
+verifyApplyOtpBtn.addEventListener("click", async () => {
 
-  if(!verify.success){
-    alert(verify.message || "Invalid OTP");
-    return;
-  }
+const email = document.querySelector("[name='email']").value.trim();
+const otp = document.getElementById("applyOtpInput").value.trim();
 
-  // OTP verified → submit application
-  const form = document.getElementById("applyForm");
-  const data = Object.fromEntries(new FormData(form));
+if(!otp){
+alert("Enter OTP");
+return;
+}
 
-  const res = await fetch("/api/apply-form", {
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body: JSON.stringify(data)
-  }).then(r=>r.json());
+const res = await fetch("/api/otp-verify",{
+method:"POST",
+headers:{ "Content-Type":"application/json"},
+body: JSON.stringify({ email, otp })
+}).then(r=>r.json());
 
-  if(res.success){
-    window.location.href="/thank-you.html";
-  }else{
-    alert("Submission failed");
-  }
+if(res.success){
+
+otpVerified = true;
+
+alert("OTP Verified Successfully");
+
+}else{
+
+alert(res.message || "Invalid OTP");
+
+}
+
+});
+
+
+
+submitApplyBtn.addEventListener("click", async () => {
+
+if(!otpVerified){
+
+alert("Please verify OTP first");
+
+return;
+
+}
+
+const form = document.getElementById("applyForm");
+
+const data = Object.fromEntries(new FormData(form));
+
+try{
+
+const res = await fetch("/api/apply-form",{
+
+method:"POST",
+
+headers:{ "Content-Type":"application/json" },
+
+body: JSON.stringify(data)
+
+}).then(r=>r.json());
+
+if(res.success){
+
+window.location.href="/thank-you.html";
+
+}else{
+
+alert("Submission failed");
+
+}
+
+}catch(err){
+
+alert("Server error");
+
+}
 
 });

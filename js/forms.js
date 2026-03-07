@@ -143,22 +143,26 @@ const sendApplyOtpBtn = document.getElementById("sendApplyOtpBtn");
 const verifyApplyOtpBtn = document.getElementById("verifyApplyOtpBtn");
 const applyOtpSection = document.getElementById("applyOtpSection");
 const applyOtpInput = document.getElementById("applyOtpInput");
+const submitApplyBtn = document.getElementById("submitApplyBtn");
 
 let verified = false;
 
 
+// SEND OTP
 sendApplyOtpBtn.addEventListener("click", async () => {
 
   const formData = new FormData(applyForm);
 
   const name = formData.get("name")?.trim();
   const email = formData.get("email")?.trim();
+  const phone = formData.get("phone")?.trim();
 
   console.log("Name:", name);
   console.log("Email:", email);
+  console.log("Phone:", phone);
 
-  if (!name || !email) {
-    alert("Please enter name and email");
+  if (!name || !email || !phone) {
+    alert("Please enter name, email and phone");
     return;
   }
 
@@ -172,13 +176,14 @@ sendApplyOtpBtn.addEventListener("click", async () => {
     },
     body: JSON.stringify({
       name,
-      email
+      email,
+      phone
     })
   }).then(r => r.json());
 
   if (res.success) {
     alert("OTP sent to your email");
-    document.getElementById("applyOtpSection").classList.remove("d-none");
+    applyOtpSection.classList.remove("d-none");
   } else {
     alert(res.message || "Failed to send OTP");
   }
@@ -191,7 +196,7 @@ sendApplyOtpBtn.addEventListener("click", async () => {
 // VERIFY OTP
 verifyApplyOtpBtn.addEventListener("click", async () => {
 
-  const email = document.querySelector('input[name="email"]').value.trim();
+  const email = document.querySelector('#applyForm input[name="email"]').value.trim();
   const otp = applyOtpInput.value.trim();
 
   if (!otp) {
@@ -211,23 +216,22 @@ verifyApplyOtpBtn.addEventListener("click", async () => {
   }).then(r => r.json());
 
   if (res.success) {
-    submitApplyBtn.disabled = false;   
+
+    submitApplyBtn.disabled = false;
 
     sendApplyOtpBtn.disabled = true;
     verifyApplyOtpBtn.disabled = true;
     verified = true;
+
     alert("OTP verified successfully");
 
     applyOtpSection.classList.add("d-none");
-    sendApplyOtpBtn.disabled = true;
 
   } else {
     alert(res.message || "Invalid OTP");
   }
 
 });
-
-
 // FORM SUBMIT CHECK
 document.getElementById("applyForm").addEventListener("submit", function(e) {
 

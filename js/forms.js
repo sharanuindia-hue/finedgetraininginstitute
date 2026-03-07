@@ -29,7 +29,7 @@ async function postData(url, data) {
 const applyForm = document.getElementById("applyForm");
 
 if (applyForm) {
-  applyForm.addEventListener("submit", async e => {
+  applyForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const data = Object.fromEntries(new FormData(applyForm));
@@ -37,24 +37,25 @@ if (applyForm) {
     try {
       const res = await fetch("/api/apply-form", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify(data)
-      }).then(r => r.json());
+      });
 
-      if (res.success) {
-        // Open payment modal
-        $("#paymentModal").modal("show");
+      const result = await res.json();
 
-        // Optional: prefill amount from form
-        if (data.course_fee) {
-          document.getElementById("payBaseAmount").value = data.course_fee;
-          calculatePayment();
-        }
+      if (result.success) {
+
+        // Redirect to thank you page
+        window.location.href = "/thank-you.html";
+
       } else {
-        alert("Submission failed. Please check details.");
+        alert("Submission failed. Please try again.");
       }
 
     } catch (err) {
+      console.error(err);
       alert("Server error. Please try again later.");
     }
   });
@@ -136,4 +137,6 @@ if (contactPopupForm) {
     alert(res.message || "Invalid OTP");
   }
 });
+
+
 

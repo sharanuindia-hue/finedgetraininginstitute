@@ -299,3 +299,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.querySelectorAll(".payBtn").forEach(button => {
+
+  button.addEventListener("click", function () {
+
+    // Get amount from clicked button
+    const amount = Number(this.value) * 100; // convert to paisa
+
+    const options = {
+      key: "rzp_live_SNvNkmgjRBXu3r",
+      amount: amount,
+      currency: "INR",
+      name: "FinEdge Training Institute",
+      description: "Admission Fee",
+
+      handler: function (response) {
+        alert("Payment Successful: " + response.razorpay_payment_id);
+      }
+    };
+
+    const rzp = new Razorpay(options);
+    rzp.open();
+
+  });
+
+});

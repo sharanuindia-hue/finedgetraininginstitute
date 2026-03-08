@@ -183,7 +183,9 @@ sendApplyOtpBtn.addEventListener("click", async () => {
 
   if (res.success) {
     alert("OTP sent to your email");
-    applyOtpSection.classList.remove("d-none");
+     applyOtpSection.classList.remove("d-none");
+
+  startOtpTimer(); 
   } else {
     alert(res.message || "Failed to send OTP");
   }
@@ -241,3 +243,33 @@ document.getElementById("applyForm").addEventListener("submit", function(e) {
   }
 
 });
+const resendOtpBtn = document.getElementById("resendOtpBtn");
+const otpTimer = document.getElementById("otpTimer");
+
+let timerInterval;
+
+function startOtpTimer() {
+
+  let time = 60;
+
+  resendOtpBtn.classList.add("d-none");
+  otpTimer.classList.remove("d-none");
+
+  timerInterval = setInterval(() => {
+
+    otpTimer.innerText = `Resend OTP in ${time}s`;
+
+    time--;
+
+    if (time < 0) {
+
+      clearInterval(timerInterval);
+
+      otpTimer.classList.add("d-none");
+      resendOtpBtn.classList.remove("d-none");
+
+    }
+
+  }, 1000);
+
+}

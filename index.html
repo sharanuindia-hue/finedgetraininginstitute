@@ -1177,17 +1177,44 @@ document.querySelectorAll(".payNowBtn").forEach(button => {
                         </div>
                       </div>
                   </div> -->
-                  <div class="mt-3">
-  <button type="button" id="sendApplyOtpBtn" class="btn btn-secondary">
+                 <div class="otp-card mt-3">
+
+  <button type="button" id="sendApplyOtpBtn" class="btn btn-primary w-100">
     Send OTP
   </button>
-</div>
 
-<div id="applyOtpSection" class="mt-2 d-none">
-  <input type="text" id="applyOtpInput" class="form-control" placeholder="Enter OTP">
-  <button type="button" id="verifyApplyOtpBtn" class="btn btn-success mt-2">
-    Verify OTP
-  </button>
+  <div id="applyOtpSection" class="mt-3 d-none">
+
+    <label class="small text-muted">Enter OTP sent to your email</label>
+
+    <div class="d-flex gap-2 mt-1">
+      <input 
+        type="text" 
+        id="applyOtpInput" 
+        class="form-control text-center" 
+        placeholder="6-digit OTP"
+        maxlength="6"
+      >
+      <button 
+        type="button" 
+        id="verifyApplyOtpBtn" 
+        class="btn btn-success">
+        Verify
+      </button>
+    </div>
+
+    <div class="mt-2 small text-muted">
+      <span id="otpTimer">Resend OTP in 60s</span>
+      <button 
+        type="button" 
+        id="resendOtpBtn" 
+        class="btn btn-link p-0 ms-2 d-none">
+        Resend OTP
+      </button>
+    </div>
+
+  </div>
+
 </div>
                 </div>
 

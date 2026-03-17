@@ -87,57 +87,92 @@ if (contactPopupForm) {
   });
 }
 
-const sendOtpBtn = document.getElementById("sendOtpBtn");
-const verifyOtpBtn = document.getElementById("verifyOtpBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-sendOtpBtn?.addEventListener("click", async () => {
-  const name = otpName.value.trim();
-  const email = otpEmail.value.trim();
-  const phone = otpPhone.value.trim();
+  const otpName = document.getElementById("otpName");
+  const otpEmail = document.getElementById("otpEmail");
+  const otpPhone = document.getElementById("otpPhone");
+  const otpInput = document.getElementById("otpInput");
 
-  if (!name || !email || !phone) {
-    alert("Please fill all details");
-    return;
-  }
+  const sendOtpBtn = document.getElementById("sendOtpBtn");
+  const verifyOtpBtn = document.getElementById("verifyOtpBtn");
 
-  sendOtpBtn.disabled = true;
-  sendOtpBtn.innerText = "Sending...";
+  // SEND OTP
+  sendOtpBtn?.addEventListener("click", async () => {
 
-  const res = await fetch("/api/otp-send", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, phone })
-  }).then(r => r.json());
+    const name = otpName.value.trim();
+    const email = otpEmail.value.trim();
+    const phone = otpPhone.value.trim();
 
-  if (res.success) {
-    alert("OTP sent to your email");
-    document.getElementById("otpVerifySection").classList.remove("d-none");
-  } else {
-    alert("Failed to send OTP");
-  }
+    if (!name || !email || !phone) {
+      alert("Please fill all details");
+      return;
+    }
 
-  sendOtpBtn.disabled = false;
-  sendOtpBtn.innerText = "Send OTP";
+    sendOtpBtn.disabled = true;
+    sendOtpBtn.innerText = "Sending...";
+
+    try {
+      const res = await fetch("/api/otp-send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("OTP sent to your email");
+        document.getElementById("otpVerifySection").classList.remove("d-none");
+      } else {
+        alert(data.message || "Failed to send OTP");
+      }
+
+    } catch (err) {
+      console.error(err);
+      alert("Server error");
+    }
+
+    sendOtpBtn.disabled = false;
+    sendOtpBtn.innerText = "Send OTP";
+  });
+
+
+  // VERIFY OTP
+  verifyOtpBtn?.addEventListener("click", async () => {
+
+    const email = otpEmail.value.trim();
+    const otp = otpInput.value.trim();
+
+    if (!otp) {
+      alert("Enter OTP");
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/otp-verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, otp })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        window.location.href =
+          "https://www.finedgetraininginstitute.com/boucher/Finedge-Brochure.pdf";
+      } else {
+        alert(data.message || "Invalid OTP");
+      }
+
+    } catch (err) {
+      console.error(err);
+      alert("Server error");
+    }
+
+  });
+
 });
-
-document.getElementById("verifyOtpBtn").addEventListener("click", async () => {
-  const email = otpEmail.value;
-  const otp = otpInput.value;
-
-  const res = await fetch("/api/otp-verify", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, otp })
-  }).then(r => r.json());
-
-  if (res.success) {
-    window.location.href =
-      "https://www.finedgetraininginstitute.com/boucher/Finedge-Brochure.pdf";
-  } else {
-    alert(res.message || "Invalid OTP");
-  }
-});
-
 
 const sendApplyOtpBtn = document.getElementById("sendApplyOtpBtn");
 const verifyApplyOtpBtn = document.getElementById("verifyApplyOtpBtn");

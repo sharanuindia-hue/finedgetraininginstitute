@@ -8,91 +8,123 @@ document.addEventListener("DOMContentLoaded", () => {
   const baseInput  = document.getElementById("payBaseAmount");
   const gstInput   = document.getElementById("payGST");
   const totalInput = document.getElementById("payTotal");
-  const payBtn     = document.getElementById("payNowBtn");
 
-  if (!baseInput || !payBtn) return;
+  const payBtns = document.querySelectorAll(".payBtn");
 
-  function calculate() {
-    const base = Number(baseInput.value || 0);
+  // ❌ If no buttons, stop
+  if (payBtns.length === 0) return;
+
+
+  // ✅ Calculate GST (for input-based page)
+  function calculate(base) {
     const gst  = Math.round(base * GST_RATE);
     const total = base + gst;
 
-    gstInput.value   = gst.toLocaleString("en-IN");
-    totalInput.value = total.toLocaleString("en-IN");
+    if (gstInput) gstInput.value = gst.toLocaleString("en-IN");
+    if (totalInput) totalInput.value = total.toLocaleString("en-IN");
 
     return total;
   }
 
-  calculate();
-  baseInput.addEventListener("input", calculate);
+  // ✅ If input exists → update on typing
+  if (baseInput) {
+    baseInput.addEventListener("input", () => {
+      calculate(Number(baseInput.value || 0));
+    });
+  }
 
-  payBtn.addEventListener("click", async () => {
 
-    const totalAmount = calculate();
+  // ✅ Attach click to ALL buttons
+  payBtns.forEach((btn) => {
 
-    if (totalAmount < 500) {
-      alert("Minimum payable amount is ₹500");
-      return;
-    }
+    btn.addEventListener("click", async () => {
 
-    payBtn.disabled = true;
-    payBtn.innerText = "Processing...";
+      // ✔ Get amount from button OR input
+      let base = 0;
 
-    try {
-      const res = await fetch("/api/create-order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: totalAmount })
-      });
+      if (btn.value) {
+        base = Number(btn.value);
+      } else if (btn.dataset.amount) {
+        base = Number(btn.dataset.amount);
+      } else if (baseInput) {
+        base = Number(baseInput.value || 0);
+      }
 
-      const order = await res.json();
-      if (!order.id) throw new Error("Order creation failed");
+      const totalAmount = calculate(base);
 
-      const options = {
-        key: "rzp_live_SNvNkmgjRBXu3r",
-        amount: order.amount,
-        currency: "INR",
-        name: "FINEDGE Training Institute",
-        description: "Program Fee + 18% GST",
-        order_id: order.id,
+      if (totalAmount < 500) {
+        alert("Minimum payable amount is ₹500");
+        return;
+      }
 
-        handler: async function (response) {
-          const verifyRes = await fetch("/api/verify-payment", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(response)
-          });
+      btn.disabled = true;
+      btn.innerText = "Processing...";
 
-          const verifyData = await verifyRes.json();
+      try {
 
-          if (verifyData.verified) {
-            alert("✅ Payment successful");
-            window.location.href = "Thank-you.html";
-          } else {
-            alert("❌ Payment verification failed");
+        // ✅ Create Razorpay Order
+        const res = await fetch("/api/create-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount: totalAmount })
+        });
+
+        const order = await res.json();
+
+        if (!order.id) throw new Error("Order creation failed");
+
+
+        // ✅ Razorpay Options
+        const options = {
+          key: "rzp_live_SNvNkmgjRBXu3r",
+          amount: order.amount,
+          currency: "INR",
+          name: "FINEDGE Training Institute",
+          description: "Program Fee + 18% GST",
+          order_id: order.id,
+
+          handler: async function (response) {
+
+            const verifyRes = await fetch("/api/verify-payment", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(response)
+            });
+
+            const verifyData = await verifyRes.json();
+
+            if (verifyData.verified) {
+              alert("✅ Payment successful");
+              window.location.href = "Thank-you.html";
+            } else {
+              alert("❌ Payment verification failed");
+            }
+          },
+
+          modal: {
+            ondismiss: () => {
+              btn.disabled = false;
+              btn.innerText = "Pay Now";
+            }
           }
-        },
+        };
 
-        modal: {
-          ondismiss: () => {
-            payBtn.disabled = false;
-            payBtn.innerText = "Pay Now";
-          }
-        }
-      };
+        // ✅ Open Razorpay
+        new Razorpay(options).open();
 
-      new Razorpay(options).open();
+      } catch (err) {
+        console.error(err);
+        alert("Payment initiation failed");
 
-    } catch (err) {
-      console.error(err);
-      alert("Payment initiation failed");
-      payBtn.disabled = false;
-      payBtn.innerText = "Pay Now";
-    }
+        btn.disabled = false;
+        btn.innerText = "Pay Now";
+      }
+
+    });
+
   });
 
 });
-
 // -----------------------------
 const baseInput = document.getElementById("payBaseAmount");
 const gstInput  = document.getElementById("payGST");

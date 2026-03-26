@@ -199,11 +199,11 @@ $(document).ready(function(){
   });
 
   // Custom Navigation Trigger
-  $('.custom-next').click(function() {
+  $('course-next').click(function() {
     courseOwl.trigger('next.owl.carousel');
   });
 
-  $('.custom-prev').click(function() {
+  $('.course-prev').click(function() {
     courseOwl.trigger('prev.owl.carousel');
   });
 });

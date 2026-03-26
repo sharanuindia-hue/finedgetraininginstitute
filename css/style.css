@@ -6544,33 +6544,65 @@ a.badge-dark:focus, a.badge-dark.focus {
   box-shadow: 0 0 0 0.2rem rgba(18, 15, 45, 0.5);
 }
 .carousel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
+    padding: 20px 0;
+    position: relative;
 }
-
-/* Style for the external buttons */
-.custom-prev, .custom-next {
+/* Base Button */
+.custom-prev,
+.custom-next {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    color: #2155cf;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    color: #333;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: 0.3s;
-    z-index: 10;
-    flex-shrink: 0; /* Prevents buttons from squishing */
+
+    /* Smooth effects */
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+.custom-prev{
+  margin-left: -20px;
+}
+.custom-next{
+  margin-right: -30px;
+}
+/* Hover Effect */
+.custom-prev:hover,
+.custom-next:hover {
+    background: #007bff;
+    color: #fff;
+    /* transform: scale(1.15); */
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+    
 }
 
-.custom-prev:hover, .custom-next:hover {
-    background-color: #2155cf;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+/* Click Effect */
+/* .custom-prev:active,
+.custom-next:active {
+    transform: scale(0.95);
+} */
+
+/* Position (optional for carousel) */
+.custom-prev {
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.custom-next {
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Hide the default Owl buttons since we are using custom ones */
@@ -6583,21 +6615,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 /* Custom Buttons Styling */
-.custom-prev, .custom-next {
-    width: 45px;
-    height: 45px;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    color: #007bff;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    flex-shrink: 0;
-}
+
 
 .custom-prev:hover, .custom-next:hover {
     background: #007bff;
@@ -6605,6 +6623,60 @@ a.badge-dark:focus, a.badge-dark.focus {
     transform: scale(1.1);
 }
 
+
+/* Base Style */
+.course-prev,
+.course-next {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #ffffff, #f1f1f1);
+    color: #333;
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.course-prev:hover,
+.course-next:hover {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    /* transform: translateY(-3px) scale(1.1); */
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+}
+
+/* Click Effect */
+.course-prev:active,
+.course-next:active {
+    transform: scale(0.95);
+}
+
+/* Position (for carousel use) */
+.course-prev {
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.course-next {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%);
+    z-index: 10;
+}
 /* Ensure all cards in the carousel have the same height */
 .course-card-modern {
     display: flex;
@@ -11594,8 +11666,8 @@ h6,
 }
 
 .btn-icon {
-  width: 77px;
-  height: 77px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11606,10 +11678,10 @@ h6,
   position: fixed;
   display: none;
   right: 20px;
-  bottom: 20px;
+  bottom: 80px;
   z-index: 11;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
 
     color: #fff;
@@ -12781,4 +12853,39 @@ h6,
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-100%); }
+}
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+
+    background: #25D366;
+    color: #fff;
+    font-size: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    z-index: 999;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.whatsapp-float:hover {
+    background: #1ebe5d;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+}
+
+/* Click Effect */
+.whatsapp-float:active {
+    transform: scale(0.95);
 }
